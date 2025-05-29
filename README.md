@@ -1,8 +1,8 @@
 # solid-react-ui
 
-A lightweight, production-ready React component library built with TypeScript. Includes reusable UI elements like buttons, inputs, and tables — designed for performance, simplicity, and seamless integration into modern React apps.
+A lightweight, production-ready React component library built with TypeScript. Includes reusable UI elements like buttons, inputs, layout primitives (Container, Row, Column, Flex), and lists — designed for performance, simplicity, and seamless integration into modern React apps.
 
-All components are documented and previewable using Storybook.
+All components are styled using **Bootstrap 5.3.6** and documented with Storybook.
 
 ---
 
@@ -10,6 +10,7 @@ All components are documented and previewable using Storybook.
 
 - ⚛️ Built with React + TypeScript
 - 💡 Tree-shakeable and typed components
+- 🎨 Bootstrap 5.3.6 utility class styling
 - 🧪 Storybook integration for documentation and testing
 - 📦 Ready to publish as an npm package
 - 🔍 Strict linting and formatting (ESLint + Prettier)
@@ -20,6 +21,17 @@ All components are documented and previewable using Storybook.
 
 ```bash
 npm install solid-react-ui
+```
+
+This library assumes your app loads Bootstrap 5.3.6 CSS globally. Add the following to your HTML or entry file:
+
+```bash
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+  integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+  crossorigin="anonymous"
+/>
 ```
 
 ## 🧪 Run Storybook
