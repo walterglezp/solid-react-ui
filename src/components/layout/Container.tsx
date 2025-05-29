@@ -1,20 +1,23 @@
 import React, { FC, HTMLAttributes } from "react";
 import { generateClassnames } from "../../utils/classnames-helper";
 
+export type ContainerSize = "sm" | "md" | "lg" | "xl" | "xxl" | "fluid" | ""; // Default container
+
 export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
-  fluid?: boolean;
+  size?: ContainerSize;
   className?: string;
 }
 
 const Container: FC<ContainerProps> = ({
-  fluid = false,
+  size = "",
   className = "",
   children,
   ...rest
 }) => {
   const classnames = generateClassnames({
-    container: !fluid,
-    "container-fluid": fluid,
+    container: size === "",
+    [`container-${size}`]: size !== "" && size !== "fluid",
+    "container-fluid": size === "fluid",
     [className]: !!className,
   });
 
