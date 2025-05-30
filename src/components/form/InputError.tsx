@@ -1,6 +1,7 @@
 import React from "react";
 
 import Icon from "../graphic/Icon";
+import Flex from "../layout/Flex";
 import { generateClassnames } from "../../utils/classnames-helper";
 
 type InputErrorProps = {
@@ -11,14 +12,19 @@ type InputErrorProps = {
 const InputError: React.FC<InputErrorProps> = ({ error, className = "" }) => {
   const classnames = generateClassnames({
     "input-error": true,
+    "text-danger": true,
     [className]: !!className,
   });
 
   return (
-    <p className={classnames}>
-      {error}
-      <Icon className="ms-2" name="exclamation-circle-fill" size={15} />
-    </p>
+    <Flex justify="start" align="center" className="mt-1">
+      <span className={classnames}>{error}</span>
+      <Icon
+        className="ms-2 text-danger"
+        name="exclamation-circle-fill"
+        size={15}
+      />
+    </Flex>
   );
 };
 

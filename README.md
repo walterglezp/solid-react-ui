@@ -1,6 +1,6 @@
 # solid-react-ui
 
-A lightweight, production-ready React component library built with TypeScript. Includes reusable UI elements like buttons, inputs, layout primitives (Container, Row, Column, Flex), and lists — designed for performance, simplicity, and seamless integration into modern React apps.
+A lightweight, production-ready React component library built with TypeScript. Includes reusable UI elements like buttons, inputs, layout primitives (Container, Row, Column, Flex), lists, and form controls — designed for performance, simplicity, and seamless integration into modern React apps.
 
 All components are styled using **Bootstrap 5.3.6** and documented with Storybook.
 
@@ -13,6 +13,7 @@ All components are styled using **Bootstrap 5.3.6** and documented with Storyboo
 - 🎨 Bootstrap 5.3.6 utility class styling
 - 🧪 Storybook integration for documentation and testing
 - 📦 Ready to publish as an npm package
+- 🧩 Includes layout, form, and input building blocks
 - 🔍 Strict linting and formatting (ESLint + Prettier)
 
 ---

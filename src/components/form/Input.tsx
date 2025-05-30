@@ -11,7 +11,7 @@ export interface InputProps
   append?: string | React.ReactNode;
   variant?: "sm" | "md" | "lg";
   field: FormFieldProps;
-  onFieldChange: FormFieldChangeHandler;
+  onChange: FormFieldChangeHandler;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -21,7 +21,7 @@ const Input: React.FC<InputProps> = ({
   className = "",
   disabled = false,
   field,
-  onFieldChange,
+  onChange,
   ...rest
 }) => {
   const wrapperClass = generateClassnames({
@@ -32,7 +32,7 @@ const Input: React.FC<InputProps> = ({
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    validateOnChange({ ...field, value: e.target.value }, onFieldChange);
+    validateOnChange({ ...field, value: e.target.value }, onChange);
   };
 
   return (
@@ -56,7 +56,7 @@ const Input: React.FC<InputProps> = ({
               className="cursor-pointer"
               name="x"
               size={13}
-              onClick={() => onFieldChange({ ...field, value: "" })}
+              onClick={() => onChange({ ...field, value: "" })}
             />
           </span>
         )}
