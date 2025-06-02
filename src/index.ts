@@ -1,5 +1,5 @@
-export * from "./components/Button/Button";
-export { default as FormForm } from "./components/form/Form";
+export { default as Button } from "./components/form/Button";
+export { default as Form } from "./components/form/Form";
 export { default as Input } from "./components/form/Input";
 export { default as InputError } from "./components/form/InputError";
 export { default as Select } from "./components/form/Select";

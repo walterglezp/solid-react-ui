@@ -1,39 +1,47 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, ReactNode, useEffect } from "react";
 
 export type ThemeName = "light" | "dark" | "dark-thin" | "custom";
 
-export interface ThemeSettings {
+export type ThemeContextProps = {
   name: ThemeName;
-  borderRadius?: string; // e.g., '0.25rem', '1rem'
-  custom?: Record<string, string>; // future support for custom properties
-}
+  borderRadius: string;
+  borderRadiusSm?: string;
+  borderRadiusLg?: string;
+};
 
-interface ThemeContextProps {
-  theme: ThemeSettings;
-  setTheme: (theme: ThemeSettings) => void;
-}
+const defaultTheme: ThemeContextProps = {
+  name: "light",
+  borderRadius: "0.375rem", // default 6px
+};
 
-const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextProps>(defaultTheme);
 
-export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
+export const ThemeProvider = ({
   children,
+  value = defaultTheme,
+}: {
+  children: ReactNode;
+  value?: ThemeContextProps;
 }) => {
-  const [theme, setTheme] = useState<ThemeSettings>({
-    name: "light",
-    borderRadius: "0.25rem",
-  });
+  useEffect(() => {
+    const root = document.documentElement;
+
+    if (value.borderRadius) {
+      root.style.setProperty("--bs-border-radius", value.borderRadius);
+      root.style.setProperty(
+        "--bs-border-radius-sm",
+        value.borderRadiusSm ?? value.borderRadius
+      );
+      root.style.setProperty(
+        "--bs-border-radius-lg",
+        value.borderRadiusLg ?? value.borderRadius
+      );
+    }
+  }, [value.borderRadius, value.borderRadiusSm, value.borderRadiusLg]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div data-theme={theme.name}>{children}</div>
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 };
 
-export const useTheme = (): ThemeContextProps => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-  return context;
-};
+export const useTheme = () => useContext(ThemeContext);

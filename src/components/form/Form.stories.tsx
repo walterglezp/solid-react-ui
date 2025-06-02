@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
+import Button from "./Button";
 import Form from "./Form";
 import Input from "./Input";
 import Select from "./Select";
@@ -58,6 +59,9 @@ const Template: Story = {
             { value: "mx", label: "Mexico" },
           ]}
         />
+        <Button variant="primary" className="mt-3">
+          Submit Form
+        </Button>
       </Form>
     );
   },
