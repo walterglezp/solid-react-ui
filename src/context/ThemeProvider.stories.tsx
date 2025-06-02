@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ThemeProvider } from "./ThemeContext";
-import Button from "../components/form/Button";
+import { Button } from "../components/form/Button";
 
 const meta: Meta<typeof ThemeProvider> = {
   title: "Theme/ThemeProvider",

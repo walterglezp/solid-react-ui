@@ -1,7 +1,7 @@
 import React from "react";
 
-import Icon from "../graphic/Icon";
-import Flex from "../layout/Flex";
+import { Icon } from "../graphic/Icon";
+import { Flex } from "../layout/Flex";
 import { generateClassnames } from "../../utils/classnames-helper";
 
 type InputErrorProps = {
@@ -28,4 +28,4 @@ const InputError: React.FC<InputErrorProps> = ({ error, className = "" }) => {
   );
 };
 
-export default InputError;
+export { InputError };

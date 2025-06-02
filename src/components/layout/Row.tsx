@@ -31,4 +31,4 @@ const Row: FC<RowProps> = ({
   );
 };
 
-export default Row;
+export { Row };

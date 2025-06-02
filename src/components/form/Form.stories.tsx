@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
-import Button from "./Button";
-import Form from "./Form";
-import Input from "./Input";
-import Select from "./Select";
+import { Button } from "./Button";
+import { Form } from "./Form";
+import { Input } from "./Input";
+import { Select } from "./Select";
 import type { FormFieldProps } from "./Form";
 
 const meta: Meta<typeof Form> = {

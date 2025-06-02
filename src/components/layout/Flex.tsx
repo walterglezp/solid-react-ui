@@ -37,4 +37,4 @@ const Flex: FC<FlexProps> = ({
   );
 };
 
-export default Flex;
+export { Flex };

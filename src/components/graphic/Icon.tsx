@@ -186,7 +186,7 @@ const Icon: FC<IconProps> = ({
   );
 };
 
-export default Icon;
+export { Icon };
 
 export type IconPathProps = {
   class: string;

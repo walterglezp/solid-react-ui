@@ -34,4 +34,4 @@ const ListGroup: FC<ListGroupProps> = ({
   );
 };
 
-export default ListGroup;
+export { ListGroup };
