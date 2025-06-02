@@ -2,7 +2,7 @@
 
 A lightweight, production-ready React component library built with TypeScript. Includes reusable UI elements like buttons, inputs, layout primitives (Container, Row, Column, Flex), lists, and form controls — designed for performance, simplicity, and seamless integration into modern React apps.
 
-All components are styled using **Bootstrap 5.3.6** and documented with Storybook.
+All components are styled using **Bootstrap 5.3.6**, enhanced with optional theming via a custom ThemeContext, and documented with Storybook.
 
 ---
 
@@ -11,6 +11,7 @@ All components are styled using **Bootstrap 5.3.6** and documented with Storyboo
 - ⚛️ Built with React + TypeScript
 - 💡 Tree-shakeable and typed components
 - 🎨 Bootstrap 5.3.6 utility class styling
+- 🎭 Optional theme customization via ThemeProvider-
 - 🧪 Storybook integration for documentation and testing
 - 📦 Ready to publish as an npm package
 - 🧩 Includes layout, form, and input building blocks
@@ -34,6 +35,27 @@ This library assumes your app loads Bootstrap 5.3.6 CSS globally. Add the follow
   crossorigin="anonymous"
 />
 ```
+
+## 🎭 Theme Customization
+
+Use the ThemeProvider to dynamically customize Bootstrap styles globally. Example:
+
+```bash
+import { ThemeProvider } from 'solid-react-ui'
+
+<ThemeProvider
+  value={{
+    name: 'custom',
+    borderRadius: '0.5rem',
+    borderRadiusSm: '0.25rem',
+    borderRadiusLg: '1rem',
+  }}
+>
+  <App />
+</ThemeProvider>
+```
+
+This automatically maps values to --bs-border-radius, --bs-border-radius-sm, and --bs-border-radius-lg.
 
 ## 🧪 Run Storybook
 
