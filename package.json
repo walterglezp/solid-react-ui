@@ -1,6 +1,6 @@
 {
   "name": "solid-react-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight, production-ready React component library styled with Bootstrap and documented with Storybook.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
