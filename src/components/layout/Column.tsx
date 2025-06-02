@@ -46,4 +46,4 @@ const Column: FC<ColumnProps> = ({
   );
 };
 
-export default Column;
+export { Column };

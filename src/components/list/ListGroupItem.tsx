@@ -70,4 +70,4 @@ const ListGroupItem: FC<ListGroupItemBaseProps & NativeProps> = ({
   );
 };
 
-export default ListGroupItem;
+export { ListGroupItem };

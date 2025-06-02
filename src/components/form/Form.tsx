@@ -1,6 +1,6 @@
 import React from "react";
 import { generateClassnames } from "../../utils/classnames-helper";
-import InputError from "./InputError";
+import { InputError } from "./InputError";
 
 export interface FormComponentProps
   extends React.FormHTMLAttributes<HTMLFormElement> {
@@ -75,4 +75,4 @@ const Form: React.FC<FormComponentProps> = ({
   );
 };
 
-export default Form;
+export { Form };

@@ -1,7 +1,7 @@
 import React from "react";
-import Icon from "../graphic/Icon";
+import { Icon } from "../graphic/Icon";
 import { generateClassnames } from "../../utils/classnames-helper";
-import InputError from "./InputError";
+import { InputError } from "./InputError";
 import { FormFieldProps, FormFieldChangeHandler } from "../form/Form";
 import { validateOnChange } from "../../utils/validation-helper";
 
@@ -69,4 +69,4 @@ const Input: React.FC<InputProps> = ({
   );
 };
 
-export default Input;
+export { Input };

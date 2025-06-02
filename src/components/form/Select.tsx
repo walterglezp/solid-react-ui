@@ -1,6 +1,5 @@
 import React from "react";
-
-import InputError from "./InputError";
+import { InputError } from "./InputError";
 import { generateClassnames } from "../../utils/classnames-helper";
 import {
   FormFieldProps,
@@ -8,7 +7,8 @@ import {
   FormFieldChangeHandler,
 } from "./Form";
 import { validateOnChange } from "../../utils/validation-helper";
-import Icon from "../graphic/Icon";
+import { Icon } from "../graphic/Icon";
+import { useTheme } from "../../context/ThemeContext";
 
 export type SelectOptionsUiProps = Array<{
   value: FormFieldValueProps;
@@ -40,6 +40,8 @@ const Select: React.FC<SelectProps> = ({
   onChange,
   ...rest
 }) => {
+  const { borderRadius } = useTheme();
+
   const classnames = generateClassnames({
     "input-group": true,
     [`input-group-${variant}`]: true,
@@ -97,4 +99,4 @@ const Select: React.FC<SelectProps> = ({
   );
 };
 
-export default Select;
+export { Select };

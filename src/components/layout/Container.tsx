@@ -28,4 +28,4 @@ const Container: FC<ContainerProps> = ({
   );
 };
 
-export default Container;
+export { Container };

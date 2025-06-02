@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import ListGroup from "./ListGroup";
-import ListGroupItem from "./ListGroupItem";
+import { ListGroup } from "./ListGroup";
+import { ListGroupItem } from "./ListGroupItem";
 
 const meta: Meta<typeof ListGroup> = {
   title: "List/ListGroup",

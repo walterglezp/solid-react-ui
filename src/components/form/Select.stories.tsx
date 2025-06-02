@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import Select from "./Select";
+import { Select } from "./Select";
 import type { FormFieldProps } from "./Form";
 
 const meta: Meta<typeof Select> = {

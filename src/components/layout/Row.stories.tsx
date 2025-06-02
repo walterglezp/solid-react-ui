@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Row from "./Row";
-import Column from "./Column";
+import { Row } from "./Row";
+import { Column } from "./Column";
 
 const meta: Meta<typeof Row> = {
   title: "Layout/Row",
