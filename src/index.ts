@@ -1,3 +1,4 @@
+import "./styles/global.scss";
 export * from "./components/form/Button";
 export * from "./components/form/Form";
 export * from "./components/form/Input";

@@ -59,7 +59,7 @@ const Template: Story = {
             { value: "mx", label: "Mexico" },
           ]}
         />
-        <Button variant="primary" className="mt-3">
+        <Button variant="primary" className="mt-3" isLoading={true}>
           Submit Form
         </Button>
       </Form>
