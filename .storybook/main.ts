@@ -6,7 +6,7 @@ const config: StorybookConfig = {
     options: {},
   },
   stories: ["../src/**/*.stories.@(ts|tsx)"],
-  addons: ["@storybook/addon-essentials", "@storybook/addon-docs"],
+  addons: ["@storybook/addon-docs"],
   viteFinal: async (config) => {
     return {
       ...config,
