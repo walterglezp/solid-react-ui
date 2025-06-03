@@ -16,7 +16,7 @@ const meta: Meta<typeof Form> = {
 export default meta;
 type Story = StoryObj<typeof Form>;
 
-const Template: Story = {
+export const Default: Story = {
   render: () => {
     const [usernameField, setUsernameField] = useState<FormFieldProps>({
       name: "username",
@@ -44,7 +44,6 @@ const Template: Story = {
           field={usernameField}
           onChange={(f) => setUsernameField(f)}
         />
-
         <Select
           className="mt-4"
           label="Country 🌍"
@@ -65,6 +64,37 @@ const Template: Story = {
       </Form>
     );
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Form>
+  <div className="cursor-pointer">Clickable Button</div>
+  <Input
+    label={<>Username 👱</>}
+    field={usernameField}
+    onChange={(f) => setUsernameField(f)}
+  />
+  <Select
+    className="mt-4"
+    label="Country 🌍"
+    placeholder="Select your country"
+    field={countryField}
+    variant="md"
+    onChange={(f) => setCountryField(f)}
+    options={[
+      { value: "", label: "--" },
+      { value: "us", label: "United States" },
+      { value: "ca", label: "Canada" },
+      { value: "mx", label: "Mexico" },
+    ]}
+  />
+  <Button variant="primary" className="mt-3" isLoading={true}>
+    Submit Form
+  </Button>
+</Form>
+        `.trim(),
+      },
+    },
+  },
 };
-
-export const Default = Template;
