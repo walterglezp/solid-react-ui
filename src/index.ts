@@ -12,5 +12,6 @@ export * from "./components/layout/Flex";
 export * from "./components/list/ListGroup";
 export * from "./components/list/ListGroupItem";
 export * from "./components/navigation/Link";
+export * from "./hooks/useClickOutside";
 export * from "./utils/classnames-helper";
 export * from "./utils/validation-helper";

@@ -1,0 +1,109 @@
+.autoselect {
+  border-radius: var(--app-input-border-radius) !important;
+  .form-control {
+    border-right-width: 0;
+  }
+
+  &.borderless {
+    border: none !important;
+  }
+
+  .down-arrow {
+    border-color: #999 transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 2.5px;
+    top: 2px;
+    display: inline-block;
+    height: 0;
+    width: 0;
+    position: relative;
+  }
+
+  .up-arrow {
+    border-style: solid;
+    top: -2px;
+    border-color: transparent transparent #999;
+    border-top-color: #666;
+    border-width: 0 5px 5px;
+    display: inline-block;
+    height: 0;
+    width: 0;
+    position: relative;
+  }
+
+  .no-suggestions {
+    color: #999;
+    padding: 0.5rem;
+  }
+
+  .suggestions {
+    height: 20vh;
+    width: 100%;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    padding: 0.5rem 0;
+    font-size: 14px;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom-left-radius: var(--bs-main-border-radius);
+    border-bottom-right-radius: var(--bs-main-border-radius);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+
+    //Scrool
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* width */
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+      cursor: pointer;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: white;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #6c6c6c;
+    }
+
+    /*Firefox Support*/
+    scrollbar-color: #888 #2f3035;
+    scrollbar-width: thin;
+  }
+
+  .suggestions li {
+    padding: 0.5rem;
+  }
+
+  .active-suggestion {
+    color: #fff;
+    text-decoration: none;
+    background-color: #007bff;
+  }
+
+  .suggestions li:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #eff4ff;
+    cursor: pointer;
+  }
+
+  .input-group-text-arrow {
+    background-color: transparent !important;
+  }
+}

@@ -5,6 +5,7 @@ import { Button } from "./Button";
 import { Form } from "./Form";
 import { Input } from "./Input";
 import { Select } from "./Select";
+import { Autoselect } from "./Autoselect";
 import { CheckBox } from "./CheckBox";
 import { Link } from "../navigation/Link";
 import type { FormFieldProps } from "./Form";
@@ -38,6 +39,15 @@ export const Default: Story = {
       validate: { required: true },
     });
 
+    const [cityField, setCityField] = useState<FormFieldProps>({
+      name: "city",
+      formName: "login",
+      error: "",
+      value: "",
+      section: 0,
+      validate: { required: true },
+    });
+
     const [termsField, setTermsField] = useState<FormFieldProps>({
       name: "terms",
       formName: "login",
@@ -46,6 +56,13 @@ export const Default: Story = {
       section: 0,
       validate: { required: true },
     });
+
+    const cityOptions = [
+      { value: "nyc", label: "New York" },
+      { value: "la", label: "Los Angeles" },
+      { value: "chi", label: "Chicago" },
+      { value: "hou", label: "Houston" },
+    ];
 
     return (
       <Form>
@@ -68,6 +85,15 @@ export const Default: Story = {
             { value: "ca", label: "Canada" },
             { value: "mx", label: "Mexico" },
           ]}
+        />
+
+        <Autoselect
+          className="mt-4"
+          label="City 🏙️"
+          placeholder="Start typing a city..."
+          field={cityField}
+          options={cityOptions}
+          onChange={(f) => setCityField(f)}
         />
 
         <CheckBox
