@@ -16,6 +16,7 @@ export type LinkProps = {
   active?: boolean;
   to: string;
   blank?: boolean;
+  underlined?: boolean;
   children: React.ReactNode;
 };
 
@@ -26,18 +27,27 @@ const Link: FC<LinkProps> = ({
   variant = "primary",
   blank = false,
   active = false,
+  underlined = false,
   to,
 }) => {
   const classnames: string = generateClassnames({
-    "app-link": true,
     disabled,
     active,
     [`link-${variant}`]: true,
     [className ?? ""]: !!className,
   });
 
+  const style = {
+    "--bs-link-underline-opacity": underlined ? "0.5" : "0",
+  } as React.CSSProperties;
+
   return (
-    <a className={classnames} href={to} target={blank ? "_blank" : "_self"}>
+    <a
+      className={classnames}
+      href={to}
+      target={blank ? "_blank" : "_self"}
+      style={style}
+    >
       {children}
     </a>
   );
