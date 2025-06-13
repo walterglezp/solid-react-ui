@@ -7,45 +7,44 @@ const meta: Meta<typeof CheckBox> = {
   title: "Form/CheckBox",
   component: CheckBox,
   tags: ["autodocs"],
+  args: {
+    label: "Accept Terms",
+    variant: "checkbox",
+  },
+  argTypes: {
+    field: { control: false },
+    onChange: { control: false },
+    variant: { control: "radio", options: ["checkbox", "switch"] },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof CheckBox>;
 
-export const Default: Story = {
-  render: () => {
-    const [fieldCheckbox, setFieldCheckbox] = useState<FormFieldProps>({
-      name: "acceptTerms",
-      formName: "signup",
-      value: false,
-      error: "",
-      section: 0,
-      validate: { required: true },
-    });
+const useSampleField = (name: string, value: boolean) =>
+  useState<FormFieldProps>({
+    name,
+    formName: "example",
+    value,
+    error: "",
+    section: 0,
+    validate: {},
+  });
 
-    const [fieldSwitch, setFieldSwitch] = useState<FormFieldProps>({
-      name: "notifications",
-      formName: "settings",
-      value: true,
-      error: "",
-      section: 0,
-      validate: {},
-    });
+export const Checkbox: Story = {
+  render: (args) => {
+    const [field, setField] = useSampleField("acceptTerms", false);
+    return <CheckBox {...args} field={field} onChange={setField} />;
+  },
+};
 
-    return (
-      <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
-        <CheckBox
-          label="Accept Terms"
-          field={fieldCheckbox}
-          onChange={setFieldCheckbox}
-        />
-        <CheckBox
-          label="Enable Notifications"
-          variant="switch"
-          field={fieldSwitch}
-          onChange={setFieldSwitch}
-        />
-      </div>
-    );
+export const Switch: Story = {
+  args: {
+    label: "Enable Notifications",
+    variant: "switch",
+  },
+  render: (args) => {
+    const [field, setField] = useSampleField("notifications", true);
+    return <CheckBox {...args} field={field} onChange={setField} />;
   },
 };

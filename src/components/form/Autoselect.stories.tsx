@@ -7,17 +7,28 @@ const meta: Meta<typeof Autoselect> = {
   title: "Form/Autoselect",
   component: Autoselect,
   tags: ["autodocs"],
+  args: {
+    label: "City",
+    placeholder: "Start typing...",
+    options: [
+      { value: "nyc", label: "New York City" },
+      { value: "la", label: "Los Angeles" },
+      { value: "chi", label: "Chicago" },
+      { value: "hou", label: "Houston" },
+    ],
+    disabled: false,
+    borderless: false,
+    variant: "md",
+  },
+  argTypes: {
+    field: { control: false },
+    onChange: { control: false },
+    options: { control: false },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Autoselect>;
-
-const sampleOptions = [
-  { value: "nyc", label: "New York City" },
-  { value: "la", label: "Los Angeles" },
-  { value: "chi", label: "Chicago" },
-  { value: "hou", label: "Houston" },
-];
 
 const useSampleField = (name = "city") =>
   useState<FormFieldProps>({
@@ -30,71 +41,59 @@ const useSampleField = (name = "city") =>
   });
 
 export const Default: Story = {
-  render: () => {
+  render: (args) => {
     const [field, setField] = useSampleField();
     return (
       <div style={{ maxWidth: 300 }}>
-        <Autoselect
-          label="City"
-          placeholder="Start typing..."
-          field={field}
-          options={sampleOptions}
-          onChange={setField}
-        />
+        <Autoselect {...args} field={field} onChange={setField} />
       </div>
     );
   },
 };
 
 export const Disabled: Story = {
-  render: () => {
+  args: {
+    disabled: true,
+    label: "Disabled",
+    placeholder: "Cannot type",
+  },
+  render: (args) => {
     const [field, setField] = useSampleField("city-disabled");
     return (
       <div style={{ maxWidth: 300 }}>
-        <Autoselect
-          label="Disabled"
-          placeholder="Cannot type"
-          field={field}
-          options={sampleOptions}
-          disabled
-          onChange={setField}
-        />
+        <Autoselect {...args} field={field} onChange={setField} />
       </div>
     );
   },
 };
 
 export const Borderless: Story = {
-  render: () => {
+  args: {
+    borderless: true,
+    label: "Borderless",
+    placeholder: "Type something...",
+  },
+  render: (args) => {
     const [field, setField] = useSampleField("city-borderless");
     return (
       <div style={{ maxWidth: 300 }}>
-        <Autoselect
-          label="Borderless"
-          placeholder="Type something..."
-          field={field}
-          options={sampleOptions}
-          borderless
-          onChange={setField}
-        />
+        <Autoselect {...args} field={field} onChange={setField} />
       </div>
     );
   },
 };
 
 export const Large: Story = {
-  render: () => {
+  args: {
+    label: "Large",
+    placeholder: "Select city",
+    variant: "lg",
+  },
+  render: (args) => {
     const [field, setField] = useSampleField("city-lg");
     return (
       <div style={{ maxWidth: 300 }}>
-        <Autoselect
-          label="Large"
-          placeholder="Select city"
-          field={field}
-          options={sampleOptions}
-          variant="lg"
-          onChange={setField}
-        />
+        <Autoselect {...args} field={field} onChange={setField} />
       </div>
     );
   },

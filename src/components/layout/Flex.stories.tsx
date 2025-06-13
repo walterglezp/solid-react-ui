@@ -16,4 +16,7 @@ export const Centered: Story = {
     justify: "center",
     children: <div>Centered Flex Content</div>,
   },
+  argTypes: {
+    children: { control: false },
+  },
 };

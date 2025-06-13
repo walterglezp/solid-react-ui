@@ -1,29 +1,50 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Link } from "./Link";
 
+const variants = [
+  "primary",
+  "secondary",
+  "success",
+  "danger",
+  "warning",
+  "info",
+  "light",
+  "dark",
+] as const;
+
 const meta: Meta<typeof Link> = {
   title: "Navigation/Link",
   component: Link,
   tags: ["autodocs"],
+  args: {
+    to: "#",
+    children: "Link Text",
+    variant: "primary",
+    underlined: false,
+    disabled: false,
+    blank: false,
+  },
+  argTypes: {
+    variant: { control: "radio", options: variants },
+    underlined: { control: "boolean" },
+    disabled: { control: "boolean" },
+    blank: { control: "boolean" },
+    to: { control: "text" },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Link>;
 
+export const Default: Story = {
+  render: (args) => <Link {...args} />,
+};
+
 export const Variants: Story = {
-  render: () => (
+  render: (args) => (
     <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-      {[
-        "primary",
-        "secondary",
-        "success",
-        "danger",
-        "warning",
-        "info",
-        "light",
-        "dark",
-      ].map((variant) => (
-        <Link key={variant} variant={variant as any} to="#">
+      {variants.map((variant) => (
+        <Link key={variant} {...args} variant={variant} to="#">
           {variant.charAt(0).toUpperCase() + variant.slice(1)} Link
         </Link>
       ))}
@@ -32,19 +53,14 @@ export const Variants: Story = {
 };
 
 export const Underlined: Story = {
-  render: () => (
+  args: {
+    underlined: true,
+    children: "Underlined Link",
+  },
+  render: (args) => (
     <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-      {[
-        "primary",
-        "secondary",
-        "success",
-        "danger",
-        "warning",
-        "info",
-        "light",
-        "dark",
-      ].map((variant) => (
-        <Link key={variant} variant={variant as any} underlined to="#">
+      {variants.map((variant) => (
+        <Link key={variant} {...args} variant={variant} to="#">
           {variant.charAt(0).toUpperCase() + variant.slice(1)} Underlined
         </Link>
       ))}
@@ -54,9 +70,8 @@ export const Underlined: Story = {
 
 export const Disabled: Story = {
   args: {
-    to: "#",
-    variant: "danger",
     disabled: true,
+    variant: "danger",
     children: "Disabled Link",
   },
 };
