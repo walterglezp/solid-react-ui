@@ -5,6 +5,8 @@ import { Button } from "./Button";
 import { Form } from "./Form";
 import { Input } from "./Input";
 import { Select } from "./Select";
+import { CheckBox } from "./CheckBox";
+import { Link } from "../navigation/Link";
 import type { FormFieldProps } from "./Form";
 
 const meta: Meta<typeof Form> = {
@@ -36,14 +38,23 @@ export const Default: Story = {
       validate: { required: true },
     });
 
+    const [termsField, setTermsField] = useState<FormFieldProps>({
+      name: "terms",
+      formName: "login",
+      error: "",
+      value: false,
+      section: 0,
+      validate: { required: true },
+    });
+
     return (
       <Form>
-        <div className="cursor-pointer">Clickable Button</div>
         <Input
           label={<>Username 👱</>}
           field={usernameField}
           onChange={(f) => setUsernameField(f)}
         />
+
         <Select
           className="mt-4"
           label="Country 🌍"
@@ -58,43 +69,25 @@ export const Default: Story = {
             { value: "mx", label: "Mexico" },
           ]}
         />
+
+        <CheckBox
+          className="mt-4"
+          label={
+            <>
+              I accept the{" "}
+              <Link to="https://example.com/terms" variant="info" blank>
+                terms and conditions
+              </Link>
+            </>
+          }
+          field={termsField}
+          onChange={(f) => setTermsField(f)}
+        />
+
         <Button variant="primary" className="mt-3" isLoading={true}>
           Submit Form
         </Button>
       </Form>
     );
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<Form>
-  <div className="cursor-pointer">Clickable Button</div>
-  <Input
-    label={<>Username 👱</>}
-    field={usernameField}
-    onChange={(f) => setUsernameField(f)}
-  />
-  <Select
-    className="mt-4"
-    label="Country 🌍"
-    placeholder="Select your country"
-    field={countryField}
-    variant="md"
-    onChange={(f) => setCountryField(f)}
-    options={[
-      { value: "", label: "--" },
-      { value: "us", label: "United States" },
-      { value: "ca", label: "Canada" },
-      { value: "mx", label: "Mexico" },
-    ]}
-  />
-  <Button variant="primary" className="mt-3" isLoading={true}>
-    Submit Form
-  </Button>
-</Form>
-        `.trim(),
-      },
-    },
   },
 };

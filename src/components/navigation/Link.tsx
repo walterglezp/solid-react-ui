@@ -2,8 +2,6 @@ import React, { FC } from "react";
 import { generateClassnames } from "../../utils/classnames-helper";
 
 export type LinkProps = {
-  className?: string;
-  disabled?: boolean;
   variant?:
     | "primary"
     | "secondary"
@@ -13,12 +11,12 @@ export type LinkProps = {
     | "info"
     | "light"
     | "dark";
-  active?: boolean;
   to: string;
   blank?: boolean;
+  active?: boolean;
+  disabled?: boolean;
   underlined?: boolean;
-  children: React.ReactNode;
-};
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const Link: FC<LinkProps> = ({
   className,
