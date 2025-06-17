@@ -5,6 +5,7 @@ export * from "./components/form/CheckBoxIcon";
 export * from "./components/form/Form";
 export * from "./components/form/Input";
 export * from "./components/form/InputError";
+export * from "./components/form/InputNumber";
 export * from "./components/form/Select";
 export * from "./components/layout/Container";
 export * from "./components/layout/Row";

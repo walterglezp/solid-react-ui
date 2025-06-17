@@ -8,6 +8,7 @@ import { Select } from "./Select";
 import { Autoselect } from "./Autoselect";
 import { CheckBox } from "./CheckBox";
 import { CheckBoxIcon } from "./CheckBoxIcon";
+import { InputNumber } from "./InputNumber";
 import { Link } from "../navigation/Link";
 import type { FormFieldProps } from "./Form";
 
@@ -45,6 +46,15 @@ export const Default: Story = {
       formName: "login",
       error: "",
       value: "",
+      section: 0,
+      validate: { required: true },
+    });
+
+    const [quantityField, setQuantityField] = useState<FormFieldProps>({
+      name: "quantity",
+      formName: "login",
+      error: "",
+      value: 1,
       section: 0,
       validate: { required: true },
     });
@@ -97,6 +107,15 @@ export const Default: Story = {
           onChange={setCityField}
         />
 
+        <InputNumber
+          className="mt-4"
+          label="Quantity"
+          min={1}
+          max={10}
+          field={quantityField}
+          onChange={setQuantityField}
+        />
+
         <CheckBox
           className="mt-4"
           label={
@@ -124,6 +143,7 @@ export const Default: Story = {
                 borderRadius: "0.375rem",
                 color: termsField.value ? "#fff" : "#000",
                 userSelect: "none",
+                cursor: "pointer",
               }}
             >
               ✅ Custom Toggle Consent
