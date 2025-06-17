@@ -7,6 +7,7 @@ import { Input } from "./Input";
 import { Select } from "./Select";
 import { Autoselect } from "./Autoselect";
 import { CheckBox } from "./CheckBox";
+import { CheckBoxIcon } from "./CheckBoxIcon";
 import { Link } from "../navigation/Link";
 import type { FormFieldProps } from "./Form";
 
@@ -69,7 +70,7 @@ export const Default: Story = {
         <Input
           label={<>Username 👱</>}
           field={usernameField}
-          onChange={(f) => setUsernameField(f)}
+          onChange={setUsernameField}
         />
 
         <Select
@@ -78,7 +79,7 @@ export const Default: Story = {
           placeholder="Select your country"
           field={countryField}
           variant="md"
-          onChange={(f) => setCountryField(f)}
+          onChange={setCountryField}
           options={[
             { value: "", label: "--" },
             { value: "us", label: "United States" },
@@ -93,7 +94,7 @@ export const Default: Story = {
           placeholder="Start typing a city..."
           field={cityField}
           options={cityOptions}
-          onChange={(f) => setCityField(f)}
+          onChange={setCityField}
         />
 
         <CheckBox
@@ -107,10 +108,30 @@ export const Default: Story = {
             </>
           }
           field={termsField}
-          onChange={(f) => setTermsField(f)}
+          onChange={setTermsField}
         />
 
-        <Button variant="primary" className="mt-3" isLoading={true}>
+        <div className="mt-3">
+          <CheckBoxIcon
+            field={termsField}
+            onChange={setTermsField}
+            title="Agree to terms"
+          >
+            <span
+              style={{
+                padding: "0.5rem 1rem",
+                backgroundColor: termsField.value ? "#198754" : "#f8f9fa",
+                borderRadius: "0.375rem",
+                color: termsField.value ? "#fff" : "#000",
+                userSelect: "none",
+              }}
+            >
+              ✅ Custom Toggle Consent
+            </span>
+          </CheckBoxIcon>
+        </div>
+
+        <Button variant="primary" className="mt-4" isLoading={true}>
           Submit Form
         </Button>
       </Form>

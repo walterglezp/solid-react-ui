@@ -1,6 +1,7 @@
 import "./styles/global.scss";
 export * from "./components/form/Button";
 export * from "./components/form/CheckBox";
+export * from "./components/form/CheckBoxIcon";
 export * from "./components/form/Form";
 export * from "./components/form/Input";
 export * from "./components/form/InputError";
