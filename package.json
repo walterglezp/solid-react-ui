@@ -1,6 +1,6 @@
 {
   "name": "solid-react-ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A lightweight, production-ready React component library styled with Bootstrap and documented with Storybook.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -39,22 +39,29 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@storybook/addon-docs": "^9.0.4",
-    "@storybook/react": "^9.0.4",
-    "@storybook/react-vite": "^9.0.4",
-    "@types/react": "^19.1.6",
-    "@types/react-dom": "^19.1.5",
-    "@typescript-eslint/eslint-plugin": "^8.33.1",
-    "@typescript-eslint/parser": "^8.33.1",
-    "eslint": "^9.28.0",
+    "@storybook/addon-docs": "^9.0.13",
+    "@storybook/react": "^9.0.13",
+    "@storybook/react-vite": "^9.0.13",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@typescript-eslint/eslint-plugin": "^8.35.0",
+    "@typescript-eslint/parser": "^8.35.0",
+    "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "gh-pages": "^6.3.0",
-    "prettier": "^3.5.3",
-    "sass": "^1.89.1",
+    "prettier": "^3.6.0",
+    "sass": "^1.89.2",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3"
   },
-  "homepage": "https://walterglezp.github.io/solid-react-ui"
+  "homepage": "https://walterglezp.github.io/solid-react-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/walterglezp/solid-react-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/walterglezp/solid-react-ui/issues"
+  }
 }
