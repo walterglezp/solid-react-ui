@@ -23,12 +23,14 @@ const meta: Meta<typeof Link> = {
     underlined: false,
     disabled: false,
     blank: false,
+    asButton: false,
   },
   argTypes: {
     variant: { control: "radio", options: variants },
     underlined: { control: "boolean" },
     disabled: { control: "boolean" },
     blank: { control: "boolean" },
+    asButton: { control: "boolean" },
     to: { control: "text" },
   },
 };
@@ -91,14 +93,40 @@ export const HoverFocus: Story = {
       <Link variant="primary" to="#" className="hover-example">
         Hover Me (use your mouse)
       </Link>
-      <Link
-        variant="success"
-        to="#"
-        className="focus-example"
-        style={{ outline: "2px dashed #198754" }}
-      >
+      <Link variant="success" to="#" className="focus-example focus-outline">
         Focus Me (tab key)
       </Link>
+    </div>
+  ),
+};
+
+export const ButtonStyleVariants: Story = {
+  args: {
+    asButton: true,
+    children: "Button Style Link",
+  },
+  render: (args) => (
+    <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+      {variants.map((variant) => (
+        <Link key={variant} {...args} variant={variant} to="#">
+          {variant.charAt(0).toUpperCase() + variant.slice(1)}
+        </Link>
+      ))}
+    </div>
+  ),
+};
+
+export const BlockButton: Story = {
+  args: {
+    to: "#",
+    asButton: true,
+    block: true,
+    variant: "primary",
+    children: "Full Width Button",
+  },
+  render: (args) => (
+    <div style={{ width: "100%", maxWidth: "300px" }}>
+      <Link {...args} />
     </div>
   ),
 };
