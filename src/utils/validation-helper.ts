@@ -4,42 +4,40 @@ import {
   FormProps,
 } from "../components/form/Form";
 
-export function validateOnChange(
-  field: FormFieldProps,
-  onChange: (field: FormFieldProps) => void
+export function validateOnChange<T extends FormFieldProps>(
+  field: T,
+  onChange: (field: T) => void
 ): boolean {
-  //Validate
+  // Validate
   const validatedField = validateInputField(field);
-  if (validatedField.isValid) {
-    onChange({ ...field, error: "" });
-    return true;
-  } else {
-    onChange({ ...field, error: validatedField.error });
-    return false;
-  }
+  const updatedField = {
+    ...field,
+    error: validatedField.isValid ? "" : validatedField.error,
+  };
+  onChange(updatedField);
+  return validatedField.isValid;
 }
 
-export const validateFormSection = (
+export function validateFormSection<T extends FormFieldProps>(
   form: FormProps,
   section: number,
-  onChange: (field: FormFieldProps) => void
-): boolean => {
+  onChange: (field: T) => void
+): boolean {
   for (const [, field] of Object.entries(form.fields)) {
     if (field.validate && field.section === section) {
-      const isvalid = validateOnChange(field, onChange);
-      if (!isvalid) {
-        return false; //Stop  if there is an error
-      }
+      const isValid = validateOnChange(field as T, onChange);
+      if (!isValid) return false;
     }
   }
   return true;
-};
+}
 
-export const validateInputField = (
+export function validateInputField(
   field: FormFieldProps
-): FormFieldValidatedResultProps => {
+): FormFieldValidatedResultProps {
   const noErrors = { isValid: true, error: "" };
-  //Check If Required
+
+  // Check if required
   if (field.validate.required) {
     const isInvalid = {
       isValid: false,
@@ -51,11 +49,17 @@ export const validateInputField = (
   }
 
   return noErrors;
-};
+}
 
-export const isValueEmpty = (value: FormFieldValueProps): boolean => {
-  return value === null || value === undefined || value === "" || value === 0;
-};
+export function isValueEmpty(value: FormFieldValueProps): boolean {
+  return (
+    value === null ||
+    value === undefined ||
+    value === "" ||
+    value === 0 ||
+    (Array.isArray(value) && value.length === 0)
+  );
+}
 
 export type FormFieldValidatedResultProps = {
   isValid: boolean;

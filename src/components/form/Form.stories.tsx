@@ -10,6 +10,7 @@ import { CheckBox } from "./CheckBox";
 import { CheckBoxIcon } from "./CheckBoxIcon";
 import { InputNumber } from "./InputNumber";
 import { Link } from "../navigation/Link";
+import { ImageDropZone } from "./ImageDropZone";
 import type { FormFieldProps } from "./Form";
 
 const meta: Meta<typeof Form> = {
@@ -19,6 +20,7 @@ const meta: Meta<typeof Form> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof Form>;
 
 export const Default: Story = {
@@ -66,6 +68,17 @@ export const Default: Story = {
       value: false,
       section: 0,
       validate: { required: true },
+    });
+
+    const [imagesField, setImagesField] = useState<
+      FormFieldProps & { value: string[] }
+    >({
+      name: "images",
+      formName: "login",
+      error: "",
+      value: [],
+      section: 0,
+      validate: { required: false },
     });
 
     const cityOptions = [
@@ -116,6 +129,13 @@ export const Default: Story = {
           onChange={setQuantityField}
         />
 
+        <ImageDropZone
+          className="mt-4"
+          field={imagesField}
+          onChange={setImagesField}
+          maxImages={5}
+        />
+
         <CheckBox
           className="mt-4"
           label={
@@ -151,7 +171,7 @@ export const Default: Story = {
           </CheckBoxIcon>
         </div>
 
-        <Button variant="primary" className="mt-4" isLoading={true}>
+        <Button variant="primary" className="mt-4" isLoading={false}>
           Submit Form
         </Button>
       </Form>
