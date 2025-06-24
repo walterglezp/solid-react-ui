@@ -1,0 +1,1 @@
+function a(r,e){const i=t(r),n={...r,error:i.isValid?"":i.error};return e(n),i.isValid}function t(r){const e={isValid:!0,error:""};if(r.validate.required){const i={isValid:!1,error:"This field is required!"};if(d(r.value))return i}return e}function d(r){return r==null||r===""||r===0||Array.isArray(r)&&r.length===0}export{a as v};
