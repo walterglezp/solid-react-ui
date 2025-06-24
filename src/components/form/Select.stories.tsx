@@ -7,16 +7,28 @@ const meta: Meta<typeof Select> = {
   title: "Form/Select",
   component: Select,
   tags: ["autodocs"],
+  args: {
+    label: "Fruit",
+    placeholder: "Select fruit",
+    options: [
+      { value: "apple", label: "Apple" },
+      { value: "banana", label: "Banana" },
+      { value: "cherry", label: "Cherry" },
+    ],
+    disabled: false,
+    variant: "md",
+  },
+  argTypes: {
+    field: { control: false },
+    onChange: { control: false },
+    append: { control: false },
+    options: { control: false },
+    variant: { control: "radio", options: ["sm", "md", "lg"] },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Select>;
-
-const options = [
-  { value: "apple", label: "Apple" },
-  { value: "banana", label: "Banana" },
-  { value: "cherry", label: "Cherry" },
-];
 
 const useField = (
   initial: Partial<FormFieldProps>
@@ -34,79 +46,53 @@ const useField = (
 };
 
 export const Default: Story = {
-  render: () => {
+  render: (args) => {
     const [field, setField] = useField({});
-    return (
-      <Select
-        label="Fruit"
-        placeholder="Select fruit"
-        field={field}
-        onChange={setField}
-        options={options}
-      />
-    );
+    return <Select {...args} field={field} onChange={setField} />;
   },
 };
 
 export const WithAppendIcon: Story = {
-  render: () => {
+  render: (args) => {
     const [field, setField] = useField({});
     return (
       <Select
-        label="Fruit"
-        placeholder="Choose one"
+        {...args}
+        append={
+          <span role="img" aria-label="banana">
+            🍌
+          </span>
+        }
         field={field}
         onChange={setField}
-        options={options}
-        append={<span>🍌</span>}
       />
     );
   },
 };
 
 export const LargeVariant: Story = {
-  render: () => {
+  args: {
+    variant: "lg",
+  },
+  render: (args) => {
     const [field, setField] = useField({});
-    return (
-      <Select
-        label="Fruit"
-        placeholder="Select fruit"
-        field={field}
-        onChange={setField}
-        options={options}
-        variant="lg"
-      />
-    );
+    return <Select {...args} field={field} onChange={setField} />;
   },
 };
 
 export const WithError: Story = {
-  render: () => {
+  render: (args) => {
     const [field, setField] = useField({ error: "Required field" });
-    return (
-      <Select
-        label="Fruit"
-        placeholder="Select fruit"
-        field={field}
-        onChange={setField}
-        options={options}
-      />
-    );
+    return <Select {...args} field={field} onChange={setField} />;
   },
 };
 
 export const Disabled: Story = {
-  render: () => {
+  args: {
+    disabled: true,
+  },
+  render: (args) => {
     const [field, setField] = useField({});
-    return (
-      <Select
-        label="Fruit"
-        placeholder="Select fruit"
-        field={field}
-        onChange={setField}
-        options={options}
-        disabled
-      />
-    );
+    return <Select {...args} field={field} onChange={setField} />;
   },
 };
