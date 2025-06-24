@@ -1,4 +1,5 @@
 import "./styles/global.scss";
+export * from "./components/common/ScrollBar";
 export * from "./components/form/Button";
 export * from "./components/form/CheckBox";
 export * from "./components/form/CheckBoxIcon";

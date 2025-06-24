@@ -1,0 +1,36 @@
+.scroll-bar-grey {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  scrollbar-width: thin;
+}
+
+.scroll-bar-light {
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.scroll-bar-horizontal {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.scroll-bar-vertical {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scroll-bar-both {
+  overflow: auto;
+}
