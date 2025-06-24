@@ -16,6 +16,11 @@ All components are styled using **Bootstrap 5.3.6**, enhanced with optional them
 - 📦 Ready to publish as an npm package
 - 🧩 Includes layout, form, and input building blocks
 - 🔍 Strict linting and formatting (ESLint + Prettier)
+- 🖼️ ImageDropZone: Drag & drop image upload with resize, preview, delete, and reorder
+- 🔘 Radio: Bootstrap-style radio buttons with variants and outline support
+- 📝 TextArea: Styled multi-line input with validation and sizing options
+- 🧠 Improved form validation and typing via FormFieldProps refinements
+- 📚 All components now fully documented in Storybook with live examples
 
 ---
 
