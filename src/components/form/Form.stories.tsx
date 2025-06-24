@@ -12,6 +12,7 @@ import { InputNumber } from "./InputNumber";
 import { Link } from "../navigation/Link";
 import { ImageDropZone } from "./ImageDropZone";
 import { Radio } from "./Radio";
+import { TextArea } from "./TextArea";
 import type { FormFieldProps } from "./Form";
 
 const meta: Meta<typeof Form> = {
@@ -91,6 +92,15 @@ export const Default: Story = {
       validate: { required: true },
     });
 
+    const [bioField, setBioField] = useState<FormFieldProps>({
+      name: "bio",
+      formName: "login",
+      error: "",
+      value: "",
+      section: 0,
+      validate: { required: false },
+    });
+
     const cityOptions = [
       { value: "nyc", label: "New York" },
       { value: "la", label: "Los Angeles" },
@@ -123,7 +133,7 @@ export const Default: Story = {
 
         <Autoselect
           className="mt-4"
-          label="City 🏙️"
+          label="City 🌆"
           placeholder="Start typing a city..."
           field={cityField}
           options={cityOptions}
@@ -175,6 +185,15 @@ export const Default: Story = {
             />
           </div>
         </div>
+
+        <TextArea
+          className="mt-4"
+          label="Bio"
+          field={bioField}
+          onChange={setBioField}
+          rows={4}
+          cols={40}
+        />
 
         <CheckBox
           className="mt-4"

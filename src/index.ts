@@ -8,6 +8,8 @@ export * from "./components/form/Input";
 export * from "./components/form/InputError";
 export * from "./components/form/InputNumber";
 export * from "./components/form/Select";
+export * from "./components/form/Radio";
+export * from "./components/form/TextArea";
 export * from "./components/layout/Container";
 export * from "./components/layout/Row";
 export * from "./components/layout/Column";
