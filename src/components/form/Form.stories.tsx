@@ -11,6 +11,7 @@ import { CheckBoxIcon } from "./CheckBoxIcon";
 import { InputNumber } from "./InputNumber";
 import { Link } from "../navigation/Link";
 import { ImageDropZone } from "./ImageDropZone";
+import { Radio } from "./Radio";
 import type { FormFieldProps } from "./Form";
 
 const meta: Meta<typeof Form> = {
@@ -81,6 +82,15 @@ export const Default: Story = {
       validate: { required: false },
     });
 
+    const [genderField, setGenderField] = useState<FormFieldProps>({
+      name: "gender",
+      formName: "login",
+      error: "",
+      value: "male",
+      section: 0,
+      validate: { required: true },
+    });
+
     const cityOptions = [
       { value: "nyc", label: "New York" },
       { value: "la", label: "Los Angeles" },
@@ -135,6 +145,36 @@ export const Default: Story = {
           onChange={setImagesField}
           maxImages={5}
         />
+
+        <div className="mt-4">
+          <h6>Select Gender</h6>
+          <div className="d-flex gap-2">
+            <Radio
+              field={genderField}
+              checkedValue="male"
+              label="Male"
+              variant={false}
+              btnSize="sm"
+              onChange={setGenderField}
+            />
+            <Radio
+              field={genderField}
+              checkedValue="female"
+              label="Female"
+              variant={false}
+              btnSize="sm"
+              onChange={setGenderField}
+            />
+            <Radio
+              field={genderField}
+              checkedValue="other"
+              label="Other"
+              variant={false}
+              btnSize="sm"
+              onChange={setGenderField}
+            />
+          </div>
+        </div>
 
         <CheckBox
           className="mt-4"
