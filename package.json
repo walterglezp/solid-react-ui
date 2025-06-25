@@ -1,6 +1,6 @@
 {
   "name": "solid-react-ui",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A lightweight, production-ready React component library styled with Bootstrap and documented with Storybook.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -27,7 +27,8 @@
   "author": "Walter Gonzalez",
   "license": "MIT",
   "scripts": {
-    "build": "tsup",
+    "build": "npm run build:styles && tsup",
+    "build:styles": "sass src/styles/global.scss dist/index.css",
     "storybook": "storybook dev -p 6006",
     "lint": "eslint src --ext .ts,.tsx",
     "format": "prettier --write .",
