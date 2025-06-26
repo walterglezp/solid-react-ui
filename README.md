@@ -21,17 +21,23 @@ All components are styled using **Bootstrap 5.3.6**, enhanced with optional them
 
 ---
 
-🎨 Styles
-
-- This library is styled using Bootstrap 5.3.6 plus custom SCSS-based enhancements.
-- All required styles are fully bundled in the package.
-- No need to load Bootstrap separately or import additional CSS files.
-- Just install and use the components.
-
 ## 📦 Install
 
 ```bash
 npm install solid-react-ui
+```
+
+---
+
+🎨 Styles
+
+- This library is styled using Bootstrap 5.3.6 plus custom SCSS-based enhancements.
+- All required styles are fully bundled in the package.
+
+To use the styles, you need to import them into your app entry:
+
+```
+import 'solid-react-ui/dist/index.css';
 ```
 
 ## 🎭 Theme Customization
