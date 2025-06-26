@@ -1,3 +1,7 @@
+@import "./vendor/bootstrap.min.v5.3.6.css";
+/*!
+ *  Global styles for solid-react-ui. This file imports all necessary stylesheets and sets up global styles.
+ */
 @import "./spinner.scss";
 @import "../components/common/ScrollBar.scss";
 @import "../components/form/autoselect.scss";
