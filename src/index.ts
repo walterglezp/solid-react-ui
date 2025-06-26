@@ -21,4 +21,7 @@ export * from "./components/list/ListGroupItem";
 export * from "./components/navigation/Link";
 export * from "./hooks/useClickOutside";
 export * from "./utils/classnames-helper";
+export * from "./utils/date-helper";
+export * from "./utils/image-helper";
+export * from "./utils/uuid-helper";
 export * from "./utils/validation-helper";

@@ -1,5 +1,5 @@
 import React from "react";
-import { uuid } from "../../utils/uuid";
+import { uuid } from "../../utils/uuid-helper";
 import { generateClassnames } from "../../utils/classnames-helper";
 import { FormFieldProps, FormFieldValueProps } from "../form/Form";
 import { validateOnChange } from "../../utils/validation-helper";
