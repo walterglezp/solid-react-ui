@@ -18,37 +18,20 @@ All components are styled using **Bootstrap 5.3.6**, enhanced with optional them
 - 📦 Ready to publish as an npm package
 - 🧩 Includes layout, form, and input building blocks
 - 🔍 Strict linting and formatting (ESLint + Prettier)
-- 🖼️ ImageDropZone: Drag & drop image upload with resize, preview, delete, and reorder
-- 🔘 Radio: Bootstrap-style radio buttons with variants and outline support
-- 📝 TextArea: Styled multi-line input with validation and sizing options
-- 🧠 Improved form validation and typing via FormFieldProps refinements
-- 📚 All components now fully documented in Storybook with live examples
 
 ---
+
+🎨 Styles
+
+- This library is styled using Bootstrap 5.3.6 plus custom SCSS-based enhancements.
+- All required styles are fully bundled in the package.
+- No need to load Bootstrap separately or import additional CSS files.
+- Just install and use the components.
 
 ## 📦 Install
 
 ```bash
 npm install solid-react-ui
-```
-
-🎨 Styles
-This library is styled using Bootstrap 5.3.6 plus custom SCSS-based enhancements.
-Ensure Bootstrap 5.3.6 is also loaded in your app:
-
-```bash
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-  integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-  crossorigin="anonymous"
-/>
-```
-
-To include styles in your app, import the bundled CSS after installing the package:
-
-```bash
-import 'solid-react-ui/dist/index.css';
 ```
 
 ## 🎭 Theme Customization
