@@ -9,7 +9,10 @@ type InputErrorProps = {
   className?: string;
 };
 
-const InputError: React.FC<InputErrorProps> = ({ error, className = "" }) => {
+const InputError: React.FC<InputErrorProps> = ({
+  error,
+  className = "mt-3",
+}) => {
   const classnames = generateClassnames({
     "input-error": true,
     "text-danger": true,
@@ -17,8 +20,8 @@ const InputError: React.FC<InputErrorProps> = ({ error, className = "" }) => {
   });
 
   return (
-    <Flex justify="start" align="center" className="mt-1">
-      <span className={classnames}>{error}</span>
+    <Flex justify="start" align="center" className={classnames}>
+      <span>{error}</span>
       <Icon
         className="ms-2 text-danger"
         name="exclamation-circle-fill"

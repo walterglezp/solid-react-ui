@@ -1,0 +1,72 @@
+$min-width: 280px;
+$number-of-days: 7;
+$column-width: 14.28571%;
+
+.calendar-days-list {
+  min-width: $min-width;
+
+  .row-calendar-week {
+    margin: 0;
+
+    .day-cell {
+      display: inline-block;
+      min-height: 1px;
+      padding: 0;
+      position: relative;
+      width: $column-width;
+      border-radius: 2px;
+
+      > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        > div {
+          height: 0;
+          padding: 50% 0;
+        }
+      }
+
+      &.enabled :hover {
+        background-color: rgb(240, 240, 240);
+        color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+
+      &.disabled {
+        color: #a6a6a6;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      &.selected {
+        color: rgba(0, 0, 0, 0.5);
+        background-color: #cbfaf2;
+        border-bottom: solid 1px #a6a6a6;
+      }
+
+      &.reserved {
+        color: rgba(0, 0, 0, 0.5);
+        background-color: #f1f3f4;
+        border-bottom: solid 1px #a6a6a6;
+      }
+
+      &.new-reservation-start,
+      &.new-reservation-end {
+        background-color: #4285f4;
+        color: #d4f5f0;
+      }
+
+      &.new-reservation {
+        background-color: #e8f0fe;
+        color: #4285f4;
+      }
+
+      &.current-day {
+        border: 1px solid #dc3545;
+        color: #dc3545;
+      }
+    }
+  }
+}

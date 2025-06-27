@@ -1,0 +1,30 @@
+.calendar-year-menu {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: center;
+
+  thead {
+    background-color: #4285f4;
+    color: #fff;
+    font-size: 12px;
+
+    th {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+
+  .month-item,
+  .year-item {
+    padding: 10px 5px;
+
+    &:hover {
+      background-color: rgb(240, 240, 240);
+      color: rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+  }
+}

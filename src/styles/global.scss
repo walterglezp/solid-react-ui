@@ -2,8 +2,14 @@
 /*!
  *  Global styles for solid-react-ui. This file imports all necessary stylesheets and sets up global styles.
  */
+
 @import "./spinner.scss";
 @import "../components/common/ScrollBar.scss";
 @import "../components/form/autoselect.scss";
 @import "../components/form/ImageDropZone.scss";
 @import "../components/form/InputNumber.scss";
+@import "../components/form/date/CalendarDaysList.scss";
+@import "../components/form/date/CalendarMonthMenu.scss";
+@import "../components/form/date/CalendarNavigationMenu.scss";
+@import "../components/form/date/CalendarWeekDayNames.scss";
+@import "../components/form/date/CalendarYearMenu.scss";
