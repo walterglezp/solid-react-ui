@@ -13,6 +13,7 @@ import { DATE_FORMATS } from "../../../constants/date";
 import { FormFieldProps } from "../Form";
 import { isValueEmpty } from "../../../utils/validation-helper";
 import { useClickOutside } from "../../../hooks/useClickOutside";
+import "./DatePicker.scss";
 
 interface DatePickerProps {
   label?: string | React.ReactNode;

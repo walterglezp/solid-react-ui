@@ -14,6 +14,7 @@ export * from "./components/form/Radio";
 export * from "./components/form/TextArea";
 export * from "./components/form/date/Calendar";
 export * from "./components/form/date/DatePicker";
+export * from "./components/form/date/DateTimePicker";
 export * from "./components/layout/Container";
 export * from "./components/layout/Row";
 export * from "./components/layout/Column";
