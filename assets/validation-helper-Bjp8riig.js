@@ -1,0 +1,1 @@
+function a(r,t){const i=n(r),e={...r,error:i.isValid?"":i.error};return t(e),i.isValid}function n(r){const t={isValid:!0,error:""};if(r.validate.required){const i={isValid:!1,error:"This field is required!"};if(s(r.value))return i}return t}function s(r){return r==null||r===""||r===0||Array.isArray(r)&&r.length===0||r instanceof Date&&isNaN(r.getTime())}export{s as i,a as v};
