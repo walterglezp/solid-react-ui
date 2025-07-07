@@ -109,6 +109,7 @@ const CalendarDaysList: React.FC<CalendarDaysListProps> = ({
       if (reservedDays.includes(dateStr)) {
         allDays.push({ number: day, type: "reserved" });
       } else if (newReservationDays.includes(dateStr)) {
+        console.log(newReservationDays);
         const index = newReservationDays.indexOf(dateStr);
         allDays.push({
           number: day,

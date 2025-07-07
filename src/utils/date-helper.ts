@@ -28,10 +28,17 @@ export const calculateNights = (startDate: string, endDate: string): number => {
   return nights > 0 ? nights : 0;
 };
 
-export const getDatesBetween = (startDate: Date, endDate: Date): string[] => {
-  const dates = eachDayOfInterval({ start: startDate, end: endDate });
-  return dates.map((d) => format(d, DATE_FORMATS.DEFAULT));
-};
+export function getDatesBetween(start: Date, end: Date): Date[] {
+  const dates: Date[] = [];
+  const current = new Date(start);
+
+  while (current <= end) {
+    dates.push(new Date(current));
+    current.setDate(current.getDate() + 1);
+  }
+
+  return dates;
+}
 
 export const formatToRFC2822 = (value: string): string =>
   format(parseISO(value), DATE_FORMATS.RFC2822);
