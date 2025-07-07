@@ -57,7 +57,8 @@ export function isValueEmpty(value: FormFieldValueProps): boolean {
     value === undefined ||
     value === "" ||
     value === 0 ||
-    (Array.isArray(value) && value.length === 0)
+    (Array.isArray(value) && value.length === 0) ||
+    (value instanceof Date && isNaN(value.getTime()))
   );
 }
 

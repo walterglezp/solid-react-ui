@@ -1,0 +1,23 @@
+.calendar-navigation-menu {
+  margin: 0;
+
+  .action {
+    padding: 10px 20px;
+    height: auto;
+    font-size: 14px;
+
+    &:hover {
+      background-color: rgb(240, 240, 240);
+      color: rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+
+    &.disabled {
+      color: rgba(0, 0, 0, 0.5);
+      &:hover {
+        background-color: white;
+        cursor: default;
+      }
+    }
+  }
+}
