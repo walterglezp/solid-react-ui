@@ -1,4 +1,28 @@
+/* Define default values for the variables */
+:root {
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+
+  /* Your custom variables */
+  --focus-border-color: #bec4c9;
+  --focus-border-thickness: 1px;
+}
+
+// Override Bootstrap's variables to use CSS vars
+$primary: var(--bs-primary);
+$secondary: var(--bs-secondary);
+$success: var(--bs-success);
+$info: var(--bs-info);
+$warning: var(--bs-warning);
+$danger: var(--bs-danger);
+
 @import "./vendor/bootstrap.min.v5.3.6.css";
+@import "./bootstrap-overrides.scss";
+
 /*!
  *  Global styles for solid-react-ui. This file imports all necessary stylesheets and sets up global styles.
  */
@@ -16,3 +40,9 @@
 @import "../components/form/date/DatePicker.scss";
 @import "../components/form/date/DateTimePicker.scss";
 @import "../components/form/date/DateTimeRangePicker.scss";
+
+.form-control:focus {
+  box-shadow: none !important;
+  border: var(--focus-border-thickness) solid var(--focus-border-color) !important;
+  outline: none;
+}
