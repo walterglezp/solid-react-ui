@@ -6,7 +6,7 @@ import { format, startOfToday, addMinutes } from "date-fns";
 import { DATE_FORMATS } from "../../../constants/date";
 
 const meta: Meta<typeof DateTimeRangePicker> = {
-  title: "Components/DateTimeRangePicker",
+  title: "Form/DateTimeRangePicker",
   component: DateTimeRangePicker,
   tags: ["autodocs"],
   argTypes: {
