@@ -9,7 +9,7 @@ import "../../../styles/global.scss";
 const Today = format(new Date(), DATE_FORMATS.DEFAULT);
 
 const meta: Meta<typeof DateTimePicker> = {
-  title: "Components/DateTimePicker",
+  title: "Form/DateTimePicker",
   component: DateTimePicker,
   tags: ["autodocs"],
   argTypes: {

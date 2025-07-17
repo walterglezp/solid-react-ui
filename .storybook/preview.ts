@@ -13,6 +13,17 @@ const preview: Preview = {
     docs: {
       autodocs: true,
     },
+    options: {
+      storySort: {
+        order: [
+          "Intro",
+          "Layout",
+          ["Container", "Row", "Flex"],
+          "Form",
+          ["Form", "ButtonGroup", "Autoselect"],
+        ],
+      },
+    },
   },
 };
 

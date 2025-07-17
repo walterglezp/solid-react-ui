@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import { DATE_FORMATS } from "../../../constants/date";
 
 const meta: Meta<typeof Calendar> = {
-  title: "Components/Calendar",
+  title: "Form/Calendar",
   component: Calendar,
   tags: ["autodocs"],
   argTypes: {

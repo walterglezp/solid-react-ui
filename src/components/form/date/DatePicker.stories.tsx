@@ -6,7 +6,7 @@ import { DATE_FORMATS } from "../../../constants/date";
 import { FormFieldProps } from "../Form";
 
 const meta: Meta<typeof DatePicker> = {
-  title: "Components/DatePicker",
+  title: "Form/DatePicker",
   component: DatePicker,
   tags: ["autodocs"],
   argTypes: {
