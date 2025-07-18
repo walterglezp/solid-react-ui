@@ -29,3 +29,6 @@ export * from "./utils/date-helper";
 export * from "./utils/image-helper";
 export * from "./utils/uuid-helper";
 export * from "./utils/validation-helper";
+
+// Theme system exports
+export * from "./theme";
