@@ -187,3 +187,43 @@ export const defaultTheme = lightTheme;
 
 // Type for theme names
 export type ThemePresetName = keyof typeof themes;
+
+// Utility function to create a theme by merging with base theme
+export const mergeTheme = (baseTheme: ThemeConfig, overrides: Partial<ThemeConfig>): ThemeConfig => {
+  return {
+    ...baseTheme,
+    ...overrides,
+    colors: {
+      ...baseTheme.colors,
+      ...overrides.colors,
+    },
+    typography: {
+      ...baseTheme.typography,
+      ...overrides.typography,
+      fontSize: {
+        ...baseTheme.typography.fontSize,
+        ...overrides.typography?.fontSize,
+      },
+      fontFamily: {
+        ...baseTheme.typography.fontFamily,
+        ...overrides.typography?.fontFamily,
+      },
+    },
+    borderRadius: {
+      ...baseTheme.borderRadius,
+      ...overrides.borderRadius,
+    },
+    spacing: {
+      ...baseTheme.spacing,
+      ...overrides.spacing,
+    },
+    shadows: {
+      ...baseTheme.shadows,
+      ...overrides.shadows,
+    },
+    components: {
+      ...baseTheme.components,
+      ...overrides.components,
+    },
+  };
+};

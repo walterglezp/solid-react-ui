@@ -1,5 +1,5 @@
 export type ColorVariant = 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark';
-export type SizeVariant = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export type SizeVariant = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type SpacingScale = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64;
 
 export interface ColorPalette {
@@ -310,13 +310,3 @@ export interface ThemeConfig {
 // Main theme context type
 export type ThemeContextValue = ThemeConfig;
 
-// Utility type for theme token paths
-export type ThemeTokenPath = 
-  | `colors.${keyof ColorPalette}`
-  | `spacing.${keyof Spacing}`
-  | `borderRadius.${keyof BorderRadius}`
-  | `shadows.${keyof Shadows}`
-  | `typography.fontSize.${keyof Typography['fontSize']}`
-  | `typography.fontWeight.${keyof Typography['fontWeight']}`
-  | `components.button.sizes.${keyof ComponentVariants['button']['sizes']}`
-  | `components.input.sizes.${keyof ComponentVariants['input']['sizes']}`;

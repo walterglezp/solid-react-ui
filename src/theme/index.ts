@@ -20,7 +20,6 @@ export type {
   ZIndex,
   Transitions,
   ComponentVariants,
-  ThemeTokenPath,
 } from '../types/theme.types';
 
 // Re-export utilities
