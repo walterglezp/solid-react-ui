@@ -8,7 +8,6 @@ import {
 } from "./Form";
 import { validateOnChange } from "../../utils/validation-helper";
 import { Icon } from "../graphic/Icon";
-import { useTheme } from "../../context/ThemeContext";
 
 export type SelectOptionsUiProps = Array<{
   value: FormFieldValueProps;
@@ -40,8 +39,6 @@ const Select: React.FC<SelectProps> = ({
   onChange,
   ...rest
 }) => {
-  const { borderRadius } = useTheme();
-
   const classnames = generateClassnames({
     "input-group": true,
     [`input-group-${variant}`]: true,
