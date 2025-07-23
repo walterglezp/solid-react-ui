@@ -1,5 +1,6 @@
 import React, { FC, HTMLAttributes } from "react";
 import { generateClassnames } from "../../utils/classnames-helper";
+import "./Container.scss";
 
 export type ContainerSize = "sm" | "md" | "lg" | "xl" | "xxl" | "fluid" | ""; // Default container
 

@@ -1,5 +1,5 @@
 .autoselect {
-  border-radius: var(--app-input-border-radius) !important;
+  border-radius: var(--border-radius-base) !important;
   .form-control {
     border-right-width: 0;
   }
@@ -52,8 +52,8 @@
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.15);
-    border-bottom-left-radius: var(--bs-main-border-radius);
-    border-bottom-right-radius: var(--bs-main-border-radius);
+    border-bottom-left-radius: var(--border-radius-base);
+    border-bottom-right-radius: var(--border-radius-base);
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
 
     /* Scrool */

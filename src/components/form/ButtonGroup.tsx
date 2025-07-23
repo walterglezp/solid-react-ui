@@ -1,5 +1,6 @@
 import React from "react";
 import { generateClassnames } from "../../utils/classnames-helper";
+import "./ButtonGroup.scss";
 
 type ButtonGroupProps = {
   variant?: "group" | "toolbar";

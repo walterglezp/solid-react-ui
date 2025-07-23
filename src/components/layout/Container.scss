@@ -1,0 +1,51 @@
+// Container Component Styles
+@import "../../styles/design-system/mixins";
+
+.container {
+  @include make-container();
+  @include container-max-widths();
+}
+
+.container-sm {
+  @include make-container();
+  
+  @include media-up(sm) {
+    max-width: 540px;
+  }
+}
+
+.container-md {
+  @include make-container();
+  
+  @include media-up(md) {
+    max-width: 720px;
+  }
+}
+
+.container-lg {
+  @include make-container();
+  
+  @include media-up(lg) {
+    max-width: 960px;
+  }
+}
+
+.container-xl {
+  @include make-container();
+  
+  @include media-up(xl) {
+    max-width: 1140px;
+  }
+}
+
+.container-xxl {
+  @include make-container();
+  
+  @include media-up(xxl) {
+    max-width: 1320px;
+  }
+}
+
+.container-fluid {
+  @include make-container();
+}

@@ -8,6 +8,7 @@ import {
 } from "./Form";
 import { validateOnChange } from "../../utils/validation-helper";
 import { Icon } from "../graphic/Icon";
+import "./Input.scss";
 
 export type SelectOptionsUiProps = Array<{
   value: FormFieldValueProps;

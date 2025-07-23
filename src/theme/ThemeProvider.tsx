@@ -1,7 +1,7 @@
 import React, { createContext, useContext, ReactNode, useEffect } from 'react';
 import { ThemeConfig } from '../types/theme.types';
 import { defaultTheme } from './presets';
-import { darkenColor } from '../utils/color-utils';
+import { darkenColor, lightenColor } from '../utils/color-utils';
 
 export interface ThemeProviderProps {
   children: ReactNode;
@@ -117,25 +117,48 @@ const applyThemeVariables = (root: HTMLElement, theme: ThemeConfig) => {
     root.style.setProperty(`--theme-card-${property}`, value);
   });
 
-  // Bootstrap compatibility variables (for gradual migration)
-  root.style.setProperty('--bs-primary', theme.colors.primary);
-  root.style.setProperty('--bs-secondary', theme.colors.secondary);
-  root.style.setProperty('--bs-success', theme.colors.success);
-  root.style.setProperty('--bs-info', theme.colors.info);
-  root.style.setProperty('--bs-warning', theme.colors.warning);
-  root.style.setProperty('--bs-danger', theme.colors.danger);
+  // Map theme colors to our design system color variables
+  // This ensures compatibility with our custom CSS color() function
+  Object.entries(theme.colors).forEach(([key, value]) => {
+    // Map semantic colors to our color system
+    if (['primary', 'secondary', 'success', 'info', 'warning', 'danger'].includes(key)) {
+      root.style.setProperty(`--color-${key}-500`, value);
+      root.style.setProperty(`--color-${key}-600`, darkenColor(value, 0.1));
+      root.style.setProperty(`--color-${key}-700`, darkenColor(value, 0.2));
+      root.style.setProperty(`--color-${key}-400`, lightenColor(value, 0.1));
+      root.style.setProperty(`--color-${key}-300`, lightenColor(value, 0.2));
+      root.style.setProperty(`--color-${key}-200`, lightenColor(value, 0.3));
+      root.style.setProperty(`--color-${key}-100`, lightenColor(value, 0.4));
+      root.style.setProperty(`--color-${key}-50`, lightenColor(value, 0.5));
+    }
+  });
   
-  root.style.setProperty('--bs-border-radius', theme.borderRadius.base);
-  root.style.setProperty('--bs-border-radius-sm', theme.borderRadius.sm);
-  root.style.setProperty('--bs-border-radius-lg', theme.borderRadius.lg);
+  // Map gray colors from theme (use text/textSecondary/border colors)
+  const grayBase = theme.colors.textSecondary || '#6b7280';
+  root.style.setProperty(`--color-gray-500`, grayBase);
+  root.style.setProperty(`--color-gray-50`, lightenColor(grayBase, 0.8));
+  root.style.setProperty(`--color-gray-100`, lightenColor(grayBase, 0.7));
+  root.style.setProperty(`--color-gray-200`, lightenColor(grayBase, 0.5));
+  root.style.setProperty(`--color-gray-300`, lightenColor(grayBase, 0.3));
+  root.style.setProperty(`--color-gray-400`, lightenColor(grayBase, 0.1));
+  root.style.setProperty(`--color-gray-600`, darkenColor(grayBase, 0.1));
+  root.style.setProperty(`--color-gray-700`, darkenColor(grayBase, 0.2));
+  root.style.setProperty(`--color-gray-800`, darkenColor(grayBase, 0.3));
+  root.style.setProperty(`--color-gray-900`, theme.colors.text || darkenColor(grayBase, 0.4));
+  root.style.setProperty(`--color-gray-950`, darkenColor(grayBase, 0.5));
   
+  // Apply color shades if defined
+  Object.entries(theme.colorShades).forEach(([colorName, shades]) => {
+    if (shades) {
+      Object.entries(shades).forEach(([shade, value]) => {
+        root.style.setProperty(`--color-${colorName}-${shade}`, value);
+      });
+    }
+  });
+  
+  // Focus styling
   root.style.setProperty('--focus-border-color', theme.colors.focus);
   root.style.setProperty('--focus-border-thickness', '2px');
-  
-  // Button variables
-  root.style.setProperty('--bs-btn-bg', theme.colors.primary);
-  root.style.setProperty('--bs-btn-border-color', theme.colors.primary);
-  root.style.setProperty('--bs-btn-hover-bg', darkenColor(theme.colors.primary, 0.2));
 };
 
 export const useTheme = (): ThemeConfig => {

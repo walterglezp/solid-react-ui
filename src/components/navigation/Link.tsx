@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { generateClassnames } from "../../utils/classnames-helper";
+import "./Link.scss";
 
 export type LinkProps = {
   to: string;
@@ -67,7 +68,8 @@ const Link: FC<LinkProps> = ({
 
   const style = !asButton
     ? ({
-        "--bs-link-underline-opacity": underlined ? "0.5" : "0",
+        textDecorationLine: underlined ? "underline" : "none",
+        textDecorationColor: underlined ? "currentColor" : "transparent",
       } as React.CSSProperties)
     : undefined;
 
