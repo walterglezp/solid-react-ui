@@ -84,7 +84,7 @@
 @mixin form-control-focus($color: primary) {
   border-color: theme-color($color, 500);
   outline: none;
-  box-shadow: 0 0 0 3px theme-color($color, 100);
+  box-shadow: 0 0 0 1px theme-color($color, 95);
 }
 
 @mixin form-control-size($size) {

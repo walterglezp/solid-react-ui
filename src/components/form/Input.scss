@@ -19,7 +19,7 @@
   }
   
   &:focus {
-    @include form-control-focus(primary);
+    @include form-control-focus(secondary);
   }
   
   &:disabled {
