@@ -23,13 +23,24 @@
   }
 
   .date-time-picker-calendar {
-    background-color: white;
-    padding: 13px;
-    z-index: 99999999;
     position: absolute;
-    top: 33px;
-    left: 0px;
-    border: solid 1px rgba(0, 0, 0, 0.1);
+    top: 110%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    padding: 0.5rem;
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+    color: #707072;
+    text-align: left;
+    background-color: white;
+    background-clip: padding-box;
+    border: 1px solid #ebe9e9;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-width: 300px;
 
     .date-time-picker-timepicker {
       padding-top: 5px;
@@ -38,16 +49,21 @@
       justify-content: center;
       align-items: center;
       background-color: #f8f9fa;
+      border-radius: var(--border-radius-base);
+      margin-top: 0.5rem;
+
       .input-time {
         width: 40px;
-        border-radius: 2px;
+        border-radius: var(--border-radius-base);
         border-style: none;
-        border: solid 1px rgba(0, 0, 0, 0.1);
-        font-size: 14px !important;
+        border: 1px solid #ebe9e9;
+        font-size: var(--font-size-sm);
+        padding: 0.25rem;
       }
+
       .time-picker-meridian {
         label {
-          font-size: 12px !important;
+          font-size: var(--font-size-xs);
         }
       }
     }

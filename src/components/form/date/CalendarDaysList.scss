@@ -15,6 +15,7 @@ $column-width: 14.28571%;
       position: relative;
       width: $column-width;
       border-radius: 2px;
+      font-weight: bold;
 
       > div {
         display: flex;

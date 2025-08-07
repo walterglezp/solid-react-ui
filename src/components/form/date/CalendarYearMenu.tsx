@@ -17,7 +17,11 @@ const CalendarYearMenu: React.FC<CalendarYearMenuProps> = ({
   const rows = years.reduce<JSX.Element[][]>((acc, y, i) => {
     if (i % 3 === 0) acc.push([]);
     acc[acc.length - 1].push(
-      <td key={y} className="year-item" onClick={() => selectYear(y)}>
+      <td
+        key={y}
+        className="year-item text-center"
+        onClick={() => selectYear(y)}
+      >
         <span>{y}</span>
       </td>,
     );
@@ -28,7 +32,9 @@ const CalendarYearMenu: React.FC<CalendarYearMenuProps> = ({
     <table className="calendar-year-menu">
       <thead>
         <tr>
-          <th colSpan={4}>Select a Year</th>
+          <th className="text-center" colSpan={4}>
+            Select a Year
+          </th>
         </tr>
       </thead>
       <tbody>

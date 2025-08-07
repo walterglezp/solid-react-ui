@@ -12,7 +12,6 @@ import {
   startOfToday,
 } from "date-fns";
 import React from "react";
-import { uuid } from "../../../utils/uuid-helper";
 
 import { useClickOutside } from "../../../hooks/useClickOutside";
 import { generateClassnames } from "../../../utils/classnames-helper";
@@ -25,6 +24,7 @@ import { Icon } from "../../graphic/Icon";
 import { Flex } from "../../layout/Flex";
 import { FormFieldProps } from "../Form";
 import { InputError } from "../InputError";
+import { Radio } from "../Radio";
 import { CalendarDayType } from "./Calendar";
 import { CalendarDaysList } from "./CalendarDaysList";
 import { CalendarNavigationMenu } from "./CalendarNavigationMenu";
@@ -58,9 +58,6 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
   field,
   onChange,
 }) => {
-  const amId = uuid();
-  const pmId = uuid();
-
   const todayDate = startOfToday();
   let startDate = todayDate;
   let endDate: Date | null = null;
@@ -225,12 +222,11 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
           />
           {!hideTimePicker && (
             <Flex justify="center" align="center">
-              {(["start", "end"] as DateTarget[]).map((target, idx) => (
+              {(["start", "end"] as DateTarget[]).map((target) => (
                 <div
                   key={target}
                   className="date-time-range-picker-timepicker mt-3 ps-1 pe-1"
                 >
-                  {idx === 1 && <span className="ps-2 pe-3">|</span>}
                   <input
                     className="input-time me-2"
                     type="number"
@@ -268,53 +264,44 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
                     min="0"
                     max="60"
                   />
-                  <div className="time-picker-meridian">
-                    <Flex align="center">
-                      <input
-                        type="radio"
-                        id={target === "start" ? amId : pmId}
-                        className="form-check-input m-0 p-0"
-                        checked={
-                          format(
-                            target === "start"
-                              ? startDate
-                              : endDate || startDate,
-                            "a",
-                          ) === "AM"
-                        }
-                        onChange={() => updateMeridian(target, "AM")}
-                        readOnly={readOnly}
-                      />
-                      <label
-                        className="form-check-label m-0 p-0"
-                        htmlFor={target === "start" ? amId : pmId}
-                      >
-                        AM
-                      </label>
-                    </Flex>
-                    <Flex align="center">
-                      <input
-                        type="radio"
-                        id={target === "start" ? amId : pmId + "_pm"}
-                        className="form-check-input m-0 p-0"
-                        checked={
-                          format(
-                            target === "start"
-                              ? startDate
-                              : endDate || startDate,
-                            "a",
-                          ) === "PM"
-                        }
-                        onChange={() => updateMeridian(target, "PM")}
-                        readOnly={readOnly}
-                      />
-                      <label
-                        className="form-check-label m-0 p-0"
-                        htmlFor={target === "start" ? amId : pmId + "_pm"}
-                      >
-                        PM
-                      </label>
-                    </Flex>
+                  <div className="time-picker-meridian d-flex gap-2">
+                    <Radio
+                      className="me-2"
+                      field={{
+                        name: `meridian-${target}`,
+                        formName: "timerangepicker",
+                        error: "",
+                        value: format(
+                          target === "start" ? startDate : endDate || startDate,
+                          "a",
+                        ),
+                        section: 0,
+                        validate: {},
+                      }}
+                      checkedValue="AM"
+                      label="AM"
+                      size="sm"
+                      disabled={readOnly}
+                      onChange={() => updateMeridian(target, "AM")}
+                    />
+                    <Radio
+                      field={{
+                        name: `meridian-${target}`,
+                        formName: "timerangepicker",
+                        error: "",
+                        value: format(
+                          target === "start" ? startDate : endDate || startDate,
+                          "a",
+                        ),
+                        section: 0,
+                        validate: {},
+                      }}
+                      checkedValue="PM"
+                      label="PM"
+                      size="sm"
+                      disabled={readOnly}
+                      onChange={() => updateMeridian(target, "PM")}
+                    />
                   </div>
                 </div>
               ))}
