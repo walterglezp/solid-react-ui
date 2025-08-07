@@ -5,16 +5,16 @@ import {
   isBefore,
   isAfter,
   isValid,
-  isSameDay,
-  startOfMonth,
-  endOfMonth,
+  isSameDay as _isSameDay,
+  startOfMonth as _startOfMonth,
+  endOfMonth as _endOfMonth,
   getYear,
   getMonth,
   getDaysInMonth,
   subMonths,
-  addMonths,
-  endOfMonth as getEndOfMonth,
-  startOfMonth as getStartOfMonth,
+  addMonths as _addMonths,
+  endOfMonth as _getEndOfMonth,
+  startOfMonth as _getStartOfMonth,
 } from "date-fns";
 
 import { generateClassnames } from "../../../utils/classnames-helper";
@@ -109,7 +109,6 @@ const CalendarDaysList: React.FC<CalendarDaysListProps> = ({
       if (reservedDays.includes(dateStr)) {
         allDays.push({ number: day, type: "reserved" });
       } else if (newReservationDays.includes(dateStr)) {
-        console.log(newReservationDays);
         const index = newReservationDays.indexOf(dateStr);
         allDays.push({
           number: day,

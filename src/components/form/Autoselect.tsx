@@ -69,7 +69,7 @@ const Autoselect: FC<AutoselectProps> = ({
     if (disabled) {
       setInputValue(placeholder ?? "");
     }
-  }, [disabled]);
+  }, [disabled, placeholder]);
 
   const onClickSuggestion = (suggestionIndex: number) => {
     const suggestion = optionsList[suggestionIndex];
@@ -91,6 +91,20 @@ const Autoselect: FC<AutoselectProps> = ({
     setOptions(filteredList);
   };
 
+  const openSuggestions = () => {
+    if (disabled) return;
+
+    // Find the index of the currently selected option
+    const currentSelectedIndex = options.findIndex(
+      (option) => option.value === field.value,
+    );
+
+    // Set active suggestion to current selection, or 0 if no selection found
+    setActiveSuggestion(currentSelectedIndex >= 0 ? currentSelectedIndex : 0);
+    setShowSuggestions(true);
+    setOptions(options); // Reset to full options list
+  };
+
   const onEnterSuggestion = React.useCallback(() => {
     setShowSuggestions(false);
     const newValue = optionsList[activeSuggestion];
@@ -99,7 +113,7 @@ const Autoselect: FC<AutoselectProps> = ({
       { ...field, value: newValue.value?.toString() ?? "" },
       onChange,
     );
-  }, [onChange, optionsList, activeSuggestion]);
+  }, [onChange, optionsList, activeSuggestion, field]);
 
   const moveUpDown = React.useCallback(
     (direction: "up" | "down") => {
@@ -114,7 +128,7 @@ const Autoselect: FC<AutoselectProps> = ({
         validateOnChange({ ...field, value: suggestion.value }, onChange);
       }
     },
-    [activeSuggestion, optionsList, onChange],
+    [activeSuggestion, optionsList, onChange, field],
   );
 
   React.useEffect(() => {
@@ -146,7 +160,8 @@ const Autoselect: FC<AutoselectProps> = ({
           tabIndex={tabIndex}
           onChange={(e) => onChangeInput(e.target.value)}
           placeholder={placeholder}
-          onFocus={() => setShowSuggestions(true)}
+          onFocus={() => openSuggestions()}
+          onClick={() => openSuggestions()}
           disabled={disabled}
         />
         {showSuggestions && !disabled && (

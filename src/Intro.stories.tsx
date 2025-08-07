@@ -24,6 +24,24 @@ export const Overview = () => (
       >
         walterglezp.github.io/solid-react-ui
       </a>
+      <br />
+      <strong>Github Repo</strong>{" "}
+      <a
+        href="https://github.com/walterglezp/solid-react-ui"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        https://github.com/walterglezp/solid-react-ui
+      </a>
+      <br />
+      <strong>Npm: solid-react-ui</strong>{" "}
+      <a
+        href="https://www.npmjs.com/package/solid-react-ui"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        https://www.npmjs.com/package/solid-react-ui
+      </a>
     </p>
     <p>
       A lightweight, production-ready React component library built with
@@ -32,8 +50,8 @@ export const Overview = () => (
       Column, Flex), and form controls.
     </p>
     <p>
-      All components are styled using <strong>Bootstrap 5.3.6</strong> and
-      support custom theming via a<code> ThemeProvider</code>. Everything is
+      All components are styled using a <strong>custom design system</strong>{" "}
+      and support custom theming via a<code> ThemeProvider</code>. Everything is
       documented with Storybook.
     </p>
 
@@ -41,7 +59,7 @@ export const Overview = () => (
     <ul>
       <li>⚛️ Built with React + TypeScript</li>
       <li>💡 Tree-shakeable and fully typed components</li>
-      <li>🎨 Bootstrap 5.3.6 utility-based styling</li>
+      <li>🎨 Custom utility-based styling system</li>
       <li>🎭 Theme customization with ThemeProvider</li>
       <li>🧪 Storybook for UI documentation and testing</li>
       <li>📦 Ready to publish as an npm package</li>

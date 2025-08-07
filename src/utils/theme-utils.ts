@@ -4,11 +4,11 @@ import { generateColorShades, darkenColor, lightenColor } from "./color-utils";
 // Get a theme token value by path
 export const getThemeToken = (theme: ThemeConfig, path: string): string => {
   const keys = path.split(".");
-  let value: any = theme;
+  let value: unknown = theme;
 
   for (const key of keys) {
-    if (value && typeof value === "object" && key in value) {
-      value = value[key];
+    if (typeof value === "object" && value !== null && key in value) {
+      value = (value as Record<string, unknown>)[key];
     } else {
       return "";
     }

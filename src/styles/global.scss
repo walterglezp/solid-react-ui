@@ -1,6 +1,6 @@
 /*!
  * Global styles for solid-react-ui
- * Custom design system replacing Bootstrap dependency
+ * Custom design system with utility classes and components
  */
 
 // Import design system foundations
@@ -101,6 +101,13 @@
     margin-top: #{$value} !important;
     margin-bottom: #{$value} !important;
   }
+
+  .ms-#{$name} {
+    margin-left: #{$value} !important;
+  }
+  .me-#{$name} {
+    margin-right: #{$value} !important;
+  }
 }
 
 // Padding utilities
@@ -127,6 +134,13 @@
   .py-#{$name} {
     padding-top: #{$value} !important;
     padding-bottom: #{$value} !important;
+  }
+
+  .ps-#{$name} {
+    padding-left: #{$value} !important;
+  }
+  .pe-#{$name} {
+    padding-right: #{$value} !important;
   }
 }
 

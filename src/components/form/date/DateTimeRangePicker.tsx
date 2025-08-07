@@ -31,6 +31,8 @@ import { CalendarNavigationMenu } from "./CalendarNavigationMenu";
 import { CalendarWeekDayNames } from "./CalendarWeekDayNames";
 import "./DateTimeRangePicker.scss";
 
+type DateTarget = "start" | "end";
+
 interface DateTimeRangePickerProps {
   label?: string | React.ReactNode;
   markedDays?: Array<CalendarDayType>;
@@ -74,7 +76,7 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
       if (parsed?.end) {
         endDate = isValid(parseISO(parsed.end)) ? parseISO(parsed.end) : null;
       }
-    } catch (e) {
+    } catch {
       // fallback
     }
   }
@@ -117,7 +119,7 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
   };
 
   const updateDateTime = (
-    target: "start" | "end",
+    target: DateTarget,
     type: "hour" | "minute",
     value: number,
   ) => {
@@ -142,7 +144,7 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
     updateFieldValue(newStart, newEnd);
   };
 
-  const updateMeridian = (target: "start" | "end", meridian: "AM" | "PM") => {
+  const updateMeridian = (target: DateTarget, meridian: "AM" | "PM") => {
     const date = target === "start" ? startDate : endDate;
     if (!date) return;
 
@@ -223,7 +225,7 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
           />
           {!hideTimePicker && (
             <Flex justify="center" align="center">
-              {["start", "end"].map((target, idx) => (
+              {(["start", "end"] as DateTarget[]).map((target, idx) => (
                 <div
                   key={target}
                   className="date-time-range-picker-timepicker mt-3 ps-1 pe-1"
@@ -237,18 +239,10 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
                       "hh",
                     )}
                     onChange={(e) =>
-                      updateDateTime(
-                        target as any,
-                        "hour",
-                        Number(e.target.value),
-                      )
+                      updateDateTime(target, "hour", Number(e.target.value))
                     }
                     onBlur={(e) =>
-                      updateDateTime(
-                        target as any,
-                        "hour",
-                        Number(e.target.value),
-                      )
+                      updateDateTime(target, "hour", Number(e.target.value))
                     }
                     readOnly={readOnly}
                     disabled={disabled}
@@ -264,18 +258,10 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
                       "mm",
                     )}
                     onChange={(e) =>
-                      updateDateTime(
-                        target as any,
-                        "minute",
-                        Number(e.target.value),
-                      )
+                      updateDateTime(target, "minute", Number(e.target.value))
                     }
                     onBlur={(e) =>
-                      updateDateTime(
-                        target as any,
-                        "minute",
-                        Number(e.target.value),
-                      )
+                      updateDateTime(target, "minute", Number(e.target.value))
                     }
                     readOnly={readOnly}
                     disabled={disabled}
@@ -296,7 +282,7 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
                             "a",
                           ) === "AM"
                         }
-                        onChange={() => updateMeridian(target as any, "AM")}
+                        onChange={() => updateMeridian(target, "AM")}
                         readOnly={readOnly}
                       />
                       <label
@@ -319,7 +305,7 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
                             "a",
                           ) === "PM"
                         }
-                        onChange={() => updateMeridian(target as any, "PM")}
+                        onChange={() => updateMeridian(target, "PM")}
                         readOnly={readOnly}
                       />
                       <label

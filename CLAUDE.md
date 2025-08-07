@@ -232,7 +232,7 @@ npm run storybook:deploy   # Build and deploy to GitHub Pages
 
 ## Architecture Overview
 
-This is a React component library built with TypeScript, styled with Bootstrap 5.3.6, and documented with Storybook. The library uses tsup for building and provides both ESM and CJS outputs.
+This is a React component library built with TypeScript, styled with a custom design system, and documented with Storybook. The library uses tsup for building and provides both ESM and CJS outputs.
 
 ### Key Architectural Patterns
 
@@ -245,17 +245,17 @@ This is a React component library built with TypeScript, styled with Bootstrap 5
 - `graphic/` - Icons and visual elements
 - `common/` - Shared utilities like ScrollBar
 
-**Theming System**: The library uses a custom `ThemeProvider` that dynamically injects CSS custom properties to override Bootstrap variables. The theme context is in `src/context/ThemeContext.tsx` and supports:
+**Theming System**: The library uses a custom `ThemeProvider` that dynamically injects CSS custom properties to customize component styles. The theme context is in `src/theme/ThemeProvider.tsx` and supports:
 
 - Custom border radius values
 - Focus border styling
-- Bootstrap color variables (primary, secondary, success, etc.)
+- Color variables (primary, secondary, success, etc.)
 - Dynamic color manipulation via `darkenColor` utility
 
 **Style Architecture**:
 
 - Global styles in `src/styles/global.scss`
-- Bootstrap overrides in `src/styles/bootstrap-overrides.scss`
+- Design system tokens in `src/styles/design-system/tokens.scss`
 - Component-specific SCSS files co-located with components
 - Styles are compiled via Sass and bundled into `dist/index.css`
 
@@ -291,7 +291,7 @@ This is a React component library built with TypeScript, styled with Bootstrap 5
 ## Development Notes
 
 - All components should have corresponding Storybook stories
-- Use existing Bootstrap classes where possible
+- Use existing utility classes where possible
 - Follow the established pattern of co-locating SCSS files with components
 - Theme-aware components should use CSS custom properties that can be overridden by ThemeProvider
 - Import global styles via `import 'solid-react-ui/dist/index.css'` in consuming applications

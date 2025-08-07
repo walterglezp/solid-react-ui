@@ -5,7 +5,7 @@ import {
   setHours,
   setMinutes,
   getHours,
-  getMinutes,
+  getMinutes as _getMinutes,
   isValid,
 } from "date-fns";
 

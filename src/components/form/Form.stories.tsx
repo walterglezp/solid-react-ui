@@ -112,11 +112,7 @@ export const Default: Story = {
     return (
       <Form>
         <Input
-          label={<Icon
-        className="ms-2 text-secondary"
-        name="user"
-        size={15}
-      />}
+          label={<Icon className="ms-2 text-secondary" name="user" size={15} />}
           field={usernameField}
           onChange={setUsernameField}
         />
@@ -129,7 +125,6 @@ export const Default: Story = {
           variant="md"
           onChange={setCountryField}
           options={[
-            { value: "", label: "--" },
             { value: "us", label: "United States" },
             { value: "ca", label: "Canada" },
             { value: "mx", label: "Mexico" },
@@ -235,7 +230,7 @@ export const Default: Story = {
           </CheckBoxIcon>
         </div>
 
-        <Button variant="primary" className="mt-4" isLoading={false}>
+        <Button variant="primary" className="mt-4" isLoading={true} size="lg">
           Submit Form
         </Button>
       </Form>

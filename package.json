@@ -35,6 +35,8 @@
     "storybook": "storybook dev -p 6006",
     "lint": "eslint src --ext .ts,.tsx",
     "format": "prettier --write .",
+    "typecheck": "npx tsc --noEmit",
+    "check": "npm run format && npm run typecheck && npm run lint",
     "storybook:build": "storybook build",
     "storybook:deploy": "storybook build && gh-pages -d storybook-static"
   },
