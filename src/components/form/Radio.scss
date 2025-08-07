@@ -1,0 +1,188 @@
+// Radio Component Styles
+@import "../../styles/design-system/mixins";
+
+.custom-radio {
+  display: flex;
+  align-items: center;
+  gap: spacing(3);
+  cursor: pointer;
+
+  .radio-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+  }
+
+  .radio-button {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid theme-color(gray, 300);
+    border-radius: 50%;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+    flex-shrink: 0;
+
+    // Inner dot
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: transparent;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .radio-label {
+    color: theme-color(gray, 800);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  // Hover state
+  &:hover .radio-button {
+    border-color: theme-color(gray, 400);
+  }
+
+  // Checked state - default (gray)
+  &.checked .radio-button {
+    border-color: theme-color(gray, 600);
+    background-color: white;
+
+    &::after {
+      background-color: theme-color(gray, 600);
+    }
+  }
+
+  // Color variants
+  &.radio-primary.checked .radio-button {
+    border-color: theme-color(primary, 500);
+
+    &::after {
+      background-color: theme-color(primary, 500);
+    }
+  }
+
+  &.radio-secondary.checked .radio-button {
+    border-color: theme-color(secondary, 500);
+
+    &::after {
+      background-color: theme-color(secondary, 500);
+    }
+  }
+
+  &.radio-success.checked .radio-button {
+    border-color: theme-color(success, 500);
+
+    &::after {
+      background-color: theme-color(success, 500);
+    }
+  }
+
+  &.radio-danger.checked .radio-button {
+    border-color: theme-color(danger, 500);
+
+    &::after {
+      background-color: theme-color(danger, 500);
+    }
+  }
+
+  &.radio-warning.checked .radio-button {
+    border-color: theme-color(warning, 500);
+
+    &::after {
+      background-color: theme-color(warning, 500);
+    }
+  }
+
+  &.radio-info.checked .radio-button {
+    border-color: theme-color(info, 500);
+
+    &::after {
+      background-color: theme-color(info, 500);
+    }
+  }
+
+  // Hover states for variants
+  &.radio-primary:hover .radio-button {
+    border-color: theme-color(primary, 300);
+  }
+
+  &.radio-secondary:hover .radio-button {
+    border-color: theme-color(secondary, 300);
+  }
+
+  &.radio-success:hover .radio-button {
+    border-color: theme-color(success, 300);
+  }
+
+  &.radio-danger:hover .radio-button {
+    border-color: theme-color(danger, 300);
+  }
+
+  &.radio-warning:hover .radio-button {
+    border-color: theme-color(warning, 300);
+  }
+
+  &.radio-info:hover .radio-button {
+    border-color: theme-color(info, 300);
+  }
+
+  // Disabled state
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+
+    .radio-button,
+    .radio-label {
+      cursor: not-allowed;
+    }
+
+    &:hover .radio-button {
+      border-color: theme-color(gray, 300);
+    }
+  }
+
+  // Size variants
+  &.radio-sm {
+    .radio-button {
+      width: 16px;
+      height: 16px;
+
+      &::after {
+        width: 6px;
+        height: 6px;
+      }
+    }
+
+    .radio-label {
+      font-size: var(--font-size-xs);
+    }
+  }
+
+  &.radio-lg {
+    .radio-button {
+      width: 24px;
+      height: 24px;
+
+      &::after {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    .radio-label {
+      font-size: var(--font-size-base);
+    }
+  }
+ 
+}

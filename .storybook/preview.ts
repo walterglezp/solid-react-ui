@@ -27,7 +27,7 @@ const preview: Preview = {
           "Layout",
           ["Container", "Row", "Flex"],
           "Form",
-          ["Form", "ButtonGroup", "Autoselect"],
+          ["Form", "Button", "ButtonGroup", "Select", "Autoselect"],
         ],
       },
     },

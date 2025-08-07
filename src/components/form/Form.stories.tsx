@@ -107,6 +107,17 @@ export const Default: Story = {
       { value: "la", label: "Los Angeles" },
       { value: "chi", label: "Chicago" },
       { value: "hou", label: "Houston" },
+      { value: "fl", label: "Florida" },
+      { value: "sf", label: "San Francisco" },
+      { value: "bos", label: "Boston" },
+      { value: "mia", label: "Miami" },
+      { value: "dal", label: "Dallas" },
+      { value: "sea", label: "Seattle" },
+      { value: "dc", label: "Washington D.C." },
+      { value: "phx", label: "Phoenix" },
+      { value: "atx", label: "Austin" },
+      { value: "den", label: "Denver" },
+      { value: "or", label: "Oregon" },
     ];
 
     return (
@@ -128,6 +139,13 @@ export const Default: Story = {
             { value: "us", label: "United States" },
             { value: "ca", label: "Canada" },
             { value: "mx", label: "Mexico" },
+            { value: "uk", label: "United Kingdom" },
+            { value: "fr", label: "France" },
+            { value: "de", label: "Germany" },
+            { value: "jp", label: "Japan" },
+            { value: "cn", label: "China" },
+            { value: "in", label: "India" },
+            { value: "br", label: "Brazil" },
           ]}
         />
 
@@ -163,24 +181,24 @@ export const Default: Story = {
               field={genderField}
               checkedValue="male"
               label="Male"
-              variant={false}
-              btnSize="sm"
+              color="primary"
+              size="md"
               onChange={setGenderField}
             />
             <Radio
               field={genderField}
               checkedValue="female"
               label="Female"
-              variant={false}
-              btnSize="sm"
+              color="success"
+              size="md"
               onChange={setGenderField}
             />
             <Radio
               field={genderField}
               checkedValue="other"
               label="Other"
-              variant={false}
-              btnSize="sm"
+              color="info"
+              size="md"
               onChange={setGenderField}
             />
           </div>

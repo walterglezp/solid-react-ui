@@ -70,8 +70,8 @@
 
 @mixin button-size($size) {
   @if $size == sm {
-    padding: spacing(1) spacing(3);
-    font-size: var(--font-size-xs);
+    padding: spacing(2) spacing(4);
+    font-size: var(--font-size-sm);
   } @else if $size == lg {
     padding: spacing(3) spacing(6);
     font-size: var(--font-size-base);
