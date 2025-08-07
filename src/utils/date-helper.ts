@@ -81,7 +81,7 @@ export const formatToMMDDYYYY = (input: string): string => {
   if (values[1]) values[1] = checkValue(values[1], 31);
 
   const formatted = values.map((v, i) =>
-    v.length === 2 && i < 2 ? `${v} / ` : v
+    v.length === 2 && i < 2 ? `${v} / ` : v,
   );
 
   return formatted.join("").slice(0, 14);

@@ -30,7 +30,7 @@
 .list-group-numbered {
   list-style-type: none;
   counter-reset: section;
-  
+
   > .list-group-item::before {
     content: counters(section, ".") ". ";
     counter-increment: section;
@@ -40,11 +40,11 @@
 
 .list-group-flush {
   @include border-radius(none);
-  
+
   > .list-group-item {
     border-width: 0 0 var(--list-group-border-width);
     @include border-radius(none);
-    
+
     &:last-child {
       border-bottom-width: 0;
     }
@@ -53,26 +53,26 @@
 
 .list-group-horizontal {
   flex-direction: row;
-  
+
   > .list-group-item {
     &:first-child:not(:last-child) {
       border-bottom-left-radius: var(--list-group-border-radius);
       border-top-right-radius: 0;
     }
-    
+
     &:last-child:not(:first-child) {
       border-top-right-radius: var(--list-group-border-radius);
       border-bottom-left-radius: 0;
     }
-    
+
     &.active {
       margin-top: 0;
     }
   }
-  
+
   &.list-group-flush > .list-group-item {
     border-width: 0 var(--list-group-border-width) 0 0;
-    
+
     &:last-child {
       border-right-width: 0;
     }

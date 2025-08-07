@@ -87,7 +87,7 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
       (day): CalendarDayType => ({
         date: format(day, "yyyy-MM-dd"),
         type: "new-reservation",
-      })
+      }),
     ),
     ...markedDays,
   ];
@@ -119,7 +119,7 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
   const updateDateTime = (
     target: "start" | "end",
     type: "hour" | "minute",
-    value: number
+    value: number,
   ) => {
     const newStart =
       target === "start"
@@ -234,20 +234,20 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
                     type="number"
                     value={format(
                       target === "start" ? startDate : endDate || startDate,
-                      "hh"
+                      "hh",
                     )}
                     onChange={(e) =>
                       updateDateTime(
                         target as any,
                         "hour",
-                        Number(e.target.value)
+                        Number(e.target.value),
                       )
                     }
                     onBlur={(e) =>
                       updateDateTime(
                         target as any,
                         "hour",
-                        Number(e.target.value)
+                        Number(e.target.value),
                       )
                     }
                     readOnly={readOnly}
@@ -261,20 +261,20 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
                     type="number"
                     value={format(
                       target === "start" ? startDate : endDate || startDate,
-                      "mm"
+                      "mm",
                     )}
                     onChange={(e) =>
                       updateDateTime(
                         target as any,
                         "minute",
-                        Number(e.target.value)
+                        Number(e.target.value),
                       )
                     }
                     onBlur={(e) =>
                       updateDateTime(
                         target as any,
                         "minute",
-                        Number(e.target.value)
+                        Number(e.target.value),
                       )
                     }
                     readOnly={readOnly}
@@ -293,7 +293,7 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
                             target === "start"
                               ? startDate
                               : endDate || startDate,
-                            "a"
+                            "a",
                           ) === "AM"
                         }
                         onChange={() => updateMeridian(target as any, "AM")}
@@ -316,7 +316,7 @@ const DateTimeRangePicker: React.FC<DateTimeRangePickerProps> = ({
                             target === "start"
                               ? startDate
                               : endDate || startDate,
-                            "a"
+                            "a",
                           ) === "PM"
                         }
                         onChange={() => updateMeridian(target as any, "PM")}

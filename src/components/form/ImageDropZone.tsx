@@ -55,7 +55,7 @@ const ImageDropZone: React.FC<ImageDropZoneProps> = ({
           100,
           0,
           "image/jpeg",
-          "file"
+          "file",
         );
       });
       const base64 = await fileToB64(resized);

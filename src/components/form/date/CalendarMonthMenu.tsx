@@ -10,7 +10,7 @@ const CalendarMonthMenu: React.FC<CalendarMonthMenuProps> = ({
   selectMonth,
 }) => {
   const months = Array.from({ length: 12 }, (_, i) =>
-    format(setMonth(new Date(), i), "MMMM")
+    format(setMonth(new Date(), i), "MMMM"),
   );
 
   const rows = months.reduce<JSX.Element[][]>((acc, month, i) => {
@@ -18,7 +18,7 @@ const CalendarMonthMenu: React.FC<CalendarMonthMenuProps> = ({
     acc[acc.length - 1].push(
       <td key={month} className="month-item" onClick={() => selectMonth(month)}>
         <span>{month}</span>
-      </td>
+      </td>,
     );
     return acc;
   }, []);

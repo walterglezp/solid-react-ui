@@ -6,7 +6,7 @@ import {
 
 export function validateOnChange<T extends FormFieldProps>(
   field: T,
-  onChange: (field: T) => void
+  onChange: (field: T) => void,
 ): boolean {
   // Validate
   const validatedField = validateInputField(field);
@@ -21,7 +21,7 @@ export function validateOnChange<T extends FormFieldProps>(
 export function validateFormSection<T extends FormFieldProps>(
   form: FormProps,
   section: number,
-  onChange: (field: T) => void
+  onChange: (field: T) => void,
 ): boolean {
   for (const [, field] of Object.entries(form.fields)) {
     if (field.validate && field.section === section) {
@@ -33,7 +33,7 @@ export function validateFormSection<T extends FormFieldProps>(
 }
 
 export function validateInputField(
-  field: FormFieldProps
+  field: FormFieldProps,
 ): FormFieldValidatedResultProps {
   const noErrors = { isValid: true, error: "" };
 

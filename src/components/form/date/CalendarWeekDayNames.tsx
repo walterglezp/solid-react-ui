@@ -5,7 +5,7 @@ import "./CalendarWeekDayNames.scss";
 const CalendarWeekDayNames: React.FC = () => {
   const start = startOfWeek(new Date(), { weekStartsOn: 0 }); // Sunday
   const weekDays = Array.from({ length: 7 }, (_, i) =>
-    format(addDays(start, i), "EEE")
+    format(addDays(start, i), "EEE"),
   );
 
   return (

@@ -14,6 +14,7 @@ import { ImageDropZone } from "./ImageDropZone";
 import { Radio } from "./Radio";
 import { TextArea } from "./TextArea";
 import type { FormFieldProps } from "./Form";
+import { Icon } from "../graphic/Icon";
 
 const meta: Meta<typeof Form> = {
   title: "Form/Form",
@@ -111,7 +112,11 @@ export const Default: Story = {
     return (
       <Form>
         <Input
-          label={<>Username 👱</>}
+          label={<Icon
+        className="ms-2 text-secondary"
+        name="user"
+        size={15}
+      />}
           field={usernameField}
           onChange={setUsernameField}
         />

@@ -85,7 +85,7 @@ const Autoselect: FC<AutoselectProps> = ({
     const currentValue = value.toLowerCase();
     setShowSuggestions(true);
     const filteredList = options.filter((s) =>
-      s.label.toLowerCase().includes(currentValue)
+      s.label.toLowerCase().includes(currentValue),
     );
     setInputValue(value);
     setOptions(filteredList);
@@ -97,7 +97,7 @@ const Autoselect: FC<AutoselectProps> = ({
     setInputValue(newValue.label);
     validateOnChange(
       { ...field, value: newValue.value?.toString() ?? "" },
-      onChange
+      onChange,
     );
   }, [onChange, optionsList, activeSuggestion]);
 
@@ -114,7 +114,7 @@ const Autoselect: FC<AutoselectProps> = ({
         validateOnChange({ ...field, value: suggestion.value }, onChange);
       }
     },
-    [activeSuggestion, optionsList, onChange]
+    [activeSuggestion, optionsList, onChange],
   );
 
   React.useEffect(() => {

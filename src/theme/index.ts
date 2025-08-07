@@ -1,7 +1,7 @@
 // Theme system exports
-export * from './ThemeProvider';
-export * from './presets';
-export * from './tokens';
+export * from "./ThemeProvider";
+export * from "./presets";
+export * from "./tokens";
 
 // Re-export types for easier imports
 export type {
@@ -20,8 +20,8 @@ export type {
   ZIndex,
   Transitions,
   ComponentVariants,
-} from '../types/theme.types';
+} from "../types/theme.types";
 
 // Re-export utilities
-export * from '../utils/theme-utils';
-export * from '../utils/color-utils';
+export * from "../utils/theme-utils";
+export * from "../utils/color-utils";

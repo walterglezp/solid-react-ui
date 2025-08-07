@@ -25,7 +25,7 @@ export default meta;
 type Story = StoryObj<typeof InputNumber>;
 
 const useNumberField = (
-  initial: number
+  initial: number,
 ): [FormFieldProps, (f: FormFieldProps) => void] => {
   const [field, setField] = useState<FormFieldProps>({
     name: "qty",

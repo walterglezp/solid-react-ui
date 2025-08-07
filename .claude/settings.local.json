@@ -1,10 +1,6 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(npx tsc:*)",
-      "Bash(node:*)",
-      "Bash(npm run build:*)"
-    ],
+    "allow": ["Bash(npx tsc:*)", "Bash(node:*)", "Bash(npm run build:*)"],
     "deny": []
   }
 }

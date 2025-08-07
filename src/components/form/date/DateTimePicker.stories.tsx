@@ -57,7 +57,7 @@ const Wrapper = (props: Partial<FormFieldProps> & { disabled?: boolean }) => {
         Current:{" "}
         {format(
           new Date(field.value as string),
-          DATE_FORMATS.FRIENDLY_TIMESTAMP
+          DATE_FORMATS.FRIENDLY_TIMESTAMP,
         )}
       </p>
     </div>

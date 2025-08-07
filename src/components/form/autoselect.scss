@@ -1,8 +1,5 @@
 .autoselect {
   border-radius: var(--border-radius-base) !important;
-  .form-control {
-    border-right-width: 0;
-  }
 
   &.borderless {
     border: none !important;
@@ -92,6 +89,7 @@
   }
 
   .input-group-text-arrow {
-    background-color: transparent !important;
+    background-color: #f1f1f3 !important;
+    border: none !important;
   }
 }

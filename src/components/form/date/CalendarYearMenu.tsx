@@ -19,7 +19,7 @@ const CalendarYearMenu: React.FC<CalendarYearMenuProps> = ({
     acc[acc.length - 1].push(
       <td key={y} className="year-item" onClick={() => selectYear(y)}>
         <span>{y}</span>
-      </td>
+      </td>,
     );
     return acc;
   }, []);

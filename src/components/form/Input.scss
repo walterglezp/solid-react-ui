@@ -5,26 +5,27 @@
   display: block;
   width: 100%;
   padding: spacing(2) spacing(3);
-  border: 1px solid theme-color(gray, 300);
+  border: none;
   @include border-radius(md);
-  background-color: white;
+  background-color: #f1f1f3;
   font-family: var(--font-family-sans);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-normal);
-  color: theme-color(gray, 900);
-  @include transition(border-color, box-shadow);
-  
+  color: #707072;
+  font-weight: bold;
+
   &::placeholder {
-    color: theme-color(gray, 400);
+    color: var(--color-gray-400);
   }
-  
+
   &:focus {
-    @include form-control-focus(secondary);
+    outline: none;
+    box-shadow: none;
   }
-  
+
   &:disabled {
-    background-color: theme-color(gray, 50);
-    color: theme-color(gray, 500);
+    background-color: var(--color-gray-50);
+    color: var(--color-gray-500);
     cursor: not-allowed;
   }
 }
@@ -47,35 +48,41 @@ select.form-control {
   position: relative;
   align-items: stretch;
   width: 100%;
-  
+
   &.invalid-field {
     .form-control {
-      @include form-validation-state(danger);
+      background-color: var(--color-danger-50);
+      color: var(--color-danger-900);
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
     }
-    
+
     .input-group-text {
-      border-color: theme-color(danger, 500);
+      background-color: var(--color-danger-50);
+      color: var(--color-danger-700);
     }
   }
-  
+
   .form-control {
     position: relative;
     flex: 1 1 auto;
     width: 1%;
     min-width: 0;
-    
+
     &:not(:first-child) {
-      margin-left: -1px;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
-    
+
     &:not(:last-child) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
   }
-  
+
   .input-group-text {
     display: flex;
     align-items: center;
@@ -83,24 +90,23 @@ select.form-control {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-normal);
     line-height: var(--line-height-normal);
-    color: theme-color(gray, 700);
+    color: var(--color-gray-700);
     text-align: center;
     white-space: nowrap;
-    background-color: theme-color(gray, 50);
-    border: 1px solid theme-color(gray, 300);
+    background-color: #f1f1f3;
+    border: none;
     @include border-radius(md);
-    
+
     &:not(:first-child) {
-      margin-left: -1px;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
-    
+
     &:not(:last-child) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
-    
+
     .cursor-pointer {
       cursor: pointer;
     }
@@ -112,7 +118,7 @@ select.form-control {
   .form-control {
     @include form-control-size(sm);
   }
-  
+
   .input-group-text {
     padding: spacing(1) spacing(2);
     font-size: var(--font-size-xs);
@@ -123,7 +129,7 @@ select.form-control {
   .form-control {
     @include form-control-size(lg);
   }
-  
+
   .input-group-text {
     padding: spacing(3) spacing(4);
     font-size: var(--font-size-base);

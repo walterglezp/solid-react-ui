@@ -1,7 +1,7 @@
-import React, { createContext, useContext, ReactNode, useEffect } from 'react';
-import { ThemeConfig } from '../types/theme.types';
-import { defaultTheme } from './presets';
-import { darkenColor, lightenColor } from '../utils/color-utils';
+import React, { createContext, useContext, ReactNode, useEffect } from "react";
+import { ThemeConfig } from "../types/theme.types";
+import { defaultTheme } from "./presets";
+import { darkenColor, lightenColor } from "../utils/color-utils";
 
 export interface ThemeProviderProps {
   children: ReactNode;
@@ -10,9 +10,9 @@ export interface ThemeProviderProps {
 
 const ThemeContext = createContext<ThemeConfig>(defaultTheme);
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({ 
-  children, 
-  theme = defaultTheme 
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({
+  children,
+  theme = defaultTheme,
 }) => {
   useEffect(() => {
     const root = document.documentElement;
@@ -20,9 +20,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={theme}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
   );
 };
 
@@ -46,19 +44,19 @@ const applyThemeVariables = (root: HTMLElement, theme: ThemeConfig) => {
   Object.entries(theme.typography.fontSize).forEach(([key, value]) => {
     root.style.setProperty(`--theme-font-size-${key}`, value);
   });
-  
+
   Object.entries(theme.typography.fontWeight).forEach(([key, value]) => {
     root.style.setProperty(`--theme-font-weight-${key}`, value.toString());
   });
-  
+
   Object.entries(theme.typography.fontFamily).forEach(([key, value]) => {
     root.style.setProperty(`--theme-font-family-${key}`, value);
   });
-  
+
   Object.entries(theme.typography.lineHeight).forEach(([key, value]) => {
     root.style.setProperty(`--theme-line-height-${key}`, value.toString());
   });
-  
+
   Object.entries(theme.typography.letterSpacing).forEach(([key, value]) => {
     root.style.setProperty(`--theme-letter-spacing-${key}`, value);
   });
@@ -92,7 +90,7 @@ const applyThemeVariables = (root: HTMLElement, theme: ThemeConfig) => {
   Object.entries(theme.transitions.duration).forEach(([key, value]) => {
     root.style.setProperty(`--theme-transition-duration-${key}`, value);
   });
-  
+
   Object.entries(theme.transitions.easing).forEach(([key, value]) => {
     root.style.setProperty(`--theme-transition-easing-${key}`, value);
   });
@@ -121,7 +119,11 @@ const applyThemeVariables = (root: HTMLElement, theme: ThemeConfig) => {
   // This ensures compatibility with our custom CSS color() function
   Object.entries(theme.colors).forEach(([key, value]) => {
     // Map semantic colors to our color system
-    if (['primary', 'secondary', 'success', 'info', 'warning', 'danger'].includes(key)) {
+    if (
+      ["primary", "secondary", "success", "info", "warning", "danger"].includes(
+        key,
+      )
+    ) {
       root.style.setProperty(`--color-${key}-500`, value);
       root.style.setProperty(`--color-${key}-600`, darkenColor(value, 0.1));
       root.style.setProperty(`--color-${key}-700`, darkenColor(value, 0.2));
@@ -132,9 +134,9 @@ const applyThemeVariables = (root: HTMLElement, theme: ThemeConfig) => {
       root.style.setProperty(`--color-${key}-50`, lightenColor(value, 0.5));
     }
   });
-  
+
   // Map gray colors from theme (use text/textSecondary/border colors)
-  const grayBase = theme.colors.textSecondary || '#6b7280';
+  const grayBase = theme.colors.textSecondary || "#6b7280";
   root.style.setProperty(`--color-gray-500`, grayBase);
   root.style.setProperty(`--color-gray-50`, lightenColor(grayBase, 0.8));
   root.style.setProperty(`--color-gray-100`, lightenColor(grayBase, 0.7));
@@ -144,9 +146,12 @@ const applyThemeVariables = (root: HTMLElement, theme: ThemeConfig) => {
   root.style.setProperty(`--color-gray-600`, darkenColor(grayBase, 0.1));
   root.style.setProperty(`--color-gray-700`, darkenColor(grayBase, 0.2));
   root.style.setProperty(`--color-gray-800`, darkenColor(grayBase, 0.3));
-  root.style.setProperty(`--color-gray-900`, theme.colors.text || darkenColor(grayBase, 0.4));
+  root.style.setProperty(
+    `--color-gray-900`,
+    theme.colors.text || darkenColor(grayBase, 0.4),
+  );
   root.style.setProperty(`--color-gray-950`, darkenColor(grayBase, 0.5));
-  
+
   // Apply color shades if defined
   Object.entries(theme.colorShades).forEach(([colorName, shades]) => {
     if (shades) {
@@ -155,16 +160,16 @@ const applyThemeVariables = (root: HTMLElement, theme: ThemeConfig) => {
       });
     }
   });
-  
+
   // Focus styling
-  root.style.setProperty('--focus-border-color', theme.colors.focus);
-  root.style.setProperty('--focus-border-thickness', '2px');
+  root.style.setProperty("--focus-border-color", theme.colors.focus);
+  root.style.setProperty("--focus-border-thickness", "2px");
 };
 
 export const useTheme = (): ThemeConfig => {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
 };
@@ -172,7 +177,7 @@ export const useTheme = (): ThemeConfig => {
 // Hook to get theme tokens with better TypeScript support
 export const useThemeTokens = () => {
   const theme = useTheme();
-  
+
   return {
     colors: theme.colors,
     spacing: theme.spacing,
@@ -189,18 +194,18 @@ export const useThemeTokens = () => {
 // Utility hook to check if dark mode is preferred
 export const usePrefersDarkMode = (): boolean => {
   const [prefersDark, setPrefersDark] = React.useState(false);
-  
+
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     setPrefersDark(mediaQuery.matches);
-    
+
     const handler = (event: MediaQueryListEvent) => {
       setPrefersDark(event.matches);
     };
-    
-    mediaQuery.addEventListener('change', handler);
-    return () => mediaQuery.removeEventListener('change', handler);
+
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
   }, []);
-  
+
   return prefersDark;
 };
