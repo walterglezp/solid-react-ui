@@ -178,6 +178,7 @@ export const Default: Story = {
           <h6>Select Gender</h6>
           <div className="d-flex gap-2">
             <Radio
+              className="me-2"
               field={genderField}
               checkedValue="male"
               label="Male"
@@ -186,6 +187,7 @@ export const Default: Story = {
               onChange={setGenderField}
             />
             <Radio
+              className="me-2"
               field={genderField}
               checkedValue="female"
               label="Female"
@@ -224,6 +226,8 @@ export const Default: Story = {
             </>
           }
           field={termsField}
+          color="primary"
+          size="md"
           onChange={setTermsField}
         />
 

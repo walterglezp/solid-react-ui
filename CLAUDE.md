@@ -189,7 +189,7 @@ Output a comprehensive list of scenarios you would test, sorted by highest prior
 When I type "qgit", this means:
 
 ```
-Add all changes to staging, create a commit, and push to remote.
+Add all changes to staging, create a commit.
 
 Follow this checklist for writing your commit message:
 - SHOULD use Conventional Commits format: https://www.conventionalcommits.org/en/v1.0.0

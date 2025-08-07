@@ -1,61 +1,64 @@
 import React from "react";
-import { uuid } from "../../utils/uuid-helper";
 import { generateClassnames } from "../../utils/classnames-helper";
 import { FormFieldProps } from "../form/Form";
 import { validateOnChange } from "../../utils/validation-helper";
 import { InputError } from "./InputError";
+import "./CheckBox.scss";
 
-export interface CheckBoxProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> {
+export interface CheckBoxProps {
   label?: string | React.ReactNode;
+  title?: string;
   className?: string;
-  inline?: boolean;
-  variant?: "checkbox" | "switch";
   field: FormFieldProps;
+  disabled?: boolean;
+  size?: "sm" | "md" | "lg";
+  color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
   onChange(field: FormFieldProps): void;
 }
 
 const CheckBox: React.FC<CheckBoxProps> = ({
   label,
   className,
-  variant = "checkbox",
-  inline = false,
+  title,
   field,
-  onChange,
   disabled = false,
-  ...rest
+  size = "md",
+  color,
+  onChange,
 }) => {
-  const universalID = uuid();
+  const isChecked = Boolean(field.value);
 
-  const classnames = generateClassnames({
+  const classnames: string = generateClassnames({
     "custom-checkbox": true,
-    "form-check": true,
-    "form-switch": variant === "switch",
-    "form-check-inline": inline,
-    [className ?? ""]: !!className,
+    [`checkbox-${color}`]: color !== undefined,
+    [`checkbox-${size}`]: size !== "md",
+    checked: isChecked,
+    disabled: disabled,
+    [`${className}`]: className !== undefined,
   });
 
+  const handleChange = () => {
+    if (!disabled) {
+      validateOnChange({ ...field, value: !isChecked }, onChange);
+    }
+  };
+
   return (
-    <div className={classnames}>
-      <input
-        id={universalID}
-        name={field.name}
-        type="checkbox"
-        className="form-check-input"
-        checked={Boolean(field.value)}
-        onChange={(e) =>
-          validateOnChange({ ...field, value: e.target.checked }, onChange)
-        }
-        disabled={disabled}
-        {...rest}
-      />
-      {label && (
-        <label className="form-check-label" htmlFor={universalID}>
-          {label}
-        </label>
-      )}
+    <>
+      <label className={classnames} title={title}>
+        <input
+          type="checkbox"
+          name={field.name}
+          checked={isChecked}
+          onChange={handleChange}
+          disabled={disabled}
+          className="checkbox-input"
+        />
+        <div className="checkbox-button" />
+        {label && <span className="checkbox-label">{label}</span>}
+      </label>
       {field.error && <InputError error={field.error} />}
-    </div>
+    </>
   );
 };
 
