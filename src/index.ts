@@ -23,6 +23,8 @@ export * from "./components/layout/Flex";
 export * from "./components/list/ListGroup";
 export * from "./components/list/ListGroupItem";
 export * from "./components/navigation/Link";
+export * from "./components/navigation/SideMenu";
+export * from "./components/graphic/Icon";
 export * from "./hooks/useClickOutside";
 export * from "./utils/classnames-helper";
 export * from "./utils/date-helper";
