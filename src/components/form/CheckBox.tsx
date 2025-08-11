@@ -13,6 +13,7 @@ export interface CheckBoxProps {
   disabled?: boolean;
   size?: "sm" | "md" | "lg";
   color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
+  isSwitch?: boolean;
   onChange(field: FormFieldProps): void;
 }
 
@@ -24,12 +25,14 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   disabled = false,
   size = "md",
   color,
+  isSwitch = false,
   onChange,
 }) => {
   const isChecked = Boolean(field.value);
 
   const classnames: string = generateClassnames({
-    "custom-checkbox": true,
+    "custom-checkbox": !isSwitch,
+    "custom-switch": isSwitch,
     [`checkbox-${color}`]: color !== undefined,
     [`checkbox-${size}`]: size !== "md",
     checked: isChecked,
@@ -54,7 +57,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({
           disabled={disabled}
           className="checkbox-input"
         />
-        <div className="checkbox-button" />
+        <div className={isSwitch ? "switch-button" : "checkbox-button"} />
         {label && <span className="checkbox-label">{label}</span>}
       </label>
       {field.error && <InputError error={field.error} />}

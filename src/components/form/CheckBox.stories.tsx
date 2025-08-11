@@ -22,6 +22,9 @@ const meta: Meta<typeof CheckBox> = {
     disabled: {
       control: "boolean",
     },
+    isSwitch: {
+      control: "boolean",
+    },
   },
 };
 
@@ -214,6 +217,121 @@ export const Disabled: Story = {
             color="primary"
             disabled={true}
             onChange={setDisabledField}
+          />
+        </div>
+      </div>
+    );
+  },
+};
+
+export const Switch: Story = {
+  render: () => {
+    const [switchFields, setSwitchFields] = useState({
+      notifications: true,
+      darkMode: false,
+      autoSave: true,
+      publicProfile: false,
+    });
+
+    const createField = (name: string, value: boolean): FormFieldProps => ({
+      name,
+      formName: "settings",
+      error: "",
+      value,
+      section: 0,
+      validate: { required: false },
+    });
+
+    const handleChange = (name: string) => (field: FormFieldProps) => {
+      setSwitchFields((prev) => ({ ...prev, [name]: field.value }));
+    };
+
+    return (
+      <div style={{ padding: "2rem" }}>
+        <h4>Switch Variants</h4>
+        <div style={{ display: "flex", gap: "1rem", flexDirection: "column" }}>
+          <CheckBox
+            field={createField("notifications", switchFields.notifications)}
+            label="Push Notifications"
+            color="primary"
+            isSwitch={true}
+            onChange={handleChange("notifications")}
+          />
+          <CheckBox
+            field={createField("darkMode", switchFields.darkMode)}
+            label="Dark Mode"
+            color="secondary"
+            isSwitch={true}
+            onChange={handleChange("darkMode")}
+          />
+          <CheckBox
+            field={createField("autoSave", switchFields.autoSave)}
+            label="Auto Save"
+            color="success"
+            isSwitch={true}
+            onChange={handleChange("autoSave")}
+          />
+          <CheckBox
+            field={createField("publicProfile", switchFields.publicProfile)}
+            label="Public Profile"
+            color="warning"
+            isSwitch={true}
+            onChange={handleChange("publicProfile")}
+          />
+        </div>
+      </div>
+    );
+  },
+};
+
+export const SwitchSizes: Story = {
+  render: () => {
+    const [sizeFields, setSizeFields] = useState({
+      sm: true,
+      md: false,
+      lg: true,
+    });
+
+    const createField = (name: string, value: boolean): FormFieldProps => ({
+      name,
+      formName: "demo",
+      error: "",
+      value,
+      section: 0,
+      validate: { required: false },
+    });
+
+    const handleChange = (name: string) => (field: FormFieldProps) => {
+      setSizeFields((prev) => ({ ...prev, [name]: field.value }));
+    };
+
+    return (
+      <div style={{ padding: "2rem" }}>
+        <h4>Switch Sizes</h4>
+        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+          <CheckBox
+            field={createField("sm", sizeFields.sm)}
+            label="Small"
+            size="sm"
+            color="primary"
+            isSwitch={true}
+            onChange={handleChange("sm")}
+          />
+          <CheckBox
+            field={createField("md", sizeFields.md)}
+            label="Medium"
+            size="md"
+            color="primary"
+            isSwitch={true}
+            onChange={handleChange("md")}
+          />
+          <CheckBox
+            field={createField("lg", sizeFields.lg)}
+            label="Large"
+            size="lg"
+            color="primary"
+            isSwitch={true}
+            onChange={handleChange("lg")}
           />
         </div>
       </div>
