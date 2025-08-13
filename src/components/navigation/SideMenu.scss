@@ -116,8 +116,8 @@
   min-height: 48px;
   position: relative;
 
-  &:hover {
-    background-color: theme-color(gray, 100);
+  &:hover { 
+    background-color: #f1f1f3;
   }
 
   &:active {
@@ -180,24 +180,24 @@
 
   // Active state
   &--active {
-    background-color: theme-color(primary, 100);
-    color: theme-color(primary, 800);
+    // background-color: theme-color(gray, 300);
+    color: theme-color(danger);
 
     .side-menu-item__icon {
-      color: theme-color(primary, 600);
+      color: theme-color(danger);
     }
 
     .side-menu-item__label {
-      color: theme-color(primary, 900);
+      color: theme-color(danger);
       font-weight: 600;
     }
 
     .side-menu-item__chevron {
-      color: theme-color(primary, 600);
+      color: theme-color(danger);
     }
 
     &:hover {
-      background-color: theme-color(primary, 150);
+      background-color: theme-color(danger, 150);
     }
   }
 
