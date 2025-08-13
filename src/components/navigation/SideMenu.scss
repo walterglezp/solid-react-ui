@@ -186,24 +186,25 @@
 
   // Active state
   &--active {
-    // background-color: theme-color(gray, 300);
-    color: theme-color(danger);
+    // No background by default
+    color: var(--side-menu-active-color, theme-color(danger));
 
     .side-menu-item__icon {
-      color: theme-color(danger);
+      color: var(--side-menu-active-color, theme-color(danger));
     }
 
     .side-menu-item__label {
-      color: theme-color(danger);
+      color: var(--side-menu-active-color, theme-color(danger));
       font-weight: 600;
     }
 
     .side-menu-item__chevron {
-      color: theme-color(danger);
+      color: var(--side-menu-active-color, theme-color(danger));
     }
 
-    &:hover {
-      background-color: theme-color(danger, 150);
+    .side-menu-item__badge {
+      background-color: var(--side-menu-active-color, theme-color(danger));
+      color: var(--side-menu-active-text-color, white);
     }
   }
 

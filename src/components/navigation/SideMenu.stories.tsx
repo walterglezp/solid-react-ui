@@ -23,6 +23,12 @@ const meta: Meta<typeof SideMenu> = {
       control: { type: "radio" },
       options: ["left", "right"],
     },
+    activeColor: {
+      control: "color",
+    },
+    activeTextColor: {
+      control: "color",
+    },
   },
 };
 
@@ -408,6 +414,99 @@ export const PositionComparison: Story = {
           onToggleCollapse={() => setRightCollapsed(!rightCollapsed)}
           position="right"
         />
+      </div>
+    );
+  },
+};
+
+export const CustomThemeColors: Story = {
+  render: () => {
+    const [collapsed, setCollapsed] = useState(false);
+    const [activeItem, setActiveItem] = useState("profile");
+    const [activeColor, setActiveColor] = useState("#10B981"); // Green theme
+
+    const sections = createSampleSections(activeItem).map((section) => ({
+      ...section,
+      items: section.items.map((item) => ({
+        ...item,
+        onClick: () => setActiveItem(item.id),
+      })),
+    }));
+
+    return (
+      <div style={{ height: "100vh", display: "flex" }}>
+        <SideMenu
+          sections={sections}
+          collapsed={collapsed}
+          onToggleCollapse={() => setCollapsed(!collapsed)}
+          activeColor={activeColor}
+          activeTextColor="white"
+        />
+        <div style={{ flex: 1, padding: "2rem", backgroundColor: "#fff" }}>
+          <h1>Custom Theme Colors</h1>
+          <p>Customize the active state color of menu items.</p>
+          <p>
+            Active item: <strong>{activeItem}</strong>
+          </p>
+
+          <div style={{ marginTop: "2rem" }}>
+            <h3>Try different colors:</h3>
+            <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+              <button
+                onClick={() => setActiveColor("#10B981")}
+                style={{
+                  backgroundColor: "#10B981",
+                  color: "white",
+                  border: "none",
+                  padding: "0.5rem 1rem",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                }}
+              >
+                Green
+              </button>
+              <button
+                onClick={() => setActiveColor("#3B82F6")}
+                style={{
+                  backgroundColor: "#3B82F6",
+                  color: "white",
+                  border: "none",
+                  padding: "0.5rem 1rem",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                }}
+              >
+                Blue
+              </button>
+              <button
+                onClick={() => setActiveColor("#8B5CF6")}
+                style={{
+                  backgroundColor: "#8B5CF6",
+                  color: "white",
+                  border: "none",
+                  padding: "0.5rem 1rem",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                }}
+              >
+                Purple
+              </button>
+              <button
+                onClick={() => setActiveColor("#EF4444")}
+                style={{
+                  backgroundColor: "#EF4444",
+                  color: "white",
+                  border: "none",
+                  padding: "0.5rem 1rem",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                }}
+              >
+                Red
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   },

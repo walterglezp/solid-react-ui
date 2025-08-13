@@ -29,6 +29,8 @@ export interface SideMenuProps {
   width?: string;
   collapsedWidth?: string;
   position?: "left" | "right";
+  activeColor?: string;
+  activeTextColor?: string;
 }
 
 const SideMenuItem: React.FC<{
@@ -137,6 +139,8 @@ const SideMenu: React.FC<SideMenuProps> = ({
   width = "280px",
   collapsedWidth = "60px",
   position = "left",
+  activeColor,
+  activeTextColor = "white",
 }) => {
   const classnames = generateClassnames({
     "side-menu": true,
@@ -147,7 +151,11 @@ const SideMenu: React.FC<SideMenuProps> = ({
 
   const menuStyle = {
     width: collapsed ? collapsedWidth : width,
-  };
+    ...(activeColor && {
+      "--side-menu-active-color": activeColor,
+      "--side-menu-active-text-color": activeTextColor,
+    }),
+  } as React.CSSProperties;
 
   return (
     <div className={classnames} style={menuStyle}>
