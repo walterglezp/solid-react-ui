@@ -28,6 +28,7 @@ export interface SideMenuProps {
   className?: string;
   width?: string;
   collapsedWidth?: string;
+  position?: "left" | "right";
 }
 
 const SideMenuItem: React.FC<{
@@ -135,10 +136,12 @@ const SideMenu: React.FC<SideMenuProps> = ({
   className,
   width = "280px",
   collapsedWidth = "60px",
+  position = "left",
 }) => {
   const classnames = generateClassnames({
     "side-menu": true,
     "side-menu--collapsed": collapsed,
+    "side-menu--right": position === "right",
     [`${className}`]: className !== undefined,
   });
 

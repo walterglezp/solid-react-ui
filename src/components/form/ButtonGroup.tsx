@@ -4,7 +4,14 @@ import "./ButtonGroup.scss";
 
 type ButtonGroupProps = {
   variant?: "group" | "toolbar" | "segmented";
-  color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light";
+  color?:
+    | "primary"
+    | "secondary"
+    | "success"
+    | "danger"
+    | "warning"
+    | "info"
+    | "light";
   className?: string;
   size?: "sm" | "md" | "lg";
   vertical?: boolean;

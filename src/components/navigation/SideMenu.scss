@@ -48,6 +48,12 @@
     padding: spacing(2) 0;
   }
 
+  // Right position variant
+  &--right {
+    border-right: none;
+    border-left: 1px solid theme-color(gray, 200);
+  }
+
   // Collapsed state
   &--collapsed {
     .side-menu__header {
@@ -116,7 +122,7 @@
   min-height: 48px;
   position: relative;
 
-  &:hover { 
+  &:hover {
     background-color: #f1f1f3;
   }
 

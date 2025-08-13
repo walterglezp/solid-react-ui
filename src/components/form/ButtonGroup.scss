@@ -153,8 +153,9 @@
       z-index: 2;
       transform: none !important;
       border: none !important;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
-                  0 1px 2px rgba(0, 0, 0, 0.06) !important;
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(0, 0, 0, 0.06) !important;
     }
   }
 }
@@ -192,7 +193,7 @@
 
 .btn-group-segmented-secondary {
   background-color: theme-color(gray, 100);
- 
+
   .btn {
     color: theme-color(gray, 600) !important;
 
@@ -341,7 +342,7 @@
 }
 
 .btn-group-segmented-light {
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
 
   .btn {
     color: #111827 !important;
@@ -349,7 +350,7 @@
 
     &:hover {
       color: #111827 !important;
-      background: #EEEEEE !important;
+      background: #eeeeee !important;
     }
 
     &:focus {
@@ -360,13 +361,13 @@
 
     &.active,
     &:active {
-      background-color: #FEFEFE !important;
+      background-color: #fefefe !important;
       color: #111827 !important;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
 
       &:hover,
       &:focus {
-        background-color: #FEFEFE !important;
+        background-color: #fefefe !important;
         color: #111827 !important;
       }
     }

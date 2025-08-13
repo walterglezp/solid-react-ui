@@ -19,6 +19,10 @@ const meta: Meta<typeof SideMenu> = {
     collapsedWidth: {
       control: "text",
     },
+    position: {
+      control: { type: "radio" },
+      options: ["left", "right"],
+    },
   },
 };
 
@@ -53,7 +57,7 @@ const createSampleSections = (
       {
         id: "orders",
         label: "Your orders",
-        icon: "user-img",
+        icon: "logo-market",
         description: "Review 4 orders",
         active: activeItemId === "orders",
       },
@@ -313,6 +317,102 @@ export const CustomWidth: Story = {
   },
 };
 
+export const RightPosition: Story = {
+  render: () => {
+    const [collapsed, setCollapsed] = useState(false);
+    const [activeItem, setActiveItem] = useState("profile");
+
+    const sections = createSampleSections(activeItem).map((section) => ({
+      ...section,
+      items: section.items.map((item) => ({
+        ...item,
+        onClick: () => setActiveItem(item.id),
+      })),
+    }));
+
+    return (
+      <div style={{ height: "100vh", display: "flex" }}>
+        <div style={{ flex: 1, padding: "2rem", backgroundColor: "#fff" }}>
+          <h1>Right-Positioned SideMenu</h1>
+          <p>
+            Active item: <strong>{activeItem}</strong>
+          </p>
+          <p>Menu is positioned on the right side</p>
+        </div>
+        <SideMenu
+          sections={sections}
+          collapsed={collapsed}
+          onToggleCollapse={() => setCollapsed(!collapsed)}
+          position="right"
+        />
+      </div>
+    );
+  },
+};
+
+export const PositionComparison: Story = {
+  render: () => {
+    const [leftCollapsed, setLeftCollapsed] = useState(false);
+    const [rightCollapsed, setRightCollapsed] = useState(false);
+    const [leftActiveItem, setLeftActiveItem] = useState("profile");
+    const [rightActiveItem, setRightActiveItem] = useState("notifications");
+
+    const leftSections = createSampleSections(leftActiveItem).map(
+      (section) => ({
+        ...section,
+        items: section.items.map((item) => ({
+          ...item,
+          onClick: () => setLeftActiveItem(item.id),
+        })),
+      }),
+    );
+
+    const rightSections = createSampleSections(rightActiveItem).map(
+      (section) => ({
+        ...section,
+        items: section.items.map((item) => ({
+          ...item,
+          onClick: () => setRightActiveItem(item.id),
+        })),
+      }),
+    );
+
+    return (
+      <div style={{ height: "100vh", display: "flex" }}>
+        <SideMenu
+          sections={leftSections}
+          collapsed={leftCollapsed}
+          onToggleCollapse={() => setLeftCollapsed(!leftCollapsed)}
+          position="left"
+        />
+        <div
+          style={{
+            flex: 1,
+            padding: "2rem",
+            backgroundColor: "#fff",
+            textAlign: "center",
+          }}
+        >
+          <h1>Left vs Right Positioning</h1>
+          <p>
+            Left Active: <strong>{leftActiveItem}</strong>
+          </p>
+          <p>
+            Right Active: <strong>{rightActiveItem}</strong>
+          </p>
+          <p>Compare side menus positioned on both sides</p>
+        </div>
+        <SideMenu
+          sections={rightSections}
+          collapsed={rightCollapsed}
+          onToggleCollapse={() => setRightCollapsed(!rightCollapsed)}
+          position="right"
+        />
+      </div>
+    );
+  },
+};
+
 export const IOSStyleSettings: Story = {
   render: () => {
     const [collapsed, setCollapsed] = useState(false);
@@ -348,7 +448,7 @@ export const IOSStyleSettings: Story = {
           {
             id: "orders",
             label: "Your orders",
-            icon: "user-img",
+            icon: "logo-market",
             description: "Review 4 orders",
             active: activeItem === "orders",
             onClick: () => setActiveItem("orders"),
