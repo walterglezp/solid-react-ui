@@ -22,12 +22,14 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          "Intro",
+          "Welcome",
           "Theme",
           "Layout",
           ["Container", "Row", "Flex"],
           "Form",
           ["Form", "Button", "ButtonGroup", "Select", "Autoselect"],
+          "Navigation",
+          ["SideMenu", "Menu", "MenuBar", "Link"],
         ],
       },
     },
