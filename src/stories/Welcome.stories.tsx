@@ -17,7 +17,8 @@ const WelcomeComponent = () => (
   <div
     style={{
       padding: "3rem",
-      fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+      fontFamily:
+        '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
       maxWidth: "1200px",
       margin: "0 auto",
       lineHeight: 1.6,
@@ -25,7 +26,8 @@ const WelcomeComponent = () => (
   >
     <div
       style={{
-        background: "linear-gradient(135deg, #4d6bfe 0%, #7c3aed 50%, #db2777 100%)",
+        background:
+          "linear-gradient(135deg, #4d6bfe 0%, #7c3aed 50%, #db2777 100%)",
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
         backgroundClip: "text",
@@ -37,7 +39,7 @@ const WelcomeComponent = () => (
     >
       SolidReactUI
     </div>
-    
+
     <p
       style={{
         fontSize: "1.25rem",
@@ -46,7 +48,8 @@ const WelcomeComponent = () => (
         fontWeight: 400,
       }}
     >
-      A modern, customizable React component library built with TypeScript and SCSS
+      A modern, customizable React component library built with TypeScript and
+      SCSS
     </p>
 
     <div
@@ -78,13 +81,25 @@ const WelcomeComponent = () => (
             marginBottom: "1rem",
           }}
         >
-          <span style={{ color: "white", fontSize: "1.5rem", fontWeight: "bold" }}>🎨</span>
+          <span
+            style={{ color: "white", fontSize: "1.5rem", fontWeight: "bold" }}
+          >
+            🎨
+          </span>
         </div>
-        <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "0.5rem", color: "#1f2937" }}>
+        <h3
+          style={{
+            fontSize: "1.25rem",
+            fontWeight: 600,
+            marginBottom: "0.5rem",
+            color: "#1f2937",
+          }}
+        >
           Themeable
         </h3>
         <p style={{ color: "#6b7280", margin: 0 }}>
-          Dynamic theming system with CSS custom properties. Easily customize colors, typography, and spacing.
+          Dynamic theming system with CSS custom properties. Easily customize
+          colors, typography, and spacing.
         </p>
       </div>
 
@@ -109,13 +124,25 @@ const WelcomeComponent = () => (
             marginBottom: "1rem",
           }}
         >
-          <span style={{ color: "white", fontSize: "1.5rem", fontWeight: "bold" }}>⚡</span>
+          <span
+            style={{ color: "white", fontSize: "1.5rem", fontWeight: "bold" }}
+          >
+            ⚡
+          </span>
         </div>
-        <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "0.5rem", color: "#1f2937" }}>
+        <h3
+          style={{
+            fontSize: "1.25rem",
+            fontWeight: 600,
+            marginBottom: "0.5rem",
+            color: "#1f2937",
+          }}
+        >
           TypeScript First
         </h3>
         <p style={{ color: "#6b7280", margin: 0 }}>
-          Built with TypeScript for excellent developer experience, type safety, and IDE support.
+          Built with TypeScript for excellent developer experience, type safety,
+          and IDE support.
         </p>
       </div>
 
@@ -140,13 +167,25 @@ const WelcomeComponent = () => (
             marginBottom: "1rem",
           }}
         >
-          <span style={{ color: "white", fontSize: "1.5rem", fontWeight: "bold" }}>📱</span>
+          <span
+            style={{ color: "white", fontSize: "1.5rem", fontWeight: "bold" }}
+          >
+            📱
+          </span>
         </div>
-        <h3 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "0.5rem", color: "#1f2937" }}>
+        <h3
+          style={{
+            fontSize: "1.25rem",
+            fontWeight: 600,
+            marginBottom: "0.5rem",
+            color: "#1f2937",
+          }}
+        >
           Responsive
         </h3>
         <p style={{ color: "#6b7280", margin: 0 }}>
-          Mobile-first design with responsive components that work beautifully across all devices.
+          Mobile-first design with responsive components that work beautifully
+          across all devices.
         </p>
       </div>
     </div>
@@ -160,14 +199,21 @@ const WelcomeComponent = () => (
         color: "white",
       }}
     >
-      <h3 style={{ fontSize: "1.5rem", fontWeight: 600, marginBottom: "1rem", color: "white" }}>
+      <h3
+        style={{
+          fontSize: "1.5rem",
+          fontWeight: 600,
+          marginBottom: "1rem",
+          color: "white",
+        }}
+      >
         Getting Started
       </h3>
       <p style={{ color: "#d1d5db", marginBottom: "1.5rem" }}>
-        Explore the component categories in the sidebar to see all available components, their variants, 
-        and interactive examples.
+        Explore the component categories in the sidebar to see all available
+        components, their variants, and interactive examples.
       </p>
-      
+
       <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
         <div
           style={{
