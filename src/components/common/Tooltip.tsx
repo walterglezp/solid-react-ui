@@ -5,32 +5,11 @@ import "./Tooltip.scss";
 type TooltipPosition = "top" | "right" | "bottom" | "left";
 
 type TooltipProps = {
-  /**
-   * Additional CSS classes to apply to the tooltip container
-   */
   className?: string;
-  /**
-   * Position of the tooltip relative to the trigger element
-   * @default 'top'
-   */
   position?: TooltipPosition;
-  /**
-   * Content to display in the tooltip
-   */
   content: ReactNode;
-  /**
-   * Delay in milliseconds before showing the tooltip on hover
-   * @default 200
-   */
   delay?: number;
-  /**
-   * Whether the tooltip is disabled
-   * @default false
-   */
   disabled?: boolean;
-  /**
-   * Element that triggers the tooltip
-   */
   children: ReactNode;
 };
 

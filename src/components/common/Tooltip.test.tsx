@@ -38,7 +38,7 @@ describe("Tooltip", () => {
 
     const tooltip = screen.getByRole("tooltip");
     expect(tooltip).toHaveTextContent(TOOLTIP_CONTENT);
-    
+
     const container = screen.getByRole("button").parentElement;
     expect(container).toHaveStyle("--tooltip-delay: 200ms");
   });
@@ -55,7 +55,7 @@ describe("Tooltip", () => {
     const trigger = screen.getByRole("button");
     await user.tab(); // Focus the button
     expect(trigger).toHaveFocus();
-    
+
     // Tooltip should be present in DOM
     const tooltip = screen.getByRole("tooltip");
     expect(tooltip).toBeInTheDocument();
@@ -161,7 +161,7 @@ describe("Tooltip", () => {
 describe("Tooltip Properties", () => {
   test("delay property is always respected", () => {
     const delays = [0, 100, 500, 1000];
-    
+
     delays.forEach((delay) => {
       const { unmount } = render(
         <Tooltip content={TOOLTIP_CONTENT} delay={delay}>
@@ -171,7 +171,7 @@ describe("Tooltip Properties", () => {
 
       const container = screen.getByRole("button").parentElement;
       expect(container).toHaveStyle(`--tooltip-delay: ${delay}ms`);
-      
+
       unmount();
     });
   });
@@ -188,7 +188,7 @@ describe("Tooltip Properties", () => {
 
       const tooltip = screen.getByRole("tooltip");
       expect(tooltip).toHaveClass(`tooltip--${position}`);
-      
+
       unmount();
     });
   });
