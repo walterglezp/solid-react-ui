@@ -101,7 +101,7 @@ describe("Alert", () => {
       name: /dismiss alert/i,
     });
     expect(dismissButton).toBeInTheDocument();
-    expect(dismissButton).toHaveTextContent("×");
+    expect(dismissButton).toHaveClass("alert__dismiss");
   });
 
   test("does not render dismiss button when dismissible is false", () => {

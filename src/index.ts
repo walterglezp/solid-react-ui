@@ -2,6 +2,7 @@ import "./styles/global.scss";
 export * from "./components/common/ScrollBar";
 export * from "./components/common/Tooltip";
 export * from "./components/common/Alert";
+export * from "./components/common/ModalDialog";
 export * from "./components/form/Autoselect";
 export * from "./components/form/Button";
 export * from "./components/form/CheckBox";
