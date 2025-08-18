@@ -96,8 +96,8 @@ export const BasicConfirmation: Story = {
           }
         >
           <p>
-            You're about to connect to an external service. You will need to 
-            authorize the connection to allow data synchronization between your 
+            You're about to connect to an external service. You will need to
+            authorize the connection to allow data synchronization between your
             accounts.
           </p>
           <p style={{ marginTop: "16px", color: "#666" }}>
@@ -217,8 +217,8 @@ export const SimpleContent: Story = {
               Media content area
             </div>
             <p>
-              Learn the fundamentals of using our platform effectively. This 
-              comprehensive guide covers all the essential features and best 
+              Learn the fundamentals of using our platform effectively. This
+              comprehensive guide covers all the essential features and best
               practices to help you get the most out of your experience.
             </p>
           </div>
