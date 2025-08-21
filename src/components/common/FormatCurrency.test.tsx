@@ -5,7 +5,7 @@ import { FormatCurrency, formatCurrency } from "./FormatCurrency";
 describe("FormatCurrency", () => {
   test("renders formatted currency with default props", () => {
     render(<FormatCurrency value={1234.56} />);
-    
+
     // Should format as USD with en-US locale by default
     expect(screen.getByText("$1,234.56")).toBeInTheDocument();
   });
@@ -20,9 +20,9 @@ describe("FormatCurrency", () => {
 
     currencies.forEach(({ currency, expected }) => {
       const { unmount } = render(
-        <FormatCurrency value={1234.56} currency={currency} />
+        <FormatCurrency value={1234.56} currency={currency} />,
       );
-      
+
       expect(screen.getByText(expected)).toBeInTheDocument();
       unmount();
     });
@@ -37,9 +37,9 @@ describe("FormatCurrency", () => {
 
     locales.forEach(({ locale, expected }) => {
       const { unmount } = render(
-        <FormatCurrency value={1234.56} currency="USD" locale={locale} />
+        <FormatCurrency value={1234.56} currency="USD" locale={locale} />,
       );
-      
+
       expect(screen.getByText(expected)).toBeInTheDocument();
       unmount();
     });
@@ -47,41 +47,39 @@ describe("FormatCurrency", () => {
 
   test("handles precision control", () => {
     render(
-      <FormatCurrency 
-        value={1234.567} 
+      <FormatCurrency
+        value={1234.567}
         minimumFractionDigits={0}
         maximumFractionDigits={0}
-      />
+      />,
     );
-    
+
     expect(screen.getByText("$1,235")).toBeInTheDocument();
   });
 
   test("handles negative values", () => {
     const { rerender } = render(
-      <FormatCurrency value={-1234.56} currencySign="standard" />
+      <FormatCurrency value={-1234.56} currencySign="standard" />,
     );
-    
+
     expect(screen.getByText("-$1,234.56")).toBeInTheDocument();
-    
-    rerender(
-      <FormatCurrency value={-1234.56} currencySign="accounting" />
-    );
-    
+
+    rerender(<FormatCurrency value={-1234.56} currencySign="accounting" />);
+
     expect(screen.getByText("($1,234.56)")).toBeInTheDocument();
   });
 
   test("applies custom className", () => {
     const customClass = "custom-currency-class";
     render(<FormatCurrency value={123.45} className={customClass} />);
-    
+
     const element = screen.getByText("$123.45");
     expect(element).toHaveClass(customClass);
   });
 
   test("renders tooltip with raw value and currency", () => {
     render(<FormatCurrency value={1234.56} currency="EUR" />);
-    
+
     const element = screen.getByText("€1,234.56");
     expect(element).toHaveAttribute("title", "1234.56 EUR");
   });
@@ -95,9 +93,9 @@ describe("FormatCurrency", () => {
 
     displayOptions.forEach(({ display, expected }) => {
       const { unmount } = render(
-        <FormatCurrency value={1234.56} currencyDisplay={display} />
+        <FormatCurrency value={1234.56} currencyDisplay={display} />,
       );
-      
+
       expect(screen.getByText(expected)).toBeInTheDocument();
       unmount();
     });
@@ -105,15 +103,13 @@ describe("FormatCurrency", () => {
 
   test("handles grouping option", () => {
     const { rerender } = render(
-      <FormatCurrency value={12345.67} useGrouping={true} />
+      <FormatCurrency value={12345.67} useGrouping={true} />,
     );
-    
+
     expect(screen.getByText("$12,345.67")).toBeInTheDocument();
-    
-    rerender(
-      <FormatCurrency value={12345.67} useGrouping={false} />
-    );
-    
+
+    rerender(<FormatCurrency value={12345.67} useGrouping={false} />);
+
     expect(screen.getByText("$12345.67")).toBeInTheDocument();
   });
 
@@ -122,9 +118,9 @@ describe("FormatCurrency", () => {
 
     invalidValues.forEach((value) => {
       const { unmount } = render(
-        <FormatCurrency value={value} fallback="N/A" />
+        <FormatCurrency value={value} fallback="N/A" />,
       );
-      
+
       expect(screen.getByText("N/A")).toBeInTheDocument();
       unmount();
     });
@@ -132,42 +128,38 @@ describe("FormatCurrency", () => {
 
   test("uses default fallback for invalid values", () => {
     render(<FormatCurrency value={NaN} />);
-    
+
     expect(screen.getByText("—")).toBeInTheDocument();
   });
 
   test("handles locale mappings", () => {
     // Test short locale codes that should be mapped
-    const { rerender } = render(
-      <FormatCurrency value={1234.56} locale="en" />
-    );
-    
+    const { rerender } = render(<FormatCurrency value={1234.56} locale="en" />);
+
     // Should map 'en' to 'en-US'
     expect(screen.getByText("$1,234.56")).toBeInTheDocument();
-    
-    rerender(
-      <FormatCurrency value={1234.56} currency="EUR" locale="de" />
-    );
-    
-    // Should map 'de' to 'de-DE' 
+
+    rerender(<FormatCurrency value={1234.56} currency="EUR" locale="de" />);
+
+    // Should map 'de' to 'de-DE'
     expect(screen.getByText("1.234,56 €")).toBeInTheDocument();
   });
 
   test("handles zero value", () => {
     render(<FormatCurrency value={0} />);
-    
+
     expect(screen.getByText("$0.00")).toBeInTheDocument();
   });
 
   test("handles very small values", () => {
     render(<FormatCurrency value={0.01} />);
-    
+
     expect(screen.getByText("$0.01")).toBeInTheDocument();
   });
 
   test("handles very large values", () => {
     render(<FormatCurrency value={1000000.99} />);
-    
+
     expect(screen.getByText("$1,000,000.99")).toBeInTheDocument();
   });
 });
@@ -211,31 +203,42 @@ describe("formatCurrency utility function", () => {
 describe("FormatCurrency Properties", () => {
   test("always renders a span element", () => {
     render(<FormatCurrency value={123.45} />);
-    
+
     const element = screen.getByText("$123.45");
     expect(element.tagName).toBe("SPAN");
   });
 
   test("currency code is always uppercase in tooltip", () => {
     render(<FormatCurrency value={123.45} currency="eur" />);
-    
+
     const element = screen.getByText("€123.45");
     expect(element).toHaveAttribute("title", "123.45 EUR");
   });
 
   test("handles all supported currencies without errors", () => {
-    const currencies = ["USD", "EUR", "GBP", "JPY", "CAD", "AUD", "CHF", "CNY", "INR", "BRL"];
-    
+    const currencies = [
+      "USD",
+      "EUR",
+      "GBP",
+      "JPY",
+      "CAD",
+      "AUD",
+      "CHF",
+      "CNY",
+      "INR",
+      "BRL",
+    ];
+
     currencies.forEach((currency) => {
       const { unmount } = render(
-        <FormatCurrency value={100} currency={currency} />
+        <FormatCurrency value={100} currency={currency} />,
       );
-      
+
       // Should not throw and should render something
       const element = screen.getByRole("generic");
       expect(element).toBeInTheDocument();
       expect(element.textContent).toBeTruthy();
-      
+
       unmount();
     });
   });
@@ -243,13 +246,13 @@ describe("FormatCurrency Properties", () => {
   test("fraction digits constraints are respected", () => {
     // Test that min <= max constraint is handled
     render(
-      <FormatCurrency 
+      <FormatCurrency
         value={123.456789}
         minimumFractionDigits={3}
         maximumFractionDigits={2} // This is invalid: min > max
-      />
+      />,
     );
-    
+
     // Should still render without crashing
     const element = screen.getByRole("generic");
     expect(element).toBeInTheDocument();
@@ -258,10 +261,10 @@ describe("FormatCurrency Properties", () => {
   test("maintains consistent behavior across renders", () => {
     const { rerender } = render(<FormatCurrency value={123.45} />);
     const firstRender = screen.getByText("$123.45").textContent;
-    
+
     rerender(<FormatCurrency value={123.45} />);
     const secondRender = screen.getByText("$123.45").textContent;
-    
+
     expect(firstRender).toBe(secondRender);
   });
 });

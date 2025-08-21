@@ -94,14 +94,30 @@ export const Default: Story = {
 export const MultipleCurrencies: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-      <div><strong>USD:</strong> <FormatCurrency value={1234.56} currency="USD" /></div>
-      <div><strong>EUR:</strong> <FormatCurrency value={1234.56} currency="EUR" /></div>
-      <div><strong>GBP:</strong> <FormatCurrency value={1234.56} currency="GBP" /></div>
-      <div><strong>JPY:</strong> <FormatCurrency value={1234.56} currency="JPY" /></div>
-      <div><strong>CAD:</strong> <FormatCurrency value={1234.56} currency="CAD" /></div>
-      <div><strong>AUD:</strong> <FormatCurrency value={1234.56} currency="AUD" /></div>
-      <div><strong>CHF:</strong> <FormatCurrency value={1234.56} currency="CHF" /></div>
-      <div><strong>CNY:</strong> <FormatCurrency value={1234.56} currency="CNY" /></div>
+      <div>
+        <strong>USD:</strong> <FormatCurrency value={1234.56} currency="USD" />
+      </div>
+      <div>
+        <strong>EUR:</strong> <FormatCurrency value={1234.56} currency="EUR" />
+      </div>
+      <div>
+        <strong>GBP:</strong> <FormatCurrency value={1234.56} currency="GBP" />
+      </div>
+      <div>
+        <strong>JPY:</strong> <FormatCurrency value={1234.56} currency="JPY" />
+      </div>
+      <div>
+        <strong>CAD:</strong> <FormatCurrency value={1234.56} currency="CAD" />
+      </div>
+      <div>
+        <strong>AUD:</strong> <FormatCurrency value={1234.56} currency="AUD" />
+      </div>
+      <div>
+        <strong>CHF:</strong> <FormatCurrency value={1234.56} currency="CHF" />
+      </div>
+      <div>
+        <strong>CNY:</strong> <FormatCurrency value={1234.56} currency="CNY" />
+      </div>
     </div>
   ),
   parameters: {
@@ -117,19 +133,41 @@ export const MultipleCurrencies: Story = {
 export const MultipleLocales: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-      <div><strong>US English:</strong> <FormatCurrency value={1234.56} currency="USD" locale="en-US" /></div>
-      <div><strong>British English:</strong> <FormatCurrency value={1234.56} currency="GBP" locale="en-GB" /></div>
-      <div><strong>German:</strong> <FormatCurrency value={1234.56} currency="EUR" locale="de-DE" /></div>
-      <div><strong>French:</strong> <FormatCurrency value={1234.56} currency="EUR" locale="fr-FR" /></div>
-      <div><strong>Spanish:</strong> <FormatCurrency value={1234.56} currency="EUR" locale="es-ES" /></div>
-      <div><strong>Japanese:</strong> <FormatCurrency value={1234.56} currency="JPY" locale="ja-JP" /></div>
-      <div><strong>Portuguese:</strong> <FormatCurrency value={1234.56} currency="BRL" locale="pt-BR" /></div>
+      <div>
+        <strong>US English:</strong>{" "}
+        <FormatCurrency value={1234.56} currency="USD" locale="en-US" />
+      </div>
+      <div>
+        <strong>British English:</strong>{" "}
+        <FormatCurrency value={1234.56} currency="GBP" locale="en-GB" />
+      </div>
+      <div>
+        <strong>German:</strong>{" "}
+        <FormatCurrency value={1234.56} currency="EUR" locale="de-DE" />
+      </div>
+      <div>
+        <strong>French:</strong>{" "}
+        <FormatCurrency value={1234.56} currency="EUR" locale="fr-FR" />
+      </div>
+      <div>
+        <strong>Spanish:</strong>{" "}
+        <FormatCurrency value={1234.56} currency="EUR" locale="es-ES" />
+      </div>
+      <div>
+        <strong>Japanese:</strong>{" "}
+        <FormatCurrency value={1234.56} currency="JPY" locale="ja-JP" />
+      </div>
+      <div>
+        <strong>Portuguese:</strong>{" "}
+        <FormatCurrency value={1234.56} currency="BRL" locale="pt-BR" />
+      </div>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: "Same value formatted according to different locales and their conventions.",
+        story:
+          "Same value formatted according to different locales and their conventions.",
       },
     },
   },
@@ -139,10 +177,30 @@ export const MultipleLocales: Story = {
 export const CurrencyDisplayOptions: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-      <div><strong>Symbol:</strong> <FormatCurrency value={1234.56} currency="USD" currencyDisplay="symbol" /></div>
-      <div><strong>Narrow Symbol:</strong> <FormatCurrency value={1234.56} currency="USD" currencyDisplay="narrowSymbol" /></div>
-      <div><strong>Code:</strong> <FormatCurrency value={1234.56} currency="USD" currencyDisplay="code" /></div>
-      <div><strong>Name:</strong> <FormatCurrency value={1234.56} currency="USD" currencyDisplay="name" /></div>
+      <div>
+        <strong>Symbol:</strong>{" "}
+        <FormatCurrency
+          value={1234.56}
+          currency="USD"
+          currencyDisplay="symbol"
+        />
+      </div>
+      <div>
+        <strong>Narrow Symbol:</strong>{" "}
+        <FormatCurrency
+          value={1234.56}
+          currency="USD"
+          currencyDisplay="narrowSymbol"
+        />
+      </div>
+      <div>
+        <strong>Code:</strong>{" "}
+        <FormatCurrency value={1234.56} currency="USD" currencyDisplay="code" />
+      </div>
+      <div>
+        <strong>Name:</strong>{" "}
+        <FormatCurrency value={1234.56} currency="USD" currencyDisplay="name" />
+      </div>
     </div>
   ),
   parameters: {
@@ -158,17 +216,53 @@ export const CurrencyDisplayOptions: Story = {
 export const PrecisionControl: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-      <div><strong>No decimals:</strong> <FormatCurrency value={1234.567} minimumFractionDigits={0} maximumFractionDigits={0} /></div>
-      <div><strong>1 decimal:</strong> <FormatCurrency value={1234.567} minimumFractionDigits={1} maximumFractionDigits={1} /></div>
-      <div><strong>2 decimals:</strong> <FormatCurrency value={1234.567} minimumFractionDigits={2} maximumFractionDigits={2} /></div>
-      <div><strong>3 decimals:</strong> <FormatCurrency value={1234.567} minimumFractionDigits={3} maximumFractionDigits={3} /></div>
-      <div><strong>Variable (0-2):</strong> <FormatCurrency value={1234.5} minimumFractionDigits={0} maximumFractionDigits={2} /></div>
+      <div>
+        <strong>No decimals:</strong>{" "}
+        <FormatCurrency
+          value={1234.567}
+          minimumFractionDigits={0}
+          maximumFractionDigits={0}
+        />
+      </div>
+      <div>
+        <strong>1 decimal:</strong>{" "}
+        <FormatCurrency
+          value={1234.567}
+          minimumFractionDigits={1}
+          maximumFractionDigits={1}
+        />
+      </div>
+      <div>
+        <strong>2 decimals:</strong>{" "}
+        <FormatCurrency
+          value={1234.567}
+          minimumFractionDigits={2}
+          maximumFractionDigits={2}
+        />
+      </div>
+      <div>
+        <strong>3 decimals:</strong>{" "}
+        <FormatCurrency
+          value={1234.567}
+          minimumFractionDigits={3}
+          maximumFractionDigits={3}
+        />
+      </div>
+      <div>
+        <strong>Variable (0-2):</strong>{" "}
+        <FormatCurrency
+          value={1234.5}
+          minimumFractionDigits={0}
+          maximumFractionDigits={2}
+        />
+      </div>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: "Control decimal precision with minimum and maximum fraction digits.",
+        story:
+          "Control decimal precision with minimum and maximum fraction digits.",
       },
     },
   },
@@ -178,9 +272,17 @@ export const PrecisionControl: Story = {
 export const NegativeValues: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-      <div><strong>Standard:</strong> <FormatCurrency value={-1234.56} currencySign="standard" /></div>
-      <div><strong>Accounting:</strong> <FormatCurrency value={-1234.56} currencySign="accounting" /></div>
-      <div><strong>Zero:</strong> <FormatCurrency value={0} /></div>
+      <div>
+        <strong>Standard:</strong>{" "}
+        <FormatCurrency value={-1234.56} currencySign="standard" />
+      </div>
+      <div>
+        <strong>Accounting:</strong>{" "}
+        <FormatCurrency value={-1234.56} currencySign="accounting" />
+      </div>
+      <div>
+        <strong>Zero:</strong> <FormatCurrency value={0} />
+      </div>
     </div>
   ),
   parameters: {
@@ -196,10 +298,19 @@ export const NegativeValues: Story = {
 export const LargeNumbers: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-      <div><strong>Thousands:</strong> <FormatCurrency value={12345.67} /></div>
-      <div><strong>Millions:</strong> <FormatCurrency value={12345678.90} /></div>
-      <div><strong>Billions:</strong> <FormatCurrency value={12345678901.23} /></div>
-      <div><strong>Without grouping:</strong> <FormatCurrency value={12345678.90} useGrouping={false} /></div>
+      <div>
+        <strong>Thousands:</strong> <FormatCurrency value={12345.67} />
+      </div>
+      <div>
+        <strong>Millions:</strong> <FormatCurrency value={12345678.9} />
+      </div>
+      <div>
+        <strong>Billions:</strong> <FormatCurrency value={12345678901.23} />
+      </div>
+      <div>
+        <strong>Without grouping:</strong>{" "}
+        <FormatCurrency value={12345678.9} useGrouping={false} />
+      </div>
     </div>
   ),
   parameters: {
@@ -215,12 +326,26 @@ export const LargeNumbers: Story = {
 export const ErrorHandling: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-      <div><strong>Valid number:</strong> <FormatCurrency value={123.45} /></div>
-      <div><strong>Invalid number (NaN):</strong> <FormatCurrency value={NaN} /></div>
-      <div><strong>Infinity:</strong> <FormatCurrency value={Infinity} /></div>
-      <div><strong>Custom fallback:</strong> <FormatCurrency value={NaN} fallback="N/A" /></div>
-      <div><strong>Very small number:</strong> <FormatCurrency value={0.001} /></div>
-      <div><strong>Very large number:</strong> <FormatCurrency value={Number.MAX_SAFE_INTEGER} /></div>
+      <div>
+        <strong>Valid number:</strong> <FormatCurrency value={123.45} />
+      </div>
+      <div>
+        <strong>Invalid number (NaN):</strong> <FormatCurrency value={NaN} />
+      </div>
+      <div>
+        <strong>Infinity:</strong> <FormatCurrency value={Infinity} />
+      </div>
+      <div>
+        <strong>Custom fallback:</strong>{" "}
+        <FormatCurrency value={NaN} fallback="N/A" />
+      </div>
+      <div>
+        <strong>Very small number:</strong> <FormatCurrency value={0.001} />
+      </div>
+      <div>
+        <strong>Very large number:</strong>{" "}
+        <FormatCurrency value={Number.MAX_SAFE_INTEGER} />
+      </div>
     </div>
   ),
   parameters: {
@@ -237,43 +362,100 @@ export const RealWorldExamples: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
       <div>
-        <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600" }}>E-commerce Product Prices</h4>
+        <h4
+          style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600" }}
+        >
+          E-commerce Product Prices
+        </h4>
         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-          <div>Regular Price: <FormatCurrency value={299.99} /></div>
+          <div>
+            Regular Price: <FormatCurrency value={299.99} />
+          </div>
           <div style={{ textDecoration: "line-through", color: "#999" }}>
             Original Price: <FormatCurrency value={399.99} />
           </div>
           <div style={{ color: "#e74c3c", fontWeight: "bold" }}>
-            You Save: <FormatCurrency value={100.00} />
+            You Save: <FormatCurrency value={100.0} />
           </div>
         </div>
       </div>
 
       <div>
-        <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600" }}>Banking Statement</h4>
-        <div style={{ fontFamily: "monospace", display: "flex", flexDirection: "column", gap: "2px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", minWidth: "300px" }}>
+        <h4
+          style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600" }}
+        >
+          Banking Statement
+        </h4>
+        <div
+          style={{
+            fontFamily: "monospace",
+            display: "flex",
+            flexDirection: "column",
+            gap: "2px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              minWidth: "300px",
+            }}
+          >
             <span>Opening Balance</span>
-            <FormatCurrency value={5432.10} />
+            <FormatCurrency value={5432.1} />
           </div>
-          <div style={{ display: "flex", justifyContent: "space-between", minWidth: "300px", color: "#e74c3c" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              minWidth: "300px",
+              color: "#e74c3c",
+            }}
+          >
             <span>Transaction Fee</span>
-            <FormatCurrency value={-25.00} currencySign="accounting" />
+            <FormatCurrency value={-25.0} currencySign="accounting" />
           </div>
-          <div style={{ display: "flex", justifyContent: "space-between", minWidth: "300px", borderTop: "1px solid #ddd", paddingTop: "4px", fontWeight: "bold" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              minWidth: "300px",
+              borderTop: "1px solid #ddd",
+              paddingTop: "4px",
+              fontWeight: "bold",
+            }}
+          >
             <span>Closing Balance</span>
-            <FormatCurrency value={5407.10} />
+            <FormatCurrency value={5407.1} />
           </div>
         </div>
       </div>
 
       <div>
-        <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600" }}>International Pricing</h4>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
-          <div>🇺🇸 <FormatCurrency value={99.99} currency="USD" locale="en-US" /></div>
-          <div>🇪🇺 <FormatCurrency value={89.99} currency="EUR" locale="de-DE" /></div>
-          <div>🇬🇧 <FormatCurrency value={79.99} currency="GBP" locale="en-GB" /></div>
-          <div>🇯🇵 <FormatCurrency value={10999} currency="JPY" locale="ja-JP" /></div>
+        <h4
+          style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600" }}
+        >
+          International Pricing
+        </h4>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "8px",
+          }}
+        >
+          <div>
+            🇺🇸 <FormatCurrency value={99.99} currency="USD" locale="en-US" />
+          </div>
+          <div>
+            🇪🇺 <FormatCurrency value={89.99} currency="EUR" locale="de-DE" />
+          </div>
+          <div>
+            🇬🇧 <FormatCurrency value={79.99} currency="GBP" locale="en-GB" />
+          </div>
+          <div>
+            🇯🇵 <FormatCurrency value={10999} currency="JPY" locale="ja-JP" />
+          </div>
         </div>
       </div>
     </div>
@@ -281,7 +463,8 @@ export const RealWorldExamples: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Real-world usage examples in different contexts like e-commerce, banking, and international pricing.",
+        story:
+          "Real-world usage examples in different contexts like e-commerce, banking, and international pricing.",
       },
     },
   },
@@ -290,21 +473,39 @@ export const RealWorldExamples: Story = {
 // Utility function usage
 export const UtilityFunction: Story = {
   render: () => {
-    const prices = [29.99, 149.50, 1299.99, 45.00, 0.99];
+    const prices = [29.99, 149.5, 1299.99, 45.0, 0.99];
     const total = prices.reduce((sum, price) => sum + price, 0);
 
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <h4 style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600" }}>
+        <h4
+          style={{ margin: "0 0 8px 0", fontSize: "14px", fontWeight: "600" }}
+        >
           Shopping Cart (using formatCurrency utility)
         </h4>
         {prices.map((price, index) => (
-          <div key={index} style={{ display: "flex", justifyContent: "space-between", minWidth: "200px" }}>
+          <div
+            key={index}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              minWidth: "200px",
+            }}
+          >
             <span>Item {index + 1}</span>
             <code>{formatCurrency(price)}</code>
           </div>
         ))}
-        <div style={{ display: "flex", justifyContent: "space-between", minWidth: "200px", borderTop: "1px solid #ddd", paddingTop: "8px", fontWeight: "bold" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            minWidth: "200px",
+            borderTop: "1px solid #ddd",
+            paddingTop: "8px",
+            fontWeight: "bold",
+          }}
+        >
           <span>Total</span>
           <code>{formatCurrency(total)}</code>
         </div>
@@ -314,7 +515,8 @@ export const UtilityFunction: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Using the formatCurrency utility function for programmatic formatting.",
+        story:
+          "Using the formatCurrency utility function for programmatic formatting.",
       },
     },
   },
