@@ -6,6 +6,7 @@ export * from "./components/common/ModalDialog";
 export * from "./components/common/Badge";
 export * from "./components/common/StarRating";
 export * from "./components/common/FormatCurrency";
+export * from "./components/common/Accordion";
 export * from "./components/form/Autoselect";
 export * from "./components/form/Button";
 export * from "./components/form/CheckBox";
