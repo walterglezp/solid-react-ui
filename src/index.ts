@@ -33,6 +33,7 @@ export * from "./components/navigation/Menu";
 export * from "./components/navigation/MenuBar";
 export * from "./components/navigation/SideMenu";
 export * from "./components/graphic/Icon";
+export * from "./components/graphic/ImageViewer";
 export * from "./hooks/useClickOutside";
 export * from "./utils/classnames-helper";
 export * from "./utils/date-helper";

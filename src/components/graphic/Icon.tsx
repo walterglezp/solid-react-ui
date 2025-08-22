@@ -1225,9 +1225,7 @@ export const IconsPath: IconPathProps[] = [
     class: "icon-info",
     viewBox: "0 0 20 20",
     pathClass: ["klass1"],
-    paths: [
-      "M10 1a9 9 0 109 9 9.01 9.01 0 00-9-9zM9 5h2v2H9zm0 4h2v6H9z",
-    ],
+    paths: ["M10 1a9 9 0 109 9 9.01 9.01 0 00-9-9zM9 5h2v2H9zm0 4h2v6H9z"],
   },
   {
     class: "icon-success",
