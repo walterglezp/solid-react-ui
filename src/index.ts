@@ -14,6 +14,7 @@ export * from "./components/form/Form";
 export * from "./components/form/ImageDropZone";
 export * from "./components/form/Input";
 export * from "./components/form/InputError";
+export * from "./components/form/InputRange";
 export * from "./components/form/InputNumber";
 export * from "./components/form/Select";
 export * from "./components/form/Radio";
