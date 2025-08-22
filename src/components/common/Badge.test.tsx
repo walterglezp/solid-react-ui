@@ -74,7 +74,7 @@ describe("Badge", () => {
   });
 
   test("renders with icon when icon prop is provided", () => {
-    render(<Badge icon="check">{BADGE_CONTENT}</Badge>);
+    render(<Badge icon="check-mark-fill">{BADGE_CONTENT}</Badge>);
 
     const badge = screen.getByText(BADGE_CONTENT).closest(".badge");
     expect(badge).toBeInTheDocument();
@@ -228,7 +228,7 @@ describe("Badge Properties", () => {
 
     sizeIconMap.forEach(({ size, expectedSize }) => {
       const { unmount } = render(
-        <Badge size={size} icon="check">
+        <Badge size={size} icon="check-mark-fill">
           {BADGE_CONTENT}
         </Badge>,
       );
@@ -243,7 +243,7 @@ describe("Badge Properties", () => {
   });
 
   test("content structure is consistent", () => {
-    render(<Badge icon="check">{BADGE_CONTENT}</Badge>);
+    render(<Badge icon="check-mark-fill">{BADGE_CONTENT}</Badge>);
 
     const badge = document.querySelector(".badge");
     expect(badge?.children).toHaveLength(2); // icon + content

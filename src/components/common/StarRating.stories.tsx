@@ -60,14 +60,16 @@ A flexible star rating component that supports both display and interactive mode
       description: "Show detailed rating breakdown in tooltip",
     },
     ratingBreakdown: {
-      description: "Percentage breakdown by star rating (object with star rating as key, percentage as value)",
+      description:
+        "Percentage breakdown by star rating (object with star rating as key, percentage as value)",
     },
     reviewsLink: {
       control: { type: "text" },
       description: "URL link for 'See all reviews' (used in detailed tooltip)",
     },
     onReviewsClick: {
-      description: "Click handler for 'See all reviews' button (alternative to reviewsLink)",
+      description:
+        "Click handler for 'See all reviews' button (alternative to reviewsLink)",
     },
     className: {
       control: { type: "text" },
@@ -161,12 +163,13 @@ export const WithDetailedTooltip: Story = {
       2: 3,
       1: 11,
     },
-    onReviewsClick: () => alert("Navigate to reviews page!"),
+    onReviewsClick: () => window.alert("Navigate to reviews page!"),
   },
   parameters: {
     docs: {
       description: {
-        story: "Click on any star to pin the detailed tooltip with rating breakdown and 'See all reviews' link. Click outside to dismiss, or click another star to switch.",
+        story:
+          "Click on any star to pin the detailed tooltip with rating breakdown and 'See all reviews' link. Click outside to dismiss, or click another star to switch.",
       },
     },
   },
@@ -191,7 +194,8 @@ export const ClickablePinnedTooltip: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Click any star to pin the tooltip, then click 'See all reviews' link. The tooltip stays open until you click outside or another star.",
+        story:
+          "Click any star to pin the tooltip, then click 'See all reviews' link. The tooltip stays open until you click outside or another star.",
       },
     },
   },
@@ -344,11 +348,7 @@ export const Interactive: Story = {
   render: () => {
     const [rating, setRating] = useState(0);
     return (
-      <StarRating 
-        rating={rating} 
-        onRatingChange={setRating}
-        readonly={false}
-      />
+      <StarRating rating={rating} onRatingChange={setRating} readonly={false} />
     );
   },
   parameters: {
@@ -365,11 +365,7 @@ export const InteractiveWithInitialRating: Story = {
   render: () => {
     const [rating, setRating] = useState(3);
     return (
-      <StarRating 
-        rating={rating} 
-        onRatingChange={setRating}
-        readonly={false}
-      />
+      <StarRating rating={rating} onRatingChange={setRating} readonly={false} />
     );
   },
   parameters: {
@@ -451,10 +447,10 @@ export const ProductReviews: Story = {
             124 reviews
           </p>
         </div>
-        <StarRating 
-          rating={4.5} 
+        <StarRating
+          rating={4.5}
           totalRatings={124}
-          compact 
+          compact
           showDetailedTooltip
           ratingBreakdown={{
             5: 65,
@@ -485,10 +481,10 @@ export const ProductReviews: Story = {
             87 reviews
           </p>
         </div>
-        <StarRating 
-          rating={3.8} 
+        <StarRating
+          rating={3.8}
           totalRatings={87}
-          compact 
+          compact
           showDetailedTooltip
           ratingBreakdown={{
             5: 45,
@@ -518,10 +514,10 @@ export const ProductReviews: Story = {
             203 reviews
           </p>
         </div>
-        <StarRating 
-          rating={4.9} 
+        <StarRating
+          rating={4.9}
           totalRatings={203}
-          compact 
+          compact
           showDetailedTooltip
           ratingBreakdown={{
             5: 85,

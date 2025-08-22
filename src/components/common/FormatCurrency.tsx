@@ -16,8 +16,13 @@ type FormatCurrencyProps = {
   className?: string;
 };
 
+type CurrencyConfig = {
+  minimumFractionDigits: number;
+  maximumFractionDigits: number;
+};
+
 // Common currency configurations
-const CURRENCY_CONFIGS = {
+const CURRENCY_CONFIGS: Record<string, CurrencyConfig> = {
   USD: { minimumFractionDigits: 2, maximumFractionDigits: 2 },
   EUR: { minimumFractionDigits: 2, maximumFractionDigits: 2 },
   JPY: { minimumFractionDigits: 0, maximumFractionDigits: 0 },
@@ -28,10 +33,10 @@ const CURRENCY_CONFIGS = {
   CNY: { minimumFractionDigits: 2, maximumFractionDigits: 2 },
   INR: { minimumFractionDigits: 2, maximumFractionDigits: 2 },
   BRL: { minimumFractionDigits: 2, maximumFractionDigits: 2 },
-} as const;
+};
 
 // Common locale mappings for better UX
-const LOCALE_MAPPINGS = {
+const LOCALE_MAPPINGS: Record<string, string> = {
   en: "en-US",
   es: "es-ES",
   fr: "fr-FR",
@@ -42,7 +47,7 @@ const LOCALE_MAPPINGS = {
   ko: "ko-KR",
   zh: "zh-CN",
   ru: "ru-RU",
-} as const;
+};
 
 const FormatCurrency: FC<FormatCurrencyProps> = ({
   value,
@@ -64,12 +69,13 @@ const FormatCurrency: FC<FormatCurrencyProps> = ({
 
     try {
       // Normalize locale (handle common short forms)
-      const normalizedLocale = (LOCALE_MAPPINGS as any)[locale] || locale;
+      const normalizedLocale = LOCALE_MAPPINGS[locale] || locale;
 
       // Get currency-specific defaults
-      const currencyConfig = (CURRENCY_CONFIGS as any)[
-        currency.toUpperCase()
-      ] || { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+      const currencyConfig = CURRENCY_CONFIGS[currency.toUpperCase()] || {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      };
 
       // Build formatter options
       const options: Intl.NumberFormatOptions = {
@@ -87,9 +93,8 @@ const FormatCurrency: FC<FormatCurrencyProps> = ({
       // Create and use formatter
       const formatter = new Intl.NumberFormat(normalizedLocale, options);
       return formatter.format(value);
-    } catch (error) {
+    } catch {
       // Fallback to basic formatting if Intl fails
-      console.warn("FormatCurrency: Formatting failed, using fallback", error);
       return fallback;
     }
   }, [
@@ -122,10 +127,11 @@ const formatCurrency = (
   }
 
   try {
-    const normalizedLocale = (LOCALE_MAPPINGS as any)[locale] || locale;
-    const currencyConfig = (CURRENCY_CONFIGS as any)[
-      currency.toUpperCase()
-    ] || { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+    const normalizedLocale = LOCALE_MAPPINGS[locale] || locale;
+    const currencyConfig = CURRENCY_CONFIGS[currency.toUpperCase()] || {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    };
 
     const formatter = new Intl.NumberFormat(normalizedLocale, {
       style: "currency",

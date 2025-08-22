@@ -45,19 +45,20 @@ const StarRating: FC<StarRatingProps> = ({
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      
+
       // Only dismiss if clicking outside any tooltip content
-      const isClickingOnTooltip = target.closest('.tooltip') || target.closest('.tooltip-container');
-      
+      const isClickingOnTooltip =
+        target.closest(".tooltip") || target.closest(".tooltip-container");
+
       if (!isClickingOnTooltip) {
         setPinnedTooltip(null);
       }
     };
 
     if (pinnedTooltip !== null) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
       return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener("mousedown", handleClickOutside);
       };
     }
   }, [pinnedTooltip]);
@@ -121,70 +122,73 @@ const StarRating: FC<StarRatingProps> = ({
     });
 
     const getTooltipContent = () => {
-    // Show detailed tooltip even in readonly mode if explicitly enabled
-    if (showDetailedTooltip && ratingBreakdown && totalRatings) {
-      return (
-        <div className="star-rating-tooltip">
-          <div className="star-rating-tooltip__header">
-            <strong>{rating.toFixed(1)} out of {maxRating}</strong> rating
-          </div>
-          <div className="star-rating-tooltip__subtitle">
-            ({totalRatings}) global ratings
-          </div>
-          <div className="star-rating-tooltip__breakdown">
-            {[5, 4, 3, 2, 1].map((starLevel) => {
-              const percentage = ratingBreakdown[starLevel] || 0;
-              return (
-                <div key={starLevel} className="star-rating-tooltip__row">
-                  <span className="star-rating-tooltip__label">
-                    {starLevel} star
-                  </span>
-                  <div className="star-rating-tooltip__progress">
-                    <div 
-                      className="star-rating-tooltip__progress-bar"
-                      style={{ width: `${percentage}%` }}
-                    />
-                  </div>
-                  <span className="star-rating-tooltip__percentage">
-                    {percentage}%
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-          {(reviewsLink || onReviewsClick) && (
-            <div className="star-rating-tooltip__footer">
-              {reviewsLink ? (
-                <a 
-                  href={reviewsLink}
-                  className="star-rating-tooltip__link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  See all reviews
-                </a>
-              ) : (
-                <button
-                  type="button"
-                  className="star-rating-tooltip__link"
-                  onClick={onReviewsClick}
-                  style={{ border: 'none', background: 'none', padding: 0 }}
-                >
-                  See all reviews
-                </button>
-              )}
+      // Show detailed tooltip even in readonly mode if explicitly enabled
+      if (showDetailedTooltip && ratingBreakdown && totalRatings) {
+        return (
+          <div className="star-rating-tooltip">
+            <div className="star-rating-tooltip__header">
+              <strong>
+                {rating.toFixed(1)} out of {maxRating}
+              </strong>{" "}
+              rating
             </div>
-          )}
-        </div>
-      );
-    }
-    
-    // Show simple tooltip only if not readonly
-    if (readonly) return null;
-    return `${starIndex + 1} star${starIndex > 0 ? "s" : ""}`;
-  };
-  
-  const tooltipContent = getTooltipContent();
+            <div className="star-rating-tooltip__subtitle">
+              ({totalRatings}) global ratings
+            </div>
+            <div className="star-rating-tooltip__breakdown">
+              {[5, 4, 3, 2, 1].map((starLevel) => {
+                const percentage = ratingBreakdown[starLevel] || 0;
+                return (
+                  <div key={starLevel} className="star-rating-tooltip__row">
+                    <span className="star-rating-tooltip__label">
+                      {starLevel} star
+                    </span>
+                    <div className="star-rating-tooltip__progress">
+                      <div
+                        className="star-rating-tooltip__progress-bar"
+                        style={{ width: `${percentage}%` }}
+                      />
+                    </div>
+                    <span className="star-rating-tooltip__percentage">
+                      {percentage}%
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+            {(reviewsLink || onReviewsClick) && (
+              <div className="star-rating-tooltip__footer">
+                {reviewsLink ? (
+                  <a
+                    href={reviewsLink}
+                    className="star-rating-tooltip__link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    See all reviews
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    className="star-rating-tooltip__link"
+                    onClick={onReviewsClick}
+                    style={{ border: "none", background: "none", padding: 0 }}
+                  >
+                    See all reviews
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+        );
+      }
+
+      // Show simple tooltip only if not readonly
+      if (readonly) return null;
+      return `${starIndex + 1} star${starIndex > 0 ? "s" : ""}`;
+    };
+
+    const tooltipContent = getTooltipContent();
 
     const starButton = (
       <button
@@ -201,11 +205,12 @@ const StarRating: FC<StarRatingProps> = ({
     );
 
     if (tooltipContent) {
-      const shouldShowTooltip = pinnedTooltip === starIndex || (pinnedTooltip === null);
+      const shouldShowTooltip =
+        pinnedTooltip === starIndex || pinnedTooltip === null;
       return (
-        <Tooltip 
-          key={starIndex} 
-          content={tooltipContent} 
+        <Tooltip
+          key={starIndex}
+          content={tooltipContent}
           position="top"
           disabled={!shouldShowTooltip}
         >
@@ -235,9 +240,7 @@ const StarRating: FC<StarRatingProps> = ({
     <div className={containerClassnames} ref={containerRef}>
       {Array.from({ length: maxRating }, (_, index) => renderStar(index))}
       {totalRatings && !compact && (
-        <span className="star-rating__total-count">
-          ({totalRatings})
-        </span>
+        <span className="star-rating__total-count">({totalRatings})</span>
       )}
     </div>
   );

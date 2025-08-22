@@ -74,6 +74,11 @@ type Story = StoryObj<typeof meta>;
 
 // Basic confirmation modal
 export const BasicConfirmation: Story = {
+  args: {
+    isOpen: false,
+    onClose: () => {},
+    children: "Content",
+  },
   render: () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -119,6 +124,11 @@ export const BasicConfirmation: Story = {
 
 // Feedback modal with rating
 export const FeedbackRating: Story = {
+  args: {
+    isOpen: false,
+    onClose: () => {},
+    children: "Content",
+  },
   render: () => {
     const [isOpen, setIsOpen] = useState(false);
     const [rating, setRating] = useState(0);
@@ -184,6 +194,11 @@ export const FeedbackRating: Story = {
 
 // Simple content modal
 export const SimpleContent: Story = {
+  args: {
+    isOpen: false,
+    onClose: () => {},
+    children: "Content",
+  },
   render: () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -238,6 +253,11 @@ export const SimpleContent: Story = {
 
 // Settings/Form modal
 export const SettingsForm: Story = {
+  args: {
+    isOpen: false,
+    onClose: () => {},
+    children: "Content",
+  },
   render: () => {
     const [isOpen, setIsOpen] = useState(false);
     const [settings, setSettings] = useState({
@@ -627,7 +647,7 @@ export const EmptyContent: Story = {
           onClose={() => setIsOpen(false)}
           title="Empty Modal"
         >
-          {/* Empty content */}
+          <div>{/* Empty content */}</div>
         </ModalDialog>
       </>
     );

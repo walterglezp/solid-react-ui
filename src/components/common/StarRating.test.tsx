@@ -84,7 +84,7 @@ describe("StarRating", () => {
       2: 3,
       1: 11,
     };
-    
+
     render(
       <StarRating
         rating={4.2}
@@ -92,12 +92,12 @@ describe("StarRating", () => {
         showDetailedTooltip
         ratingBreakdown={ratingBreakdown}
         readonly
-      />
+      />,
     );
-    
+
     const firstStar = screen.getAllByRole("button")[0];
     fireEvent.mouseEnter(firstStar);
-    
+
     expect(screen.getAllByText("4.2 out of 5")[0]).toBeInTheDocument();
     expect(screen.getAllByText("(58) global ratings")[0]).toBeInTheDocument();
     expect(screen.getAllByText("5 star")[0]).toBeInTheDocument();
@@ -119,22 +119,22 @@ describe("StarRating", () => {
           2: 7,
           1: 3,
         }}
-      />
+      />,
     );
-    
+
     const thirdStar = screen.getAllByRole("button")[2];
     fireEvent.mouseEnter(thirdStar);
-    
+
     expect(screen.getByText("3 stars")).toBeInTheDocument();
     expect(screen.queryByText("out of 5")).not.toBeInTheDocument();
   });
 
   test("does not show tooltip in readonly mode without detailed tooltip", () => {
     render(<StarRating rating={3.5} readonly />);
-    
+
     const thirdStar = screen.getAllByRole("button")[2];
     fireEvent.mouseEnter(thirdStar);
-    
+
     expect(screen.queryByText("3 stars")).not.toBeInTheDocument();
   });
 
@@ -147,12 +147,12 @@ describe("StarRating", () => {
         ratingBreakdown={{ 5: 72, 4: 7, 3: 7, 2: 3, 1: 11 }}
         reviewsLink="/reviews"
         readonly
-      />
+      />,
     );
-    
+
     const firstStar = screen.getAllByRole("button")[0];
     fireEvent.mouseEnter(firstStar);
-    
+
     const reviewLinks = screen.getAllByText("See all reviews");
     expect(reviewLinks[0]).toBeInTheDocument();
     expect(reviewLinks[0].getAttribute("href")).toBe("/reviews");
@@ -168,15 +168,15 @@ describe("StarRating", () => {
         ratingBreakdown={{ 5: 72, 4: 7, 3: 7, 2: 3, 1: 11 }}
         onReviewsClick={handleReviewsClick}
         readonly
-      />
+      />,
     );
-    
+
     const firstStar = screen.getAllByRole("button")[0];
     fireEvent.mouseEnter(firstStar);
-    
+
     const reviewButtons = screen.getAllByText("See all reviews");
     fireEvent.click(reviewButtons[0]);
-    
+
     expect(handleReviewsClick).toHaveBeenCalled();
   });
 
@@ -189,20 +189,20 @@ describe("StarRating", () => {
         ratingBreakdown={{ 5: 72, 4: 7, 3: 7, 2: 3, 1: 11 }}
         reviewsLink="/reviews"
         readonly
-      />
+      />,
     );
-    
+
     // Click to pin tooltip
     const firstStar = screen.getAllByRole("button")[0];
     fireEvent.click(firstStar);
-    
+
     // Verify tooltip is visible
     expect(screen.getAllByText("4.2 out of 5")[0]).toBeInTheDocument();
-    
+
     // Click the reviews link
     const reviewLinks = screen.getAllByText("See all reviews");
     fireEvent.click(reviewLinks[0]);
-    
+
     // Tooltip should still be visible after clicking the link
     expect(screen.getAllByText("4.2 out of 5")[0]).toBeInTheDocument();
   });

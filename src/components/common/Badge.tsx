@@ -23,6 +23,7 @@ type BadgeProps = {
   children: ReactNode;
   pill?: boolean;
   outline?: boolean;
+  style?: React.CSSProperties;
 };
 
 const Badge: FC<BadgeProps> = ({
@@ -33,6 +34,7 @@ const Badge: FC<BadgeProps> = ({
   children,
   pill = false,
   outline = false,
+  style,
 }) => {
   const badgeClassnames = generateClassnames({
     badge: true,
@@ -44,7 +46,7 @@ const Badge: FC<BadgeProps> = ({
   });
 
   return (
-    <span className={badgeClassnames}>
+    <span className={badgeClassnames} style={style}>
       {icon && (
         <Icon
           name={icon}

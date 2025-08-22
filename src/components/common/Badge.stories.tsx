@@ -162,22 +162,22 @@ export const Sizes: Story = {
 export const WithIcons: Story = {
   render: () => (
     <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-      <Badge variant="success" icon="check">
+      <Badge variant="success" icon="check-mark-fill">
         Completed
       </Badge>
-      <Badge variant="danger" icon="times">
+      <Badge variant="danger" icon="x-circle-fill">
         Failed
       </Badge>
-      <Badge variant="warning" icon="exclamation-triangle">
+      <Badge variant="warning" icon="exclamation-circle-fill">
         Warning
       </Badge>
-      <Badge variant="info" icon="info-circle">
+      <Badge variant="info" icon="question-fill">
         Info
       </Badge>
       <Badge variant="primary" icon="star">
         Featured
       </Badge>
-      <Badge variant="secondary" icon="clock">
+      <Badge variant="secondary" icon="bell">
         Pending
       </Badge>
     </div>
@@ -352,7 +352,7 @@ export const StatusBadges: Story = {
         }}
       >
         <span>Order #1234</span>
-        <Badge variant="success" icon="check">
+        <Badge variant="success" icon="check-mark-fill">
           Delivered
         </Badge>
       </div>
@@ -367,7 +367,7 @@ export const StatusBadges: Story = {
         }}
       >
         <span>Order #1235</span>
-        <Badge variant="warning" icon="truck">
+        <Badge variant="warning" icon="exclamation-circle-fill">
           Shipping
         </Badge>
       </div>
@@ -382,7 +382,7 @@ export const StatusBadges: Story = {
         }}
       >
         <span>Order #1236</span>
-        <Badge variant="info" icon="clock">
+        <Badge variant="info" icon="bell">
           Processing
         </Badge>
       </div>
@@ -397,7 +397,7 @@ export const StatusBadges: Story = {
         }}
       >
         <span>Order #1237</span>
-        <Badge variant="danger" icon="times">
+        <Badge variant="danger" icon="x-circle-fill">
           Cancelled
         </Badge>
       </div>
@@ -524,16 +524,16 @@ export const AllVariants: Story = {
           <Badge variant="primary" pill icon="user">
             User
           </Badge>
-          <Badge variant="success" pill icon="check">
+          <Badge variant="success" pill icon="check-mark-fill">
             Verified
           </Badge>
-          <Badge variant="danger" pill icon="times">
+          <Badge variant="danger" pill icon="x-circle-fill">
             Blocked
           </Badge>
-          <Badge variant="warning" pill icon="exclamation-triangle">
+          <Badge variant="warning" pill icon="exclamation-circle-fill">
             Alert
           </Badge>
-          <Badge variant="info" pill icon="info-circle">
+          <Badge variant="info" pill icon="question-fill">
             Help
           </Badge>
         </div>
