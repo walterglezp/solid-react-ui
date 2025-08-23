@@ -10,6 +10,7 @@ export * from "./components/common/Accordion";
 export * from "./components/common/ShopCard";
 export * from "./components/form/Autoselect";
 export * from "./components/form/Button";
+export * from "./components/form/SearchInput";
 export * from "./components/form/CheckBox";
 export * from "./components/form/CheckBoxIcon";
 export * from "./components/form/Form";
