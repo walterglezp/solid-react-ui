@@ -4,6 +4,7 @@ import { generateClassnames } from "../../utils/classnames-helper";
 import { InputError } from "./InputError";
 import { FormFieldProps, FormFieldChangeHandler } from "../form/Form";
 import { validateOnChange } from "../../utils/validation-helper";
+import "./Input.scss";
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> {

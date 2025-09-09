@@ -1,6 +1,32 @@
-export type ColorVariant = 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark';
-export type SizeVariant = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export type SpacingScale = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64;
+export type ColorVariant =
+  | "primary"
+  | "secondary"
+  | "success"
+  | "info"
+  | "warning"
+  | "danger"
+  | "light"
+  | "dark";
+export type SizeVariant = "xs" | "sm" | "md" | "lg" | "xl";
+export type SpacingScale =
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 8
+  | 10
+  | 12
+  | 16
+  | 20
+  | 24
+  | 32
+  | 40
+  | 48
+  | 56
+  | 64;
 
 export interface ColorPalette {
   primary: string;
@@ -49,11 +75,11 @@ export interface Typography {
     base: string;
     lg: string;
     xl: string;
-    '2xl': string;
-    '3xl': string;
-    '4xl': string;
-    '5xl': string;
-    '6xl': string;
+    "2xl": string;
+    "3xl": string;
+    "4xl": string;
+    "5xl": string;
+    "6xl": string;
   };
   fontWeight: {
     light: number;
@@ -105,8 +131,8 @@ export interface BorderRadius {
   md: string;
   lg: string;
   xl: string;
-  '2xl': string;
-  '3xl': string;
+  "2xl": string;
+  "3xl": string;
   full: string;
 }
 
@@ -117,7 +143,7 @@ export interface Shadows {
   md: string;
   lg: string;
   xl: string;
-  '2xl': string;
+  "2xl": string;
   inner: string;
 }
 
@@ -127,7 +153,7 @@ export interface Breakpoints {
   md: string;
   lg: string;
   xl: string;
-  '2xl': string;
+  "2xl": string;
 }
 
 export interface ZIndex {
@@ -294,7 +320,7 @@ export interface ComponentVariants {
 
 export interface ThemeConfig {
   name: string;
-  mode: 'light' | 'dark';
+  mode: "light" | "dark";
   colors: ColorPalette;
   colorShades: Partial<Record<ColorVariant, ColorShades>>;
   typography: Typography;
@@ -309,4 +335,3 @@ export interface ThemeConfig {
 
 // Main theme context type
 export type ThemeContextValue = ThemeConfig;
-

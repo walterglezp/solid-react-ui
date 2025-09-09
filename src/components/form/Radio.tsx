@@ -1,8 +1,8 @@
 import React from "react";
-import { uuid } from "../../utils/uuid-helper";
 import { generateClassnames } from "../../utils/classnames-helper";
 import { FormFieldProps, FormFieldValueProps } from "../form/Form";
 import { validateOnChange } from "../../utils/validation-helper";
+import "./Radio.scss";
 
 interface RadioProps {
   field: FormFieldProps;
@@ -10,23 +10,9 @@ interface RadioProps {
   title?: string;
   className?: string;
   checkedValue: FormFieldValueProps;
-  inline?: boolean;
-  readOnly?: boolean;
-  outline?: boolean;
-  noBorder?: boolean;
-  btnSize?: "sm" | "md" | "lg";
-  variant?:
-    | false
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "success"
-    | "info"
-    | "light"
-    | "dark"
-    | "link";
+  disabled?: boolean;
+  size?: "sm" | "md" | "lg";
+  color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
   onChange(field: FormFieldProps): void;
 }
 
@@ -36,73 +22,42 @@ const Radio: React.FC<RadioProps> = ({
   label,
   className,
   title,
-  btnSize = "sm",
-  outline = false,
-  inline = false,
-  noBorder = false,
-  variant = false,
-  readOnly = false,
+  disabled = false,
+  size = "md",
+  color,
   onChange,
-  ...rest
 }) => {
-  const universalID = uuid();
+  const isChecked = field.value === checkedValue;
 
   const classnames: string = generateClassnames({
-    "form-check": true,
-    "form-check-inline": inline,
+    "custom-radio": true,
+    [`radio-${color}`]: color !== undefined,
+    [`radio-${size}`]: size !== "md",
+    checked: isChecked,
+    disabled: disabled,
     [`${className}`]: className !== undefined,
   });
 
-  const classnamesBtn: string = generateClassnames({
-    btn: true,
-    [`btn-${btnSize}`]: true,
-    [`btn-${variant}`]: !outline,
-    [`btn-outline-${variant}`]: outline,
-    "btn-no-border": noBorder,
-    [`${className}`]: className !== undefined,
-  });
-
-  if (variant)
-    return (
-      <>
-        <input
-          name={field.name}
-          value={field.value as string}
-          type="radio"
-          id={universalID}
-          className="btn-check"
-          {...rest}
-          checked={field.value === checkedValue}
-          onChange={() =>
-            validateOnChange({ ...field, value: checkedValue }, onChange)
-          }
-          readOnly={readOnly}
-        />
-        <label className={classnamesBtn} htmlFor={universalID} title={title}>
-          {label}
-        </label>
-      </>
-    );
+  const handleChange = () => {
+    if (!disabled) {
+      validateOnChange({ ...field, value: checkedValue }, onChange);
+    }
+  };
 
   return (
-    <div className={classnames}>
+    <label className={classnames} title={title}>
       <input
-        name={field.name}
-        value={field.value as string}
         type="radio"
-        id={universalID}
-        className="form-check-input"
-        {...rest}
-        checked={field.value === checkedValue}
-        onChange={() =>
-          validateOnChange({ ...field, value: checkedValue }, onChange)
-        }
-        readOnly={readOnly}
+        name={field.name}
+        value={checkedValue as string}
+        checked={isChecked}
+        onChange={handleChange}
+        disabled={disabled}
+        className="radio-input"
       />
-      <label className="form-check-label" htmlFor={universalID} title={title}>
-        {label}
-      </label>
-    </div>
+      <div className="radio-button" />
+      <span className="radio-label">{label}</span>
+    </label>
   );
 };
 

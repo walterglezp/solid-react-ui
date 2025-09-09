@@ -1,0 +1,196 @@
+@import "tokens";
+
+// ============================================================================
+// RESPONSIVE BREAKPOINTS
+// ============================================================================
+@mixin media-up($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $value != null {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+@mixin media-down($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $value != null {
+    $max-width: $value - 1px;
+    @media (max-width: #{$max-width}) {
+      @content;
+    }
+  }
+}
+
+// ============================================================================
+// UTILITY FUNCTIONS
+// ============================================================================
+@function theme-color($color-name, $variant: 500) {
+  @return var(--color-#{$color-name}-#{$variant});
+}
+
+@function spacing($size) {
+  @return var(--spacing-#{$size});
+}
+
+// ============================================================================
+// BUTTON MIXINS
+// ============================================================================
+@mixin button-variant($color-name) {
+  background-color: theme-color($color-name, 500);
+  border-color: theme-color($color-name, 500);
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: theme-color($color-name, 600);
+    border-color: theme-color($color-name, 600);
+  }
+
+  &:active:not(:disabled) {
+    background-color: theme-color($color-name, 700);
+    border-color: theme-color($color-name, 700);
+  }
+}
+
+@mixin button-outline($color-name) {
+  background-color: transparent;
+  border-color: theme-color($color-name, 500);
+  color: theme-color($color-name, 500);
+
+  &:hover:not(:disabled) {
+    background-color: theme-color($color-name, 500);
+    color: white;
+  }
+
+  &:active:not(:disabled) {
+    background-color: theme-color($color-name, 600);
+    border-color: theme-color($color-name, 600);
+  }
+}
+
+@mixin button-size($size) {
+  @if $size == sm {
+    padding: spacing(2) spacing(4);
+    font-size: var(--font-size-sm);
+  } @else if $size == lg {
+    padding: spacing(3) spacing(6);
+    font-size: var(--font-size-base);
+  }
+}
+
+// ============================================================================
+// FORM CONTROL MIXINS
+// ============================================================================
+@mixin form-control-focus($color: primary) {
+  border-color: theme-color($color, 500);
+  outline: none;
+  box-shadow: 0 0 0 1px theme-color($color, 95);
+}
+
+@mixin form-control-size($size) {
+  @if $size == sm {
+    padding: spacing(1) spacing(2);
+    font-size: var(--font-size-xs);
+  } @else if $size == lg {
+    padding: spacing(3) spacing(4);
+    font-size: var(--font-size-base);
+  }
+}
+
+@mixin form-validation-state($state) {
+  border-color: theme-color($state, 500);
+
+  &:focus {
+    @include form-control-focus($state);
+  }
+}
+
+// ============================================================================
+// LAYOUT GRID MIXINS
+// ============================================================================
+@mixin make-container($padding-x: 4) {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: spacing($padding-x);
+  padding-right: spacing($padding-x);
+}
+
+@mixin container-max-widths {
+  @include media-up(sm) {
+    max-width: 540px;
+  }
+  @include media-up(md) {
+    max-width: 720px;
+  }
+  @include media-up(lg) {
+    max-width: 960px;
+  }
+  @include media-up(xl) {
+    max-width: 1140px;
+  }
+  @include media-up(xxl) {
+    max-width: 1320px;
+  }
+}
+
+@mixin make-row($gutter: 3) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(spacing($gutter) * -0.5);
+  margin-right: calc(spacing($gutter) * -0.5);
+}
+
+@mixin make-col($size: null, $columns: 12) {
+  flex: 0 0 auto;
+  padding-left: calc(spacing(3) * 0.5);
+  padding-right: calc(spacing(3) * 0.5);
+
+  @if $size != null {
+    width: percentage($size / $columns);
+  } @else {
+    flex: 1 1 0%;
+  }
+}
+
+// ============================================================================
+// FLEXBOX UTILITIES
+// ============================================================================
+@mixin justify-content($value) {
+  justify-content: $value;
+}
+
+@mixin align-items($value) {
+  align-items: $value;
+}
+
+// ============================================================================
+// LIST GROUP MIXINS
+// ============================================================================
+@mixin list-group-item-variant($state, $background, $color) {
+  color: $color;
+  background-color: $background;
+
+  &.active {
+    background-color: theme-color($state, 600);
+    color: white;
+  }
+}
+
+// ============================================================================
+// TRANSITION MIXINS
+// ============================================================================
+@mixin transition($properties: all, $duration: 0.15s, $easing: ease-in-out) {
+  transition: #{$properties} #{$duration} #{$easing};
+}
+
+// ============================================================================
+// BORDER AND SHADOW MIXINS
+// ============================================================================
+@mixin border-radius($radius) {
+  border-radius: var(--border-radius-#{$radius});
+}
+
+@mixin box-shadow($shadow) {
+  box-shadow: var(--shadow-#{$shadow});
+}

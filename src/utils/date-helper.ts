@@ -2,18 +2,18 @@ import {
   format,
   parseISO,
   differenceInDays,
-  eachDayOfInterval,
+  eachDayOfInterval as _eachDayOfInterval,
   startOfMonth,
   endOfMonth,
   getDay as dfnsGetDay,
-  getMonth,
+  getMonth as _getMonth,
   getYear as dfnsGetYear,
-  addDays,
+  addDays as _addDays,
   isValid,
-  isBefore,
-  isAfter,
-  isEqual,
-  parse,
+  isBefore as _isBefore,
+  isAfter as _isAfter,
+  isEqual as _isEqual,
+  parse as _parse,
 } from "date-fns";
 import { DATE_FORMATS } from "../constants/date";
 
@@ -81,7 +81,7 @@ export const formatToMMDDYYYY = (input: string): string => {
   if (values[1]) values[1] = checkValue(values[1], 31);
 
   const formatted = values.map((v, i) =>
-    v.length === 2 && i < 2 ? `${v} / ` : v
+    v.length === 2 && i < 2 ? `${v} / ` : v,
   );
 
   return formatted.join("").slice(0, 14);

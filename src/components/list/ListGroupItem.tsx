@@ -5,6 +5,7 @@ import React, {
   ButtonHTMLAttributes,
 } from "react";
 import { generateClassnames } from "../../utils/classnames-helper";
+import "./ListGroupItem.scss";
 
 type AsType = "li" | "a" | "button";
 

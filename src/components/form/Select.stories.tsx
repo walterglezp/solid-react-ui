@@ -31,7 +31,7 @@ export default meta;
 type Story = StoryObj<typeof Select>;
 
 const useField = (
-  initial: Partial<FormFieldProps>
+  initial: Partial<FormFieldProps>,
 ): [FormFieldProps, (f: FormFieldProps) => void] => {
   const [field, setField] = useState<FormFieldProps>({
     name: "fruit",

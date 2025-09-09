@@ -1,5 +1,6 @@
 import React, { FC, HTMLAttributes } from "react";
 import { generateClassnames } from "../../utils/classnames-helper";
+import "./ListGroup.scss";
 
 export interface ListGroupProps extends HTMLAttributes<HTMLUListElement> {
   variant?: "basic" | "flush";

@@ -4,6 +4,7 @@ import { generateClassnames } from "../../utils/classnames-helper";
 import { FormFieldProps } from "../form/Form";
 import { InputError } from "../form/InputError";
 import { validateOnChange } from "../../utils/validation-helper";
+import "./Input.scss";
 
 export interface TextAreaProps {
   label: string | React.ReactNode;

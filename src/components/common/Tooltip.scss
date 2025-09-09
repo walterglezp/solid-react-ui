@@ -1,0 +1,200 @@
+@import "../../styles/design-system/tokens.scss";
+
+.tooltip-container {
+  display: inline-block;
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: var(--z-index-tooltip);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease-in-out var(--tooltip-delay, 200ms),
+    visibility 0.2s ease-in-out var(--tooltip-delay, 200ms),
+    transform 0.2s ease-in-out var(--tooltip-delay, 200ms);
+  pointer-events: none;
+
+  &__content {
+    background-color: var(--color-gray-50);
+    color: var(--color-gray-800);
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-snug);
+    white-space: nowrap;
+    max-width: 200px;
+    word-wrap: break-word;
+    white-space: normal;
+    border: 1px solid var(--color-gray-200);
+  }
+
+  &__arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+  }
+
+  // Position variants
+  &--top {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    margin-bottom: var(--spacing-2);
+
+    .tooltip__arrow {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-top-color: var(--color-gray-200);
+      border-bottom: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -7px;
+        left: -6px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-top-color: var(--color-gray-50);
+        border-bottom: none;
+      }
+    }
+  }
+
+  &--bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    margin-top: var(--spacing-2);
+
+    .tooltip__arrow {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom-color: var(--color-gray-200);
+      border-top: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: -6px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-bottom-color: var(--color-gray-50);
+        border-top: none;
+      }
+    }
+  }
+
+  &--left {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-8px);
+    margin-right: var(--spacing-2);
+
+    .tooltip__arrow {
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left-color: var(--color-gray-200);
+      border-right: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -6px;
+        left: -7px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-left-color: var(--color-gray-50);
+        border-right: none;
+      }
+    }
+  }
+
+  &--right {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    margin-left: var(--spacing-2);
+
+    .tooltip__arrow {
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-right-color: var(--color-gray-200);
+      border-left: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -6px;
+        left: 1px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-right-color: var(--color-gray-50);
+        border-left: none;
+      }
+    }
+  }
+
+  &--disabled {
+    display: none;
+  }
+}
+
+// Show tooltip on hover
+.tooltip-container:hover .tooltip:not(.tooltip--disabled) {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) !important;
+
+  &.tooltip--top {
+    transform: translateX(-50%) translateY(0) !important;
+  }
+
+  &.tooltip--bottom {
+    transform: translateX(-50%) translateY(0) !important;
+  }
+
+  &.tooltip--left {
+    transform: translateY(-50%) translateX(0) !important;
+  }
+
+  &.tooltip--right {
+    transform: translateY(-50%) translateX(0) !important;
+  }
+}
+
+// Focus support for accessibility
+.tooltip-container:focus-within .tooltip:not(.tooltip--disabled) {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) !important;
+
+  &.tooltip--top {
+    transform: translateX(-50%) translateY(0) !important;
+  }
+
+  &.tooltip--bottom {
+    transform: translateX(-50%) translateY(0) !important;
+  }
+
+  &.tooltip--left {
+    transform: translateY(-50%) translateX(0) !important;
+  }
+
+  &.tooltip--right {
+    transform: translateY(-50%) translateX(0) !important;
+  }
+}

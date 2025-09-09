@@ -1,0 +1,70 @@
+// Column Component Styles
+@import "../../styles/design-system/mixins";
+
+// Base column
+.col {
+  @include make-col();
+}
+
+// Fixed size columns
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    @include make-col($i);
+  }
+}
+
+// Responsive columns
+@each $breakpoint in (sm, md, lg, xl) {
+  @include media-up($breakpoint) {
+    @for $i from 1 through 12 {
+      .col-#{$breakpoint}-#{$i} {
+        @include make-col($i);
+      }
+    }
+  }
+}
+
+// Order utilities
+.order-first {
+  order: -1;
+}
+
+.order-last {
+  order: 13;
+}
+
+@for $i from 0 through 12 {
+  .order-#{$i} {
+    order: $i;
+  }
+}
+
+// Offset utilities
+@for $i from 0 through 11 {
+  .offset-#{$i} {
+    margin-left: percentage($i / 12);
+  }
+}
+
+@each $breakpoint in (sm, md, lg, xl) {
+  @include media-up($breakpoint) {
+    @for $i from 0 through 11 {
+      .offset-#{$breakpoint}-#{$i} {
+        margin-left: percentage($i / 12);
+      }
+    }
+  }
+}
+
+// Align self utilities
+.align-self-start {
+  align-self: flex-start;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}

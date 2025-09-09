@@ -1,5 +1,6 @@
 import React, { FC, HTMLAttributes } from "react";
 import { generateClassnames } from "../../utils/classnames-helper";
+import "./Flex.scss";
 
 export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;

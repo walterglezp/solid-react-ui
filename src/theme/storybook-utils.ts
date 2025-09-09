@@ -1,5 +1,5 @@
-import { ThemeConfig } from '../types/theme.types';
-import { themes, mergeTheme } from './presets';
+import { ThemeConfig } from "../types/theme.types";
+import { themes, mergeTheme } from "./presets";
 
 // Theme preset options for Storybook
 export const THEME_PRESETS = {
@@ -40,35 +40,37 @@ export interface StorybookThemeConfig {
 
 // Default Storybook theme configuration
 export const DEFAULT_STORYBOOK_THEME: StorybookThemeConfig = {
-  preset: 'light',
+  preset: "light",
   customColors: {
-    primary: '#4d6bfe',
-    secondary: '#6c757d',
-    success: '#198754',
-    danger: '#dc3545',
-    warning: '#ffc107',
-    info: '#0dcaf0',
+    primary: "#4d6bfe",
+    secondary: "#6c757d",
+    success: "#198754",
+    danger: "#dc3545",
+    warning: "#ffc107",
+    info: "#0dcaf0",
   },
   customBorderRadius: {
-    base: '0.25rem',
-    md: '0.375rem',
-    lg: '0.5rem',
+    base: "0.25rem",
+    md: "0.375rem",
+    lg: "0.5rem",
   },
   customFontSizes: {
-    base: '1rem',
-    lg: '1.125rem',
-    xl: '1.25rem',
+    base: "1rem",
+    lg: "1.125rem",
+    xl: "1.25rem",
   },
   customSpacing: {
-    base: '1rem',
-    lg: '1.5rem',
+    base: "1rem",
+    lg: "1.5rem",
   },
 };
 
 // Create theme from Storybook configuration
-export const createStorybookTheme = (config: StorybookThemeConfig): ThemeConfig => {
+export const createStorybookTheme = (
+  config: StorybookThemeConfig,
+): ThemeConfig => {
   const baseTheme = THEME_PRESETS[config.preset];
-  
+
   return mergeTheme(baseTheme, {
     colors: {
       ...baseTheme.colors,
@@ -96,76 +98,80 @@ export const createStorybookTheme = (config: StorybookThemeConfig): ThemeConfig 
 // Storybook control definitions
 export const STORYBOOK_THEME_CONTROLS = {
   preset: {
-    control: { type: 'select' },
+    control: { type: "select" },
     options: Object.keys(THEME_PRESETS),
-    description: 'Choose a theme preset',
+    description: "Choose a theme preset",
   },
-  'customColors.primary': {
-    control: { type: 'color' },
-    description: 'Primary color',
+  "customColors.primary": {
+    control: { type: "color" },
+    description: "Primary color",
   },
-  'customColors.secondary': {
-    control: { type: 'color' },
-    description: 'Secondary color',
+  "customColors.secondary": {
+    control: { type: "color" },
+    description: "Secondary color",
   },
-  'customColors.success': {
-    control: { type: 'color' },
-    description: 'Success color',
+  "customColors.success": {
+    control: { type: "color" },
+    description: "Success color",
   },
-  'customColors.danger': {
-    control: { type: 'color' },
-    description: 'Danger color',
+  "customColors.danger": {
+    control: { type: "color" },
+    description: "Danger color",
   },
-  'customColors.warning': {
-    control: { type: 'color' },
-    description: 'Warning color',
+  "customColors.warning": {
+    control: { type: "color" },
+    description: "Warning color",
   },
-  'customColors.info': {
-    control: { type: 'color' },
-    description: 'Info color',
+  "customColors.info": {
+    control: { type: "color" },
+    description: "Info color",
   },
-  'customBorderRadius.base': {
-    control: { type: 'text' },
-    description: 'Base border radius (e.g., 0.25rem)',
+  "customBorderRadius.base": {
+    control: { type: "text" },
+    description: "Base border radius (e.g., 0.25rem)",
   },
-  'customBorderRadius.md': {
-    control: { type: 'text' },
-    description: 'Medium border radius (e.g., 0.375rem)',
+  "customBorderRadius.md": {
+    control: { type: "text" },
+    description: "Medium border radius (e.g., 0.375rem)",
   },
-  'customBorderRadius.lg': {
-    control: { type: 'text' },
-    description: 'Large border radius (e.g., 0.5rem)',
+  "customBorderRadius.lg": {
+    control: { type: "text" },
+    description: "Large border radius (e.g., 0.5rem)",
   },
-  'customFontSizes.base': {
-    control: { type: 'text' },
-    description: 'Base font size (e.g., 1rem)',
+  "customFontSizes.base": {
+    control: { type: "text" },
+    description: "Base font size (e.g., 1rem)",
   },
-  'customFontSizes.lg': {
-    control: { type: 'text' },
-    description: 'Large font size (e.g., 1.125rem)',
+  "customFontSizes.lg": {
+    control: { type: "text" },
+    description: "Large font size (e.g., 1.125rem)",
   },
-  'customFontSizes.xl': {
-    control: { type: 'text' },
-    description: 'Extra large font size (e.g., 1.25rem)',
+  "customFontSizes.xl": {
+    control: { type: "text" },
+    description: "Extra large font size (e.g., 1.25rem)",
   },
-  'customSpacing.base': {
-    control: { type: 'text' },
-    description: 'Base spacing (e.g., 1rem)',
+  "customSpacing.base": {
+    control: { type: "text" },
+    description: "Base spacing (e.g., 1rem)",
   },
-  'customSpacing.lg': {
-    control: { type: 'text' },
-    description: 'Large spacing (e.g., 1.5rem)',
+  "customSpacing.lg": {
+    control: { type: "text" },
+    description: "Large spacing (e.g., 1.5rem)",
   },
 };
 
 // Helper to get theme name for display
 export const getThemeDisplayName = (config: StorybookThemeConfig): string => {
-  const isCustomized = 
-    config.customColors.primary !== DEFAULT_STORYBOOK_THEME.customColors.primary ||
-    config.customColors.secondary !== DEFAULT_STORYBOOK_THEME.customColors.secondary ||
-    config.customBorderRadius.base !== DEFAULT_STORYBOOK_THEME.customBorderRadius.base ||
-    config.customFontSizes.base !== DEFAULT_STORYBOOK_THEME.customFontSizes.base;
-  
+  const isCustomized =
+    config.customColors.primary !==
+      DEFAULT_STORYBOOK_THEME.customColors.primary ||
+    config.customColors.secondary !==
+      DEFAULT_STORYBOOK_THEME.customColors.secondary ||
+    config.customBorderRadius.base !==
+      DEFAULT_STORYBOOK_THEME.customBorderRadius.base ||
+    config.customFontSizes.base !==
+      DEFAULT_STORYBOOK_THEME.customFontSizes.base;
+
   return isCustomized ? `${config.preset} (customized)` : config.preset;
 };
 
@@ -176,7 +182,9 @@ export const exportThemeConfig = (config: StorybookThemeConfig): string => {
 };
 
 // Export theme configuration as TypeScript
-export const exportThemeConfigAsTypeScript = (config: StorybookThemeConfig): string => {
+export const exportThemeConfigAsTypeScript = (
+  config: StorybookThemeConfig,
+): string => {
   const theme = createStorybookTheme(config);
   return `import { ThemeConfig } from 'solid-react-ui';
 

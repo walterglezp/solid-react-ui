@@ -1,5 +1,6 @@
 import React, { FC, HTMLAttributes } from "react";
 import { generateClassnames } from "../../utils/classnames-helper";
+import "./Column.scss";
 
 export interface ColumnProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;

@@ -1,0 +1,72 @@
+// ListGroupItem Component Styles
+@import "../../styles/design-system/mixins";
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: var(--list-group-item-padding-y) var(--list-group-item-padding-x);
+  color: var(--list-group-color);
+  text-decoration: none;
+  background-color: var(--list-group-bg);
+  border: var(--list-group-border-width) solid var(--list-group-border-color);
+
+  &:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+
+  &:last-child {
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: var(--list-group-disabled-color);
+    pointer-events: none;
+    background-color: var(--list-group-disabled-bg);
+  }
+
+  &.active {
+    z-index: 2;
+    color: var(--list-group-active-color);
+    background-color: var(--list-group-active-bg);
+    border-color: var(--list-group-active-border-color);
+  }
+
+  & + & {
+    border-top-width: 0;
+
+    &.active {
+      margin-top: calc(-1 * var(--list-group-border-width));
+      border-top-width: var(--list-group-border-width);
+    }
+  }
+}
+
+.list-group-item-action {
+  width: 100%;
+  color: var(--list-group-action-color);
+  text-align: inherit;
+  border: none;
+  background-color: transparent;
+  @include transition();
+
+  &:hover,
+  &:focus {
+    z-index: 1;
+    color: var(--list-group-action-hover-color);
+    text-decoration: none;
+    background-color: var(--list-group-action-hover-bg);
+  }
+
+  &:active {
+    color: var(--list-group-action-active-color);
+    background-color: var(--list-group-action-active-bg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid theme-color(primary, 500);
+    outline-offset: -2px;
+  }
+}

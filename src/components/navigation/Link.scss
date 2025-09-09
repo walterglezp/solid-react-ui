@@ -1,0 +1,115 @@
+// Link Component Styles
+@import "../../styles/design-system/mixins";
+
+// Base link styles
+a {
+  color: theme-color(primary, 500);
+  text-decoration: none;
+  @include transition();
+
+  &:hover {
+    color: theme-color(primary, 600);
+  }
+
+  &:focus-visible {
+    outline: 2px solid theme-color(primary, 500);
+    outline-offset: 2px;
+  }
+
+  &.disabled {
+    color: theme-color(gray, 400);
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  &.active {
+    color: theme-color(primary, 700);
+    font-weight: var(--font-weight-semibold);
+  }
+}
+
+// Link variants
+.link-primary {
+  color: theme-color(primary, 500);
+
+  &:hover {
+    color: theme-color(primary, 600);
+  }
+}
+
+.link-secondary {
+  color: theme-color(secondary, 500);
+
+  &:hover {
+    color: theme-color(secondary, 600);
+  }
+}
+
+.link-success {
+  color: theme-color(success, 500);
+
+  &:hover {
+    color: theme-color(success, 600);
+  }
+}
+
+.link-danger {
+  color: theme-color(danger, 500);
+
+  &:hover {
+    color: theme-color(danger, 600);
+  }
+}
+
+.link-warning {
+  color: theme-color(warning, 600);
+
+  &:hover {
+    color: theme-color(warning, 700);
+  }
+}
+
+.link-info {
+  color: theme-color(info, 500);
+
+  &:hover {
+    color: theme-color(info, 600);
+  }
+}
+
+.link-light {
+  color: theme-color(gray, 200);
+
+  &:hover {
+    color: theme-color(gray, 100);
+  }
+}
+
+.link-dark {
+  color: theme-color(gray, 800);
+
+  &:hover {
+    color: theme-color(gray, 900);
+  }
+}
+
+.link-link {
+  color: theme-color(primary, 500);
+  text-decoration: underline;
+
+  &:hover {
+    color: theme-color(primary, 600);
+  }
+}
+
+// Button-style links
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -86,7 +86,7 @@ const CalendarNavigationMenu: React.FC<CalendarNavigationMenuProps> = ({
       format(setMonth(new Date(), 0), "MMMM") === month
         ? 0
         : Array.from({ length: 12 }, (_, i) =>
-            format(setMonth(new Date(), i), "MMMM")
+            format(setMonth(new Date(), i), "MMMM"),
           ).indexOf(month);
     const newDate = setMonth(currentDate, monthIndex);
     updateDate(newDate);

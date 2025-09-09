@@ -21,7 +21,7 @@ export const resizeAndRotateImage = (
   newHeight: number,
   contentType: ImageContentType = "image/jpeg",
   quality = 100,
-  rotation = 0
+  rotation = 0,
 ): string => {
   const qualityDecimal = quality / 100;
   const canvas = document.createElement("canvas");
@@ -52,7 +52,7 @@ export const resizeAndRotateImage = (
 export const b64toByteArrays = (base64: string): BlobPart[] => {
   const sliceSize = 512;
   const byteCharacters = atob(
-    base64.replace(/^data:image\/(png|jpeg|jpg|webp);base64,/, "")
+    base64.replace(/^data:image\/(png|jpeg|jpg|webp);base64,/, ""),
   );
   const byteArrays: BlobPart[] = [];
 
@@ -76,7 +76,7 @@ export const b64toBlob = (b64: string, contentType: ImageContentType): Blob => {
 export const b64toFile = (
   b64: string,
   fileName: string,
-  contentType: ImageContentType
+  contentType: ImageContentType,
 ): File => {
   const byteArrays = b64toByteArrays(b64);
   return new File(byteArrays, fileName, { type: contentType });
@@ -90,7 +90,7 @@ export const resizeImage = (
   quality = 100,
   rotation = 0,
   format: ImageContentType = "image/jpeg",
-  output: "file" | "blob" | "base64" = "file"
+  output: "file" | "blob" | "base64" = "file",
 ): void => {
   if (!isImage(file)) {
     throw new Error("File is not a supported image type.");
@@ -106,7 +106,7 @@ export const resizeImage = (
         height,
         format,
         quality,
-        rotation
+        rotation,
       );
 
       switch (output) {

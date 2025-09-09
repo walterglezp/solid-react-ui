@@ -1,0 +1,359 @@
+// CheckBox Component Styles
+@import "../../styles/design-system/mixins";
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: spacing(3);
+  cursor: pointer;
+
+  .checkbox-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+  }
+
+  .checkbox-button {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid theme-color(gray, 300);
+    border-radius: 3px;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+    flex-shrink: 0;
+
+    // Checkmark
+    &::after {
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: 5px;
+      width: 6px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .checkbox-label {
+    color: theme-color(gray, 800);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  // Hover state
+  &:hover .checkbox-button {
+    border-color: theme-color(gray, 400);
+  }
+
+  // Checked state - default (gray)
+  &.checked .checkbox-button {
+    border-color: theme-color(gray, 600);
+    background-color: theme-color(gray, 600);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  // Color variants
+  &.checkbox-primary.checked .checkbox-button {
+    border-color: theme-color(primary, 500);
+    background-color: theme-color(primary, 500);
+  }
+
+  &.checkbox-secondary.checked .checkbox-button {
+    border-color: theme-color(secondary, 500);
+    background-color: theme-color(secondary, 500);
+  }
+
+  &.checkbox-success.checked .checkbox-button {
+    border-color: theme-color(success, 500);
+    background-color: theme-color(success, 500);
+  }
+
+  &.checkbox-danger.checked .checkbox-button {
+    border-color: theme-color(danger, 500);
+    background-color: theme-color(danger, 500);
+  }
+
+  &.checkbox-warning.checked .checkbox-button {
+    border-color: theme-color(warning, 500);
+    background-color: theme-color(warning, 500);
+  }
+
+  &.checkbox-info.checked .checkbox-button {
+    border-color: theme-color(info, 500);
+    background-color: theme-color(info, 500);
+  }
+
+  // Hover states for variants
+  &.checkbox-primary:hover .checkbox-button {
+    border-color: theme-color(primary, 300);
+  }
+
+  &.checkbox-secondary:hover .checkbox-button {
+    border-color: theme-color(secondary, 300);
+  }
+
+  &.checkbox-success:hover .checkbox-button {
+    border-color: theme-color(success, 300);
+  }
+
+  &.checkbox-danger:hover .checkbox-button {
+    border-color: theme-color(danger, 300);
+  }
+
+  &.checkbox-warning:hover .checkbox-button {
+    border-color: theme-color(warning, 300);
+  }
+
+  &.checkbox-info:hover .checkbox-button {
+    border-color: theme-color(info, 300);
+  }
+
+  // Disabled state
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+
+    .checkbox-button,
+    .checkbox-label {
+      cursor: not-allowed;
+    }
+
+    &:hover .checkbox-button {
+      border-color: theme-color(gray, 300);
+    }
+  }
+
+  // Size variants
+  &.checkbox-sm {
+    .checkbox-button {
+      width: 16px;
+      height: 16px;
+
+      &::after {
+        top: 0px;
+        left: 4px;
+        width: 4px;
+        height: 8px;
+      }
+    }
+
+    .checkbox-label {
+      font-size: var(--font-size-xs);
+    }
+  }
+
+  &.checkbox-lg {
+    .checkbox-button {
+      width: 24px;
+      height: 24px;
+
+      &::after {
+        top: 2px;
+        left: 6px;
+        width: 8px;
+        height: 12px;
+        border-width: 0 3px 3px 0;
+      }
+    }
+
+    .checkbox-label {
+      font-size: var(--font-size-base);
+    }
+  }
+
+  // Focus state for accessibility
+  // .checkbox-input:focus + .checkbox-button {
+  //   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  // }
+}
+
+// Switch Component Styles
+.custom-switch {
+  display: flex;
+  align-items: center;
+  gap: spacing(3);
+  cursor: pointer;
+
+  .checkbox-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+  }
+
+  .switch-button {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: theme-color(gray, 300);
+    transition: all 0.3s ease-in-out;
+    flex-shrink: 0;
+
+    // Switch handle
+    &::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: white;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .checkbox-label {
+    color: theme-color(gray, 800);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  // Hover state
+  &:hover .switch-button {
+    background-color: theme-color(gray, 400);
+  }
+
+  // Checked state - default (gray)
+  &.checked .switch-button {
+    background-color: theme-color(gray, 600);
+
+    &::after {
+      transform: translateX(20px);
+    }
+  }
+
+  // Color variants for switch
+  &.checkbox-primary.checked .switch-button {
+    background-color: theme-color(primary, 500);
+  }
+
+  &.checkbox-secondary.checked .switch-button {
+    background-color: theme-color(secondary, 500);
+  }
+
+  &.checkbox-success.checked .switch-button {
+    background-color: theme-color(success, 500);
+  }
+
+  &.checkbox-danger.checked .switch-button {
+    background-color: theme-color(danger, 500);
+  }
+
+  &.checkbox-warning.checked .switch-button {
+    background-color: theme-color(warning, 500);
+  }
+
+  &.checkbox-info.checked .switch-button {
+    background-color: theme-color(info, 500);
+  }
+
+  // Hover states for switch variants
+  &.checkbox-primary:hover .switch-button {
+    background-color: theme-color(primary, 300);
+  }
+
+  &.checkbox-secondary:hover .switch-button {
+    background-color: theme-color(secondary, 300);
+  }
+
+  &.checkbox-success:hover .switch-button {
+    background-color: theme-color(success, 300);
+  }
+
+  &.checkbox-danger:hover .switch-button {
+    background-color: theme-color(danger, 300);
+  }
+
+  &.checkbox-warning:hover .switch-button {
+    background-color: theme-color(warning, 300);
+  }
+
+  &.checkbox-info:hover .switch-button {
+    background-color: theme-color(info, 300);
+  }
+
+  // Disabled state
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+
+    .switch-button,
+    .checkbox-label {
+      cursor: not-allowed;
+    }
+
+    &:hover .switch-button {
+      background-color: theme-color(gray, 300);
+    }
+  }
+
+  // Size variants for switch
+  &.checkbox-sm {
+    .switch-button {
+      width: 36px;
+      height: 20px;
+      border-radius: 10px;
+
+      &::after {
+        width: 16px;
+        height: 16px;
+        top: 2px;
+        left: 2px;
+      }
+    }
+
+    &.checked .switch-button::after {
+      transform: translateX(16px);
+    }
+
+    .checkbox-label {
+      font-size: var(--font-size-xs);
+    }
+  }
+
+  &.checkbox-lg {
+    .switch-button {
+      width: 52px;
+      height: 28px;
+      border-radius: 14px;
+
+      &::after {
+        width: 24px;
+        height: 24px;
+        top: 2px;
+        left: 2px;
+      }
+    }
+
+    &.checked .switch-button::after {
+      transform: translateX(24px);
+    }
+
+    .checkbox-label {
+      font-size: var(--font-size-base);
+    }
+  }
+
+  // Focus state for accessibility
+  // .checkbox-input:focus + .switch-button {
+  //   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  // }
+}

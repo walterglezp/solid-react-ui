@@ -1,79 +1,242 @@
 .image-drop-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+
   .drop-zone {
-    margin-bottom: 3vh;
-    padding: 3vh;
-    width: 50vh;
-    height: 20vh;
+    padding: 40px 20px;
+    border: 2px dashed #86939c;
+    border-radius: 0px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    outline: 2px dotted #86939c;
-    outline-offset: -1px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    &:hover {
+      border-color: var(--color-primary);
+    }
 
     .drop-text {
+      margin-top: 10px;
       font-size: 14px;
+
+      .reorder-hint {
+        margin-top: 5px;
+        font-size: 12px;
+        color: var(--color-secondary-600);
+        font-style: italic;
+      }
     }
   }
 
-  .images-loaded {
-    width: 100%;
-    height: 174px;
-    display: inline-flex;
-    position: relative;
-
-    .draggable-box {
-      cursor: grab;
-    }
+  .images-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
 
     .main-image {
       position: relative;
-      min-width: 310px;
-      max-width: 310px;
-      margin-right: 5px;
-      background-color: var(--bs-secondary);
+      width: 400px;
+      height: 225px;
+      border-radius: 0px;
+      overflow: hidden;
+      background-color: var(--color-secondary-200);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      &.dragging {
+        opacity: 0.5;
+        transform: rotate(2deg);
+      }
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-    }
 
-    .small-images-container {
-      height: 100%;
-      width: 100%;
+      .delete-button {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(0, 0, 0, 0.6);
+        border: none;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        opacity: 0;
+        transition: all 0.2s ease;
 
-      .image-container {
-        position: relative;
-        width: 150px;
-        height: 85px;
-        margin-right: 5px;
-        display: inline-flex;
-        background-color: var(--bs-secondary);
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+        &:hover {
+          background: rgba(220, 53, 69, 0.8);
+          transform: scale(1.1);
         }
+      }
+
+      &:hover .delete-button {
+        opacity: 1;
       }
     }
 
-    .close-icon {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-      color: white;
-      opacity: 0.5;
-      transition:
-        color 0.2s ease-out,
-        opacity 0.2s ease-out;
+    .thumbnails-section {
+      flex: 1;
+      min-width: 0;
 
-      &:hover {
-        opacity: 1;
-        background-color: rgba(0, 0, 0, 0.2);
+      .thumbnails-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 5px;
+
+        .thumbnail {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 16/9;
+          border-radius: 0px;
+          overflow: hidden;
+          background-color: var(--color-secondary-200);
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          }
+
+          &.dragging {
+            opacity: 0.5;
+            transform: rotate(2deg) scale(0.9);
+          }
+
+          &.empty {
+            background-color: var(--color-secondary-100);
+            border: 1px dashed var(--color-secondary-300);
+            cursor: default;
+
+            &:hover {
+              transform: none;
+              box-shadow: none;
+            }
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .delete-button {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.2s ease;
+            font-size: 10px;
+
+            &:hover {
+              background: rgba(220, 53, 69, 0.8);
+              transform: scale(1.1);
+            }
+          }
+
+          &:hover .delete-button {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  /* Drag and drop visual feedback */
+  .thumbnail[draggable="true"],
+  .main-image[draggable="true"] {
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  /* Drag over states */
+  .thumbnail:not(.empty) {
+    &.drag-over {
+      border: 2px solid var(--color-primary);
+      background-color: var(--color-primary-100);
+    }
+  }
+}
+
+/* Image modal styles */
+.image-modal {
+  padding: 2px !important;
+  border-radius: 0px !important;
+}
+
+.image-modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+
+  img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 0px;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .image-drop-zone {
+    .images-layout {
+      flex-direction: column;
+      gap: 15px;
+
+      .main-image {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .thumbnails-section {
+        .thumbnails-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .image-drop-zone {
+    .images-layout {
+      .thumbnails-section {
+        .thumbnails-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
     }
   }

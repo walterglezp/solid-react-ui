@@ -4,7 +4,7 @@
 
 A lightweight, production-ready React component library built with TypeScript. Includes reusable UI elements like buttons, inputs, layout primitives (Container, Row, Column, Flex), lists, and form controls — designed for performance, simplicity, and seamless integration into modern React apps.
 
-All components are styled using **Bootstrap 5.3.6**, enhanced with optional theming via a custom ThemeContext, and documented with Storybook.
+All components are styled using a **custom design system**, enhanced with optional theming via a custom ThemeContext, and documented with Storybook.
 
 ---
 
@@ -12,7 +12,7 @@ All components are styled using **Bootstrap 5.3.6**, enhanced with optional them
 
 - ⚛️ Built with React + TypeScript
 - 💡 Tree-shakeable and typed components
-- 🎨 Bootstrap 5.3.6 utility class styling
+- 🎨 Custom utility class styling system
 - 🎭 Optional theme customization via ThemeProvider-
 - 🧪 Storybook integration for documentation and testing
 - 📦 Ready to publish as an npm package
@@ -31,7 +31,7 @@ npm install solid-react-ui
 
 🎨 Styles
 
-- This library is styled using Bootstrap 5.3.6 plus custom SCSS-based enhancements.
+- This library is styled using a custom design system with SCSS-based components and utilities.
 - All required styles are fully bundled in the package.
 
 To use the styles, you need to import them into your app entry:
@@ -42,7 +42,7 @@ import 'solid-react-ui/dist/index.css';
 
 ## 🎭 Theme Customization
 
-Use the ThemeProvider to dynamically customize Bootstrap styles globally. Example:
+Use the ThemeProvider to dynamically customize component styles globally. Example:
 
 ```bash
 import { ThemeProvider } from 'solid-react-ui'
@@ -59,7 +59,7 @@ import { ThemeProvider } from 'solid-react-ui'
 </ThemeProvider>
 ```
 
-This automatically maps values to --bs-border-radius, --bs-border-radius-sm, and --bs-border-radius-lg.
+This automatically maps values to CSS custom properties like --border-radius-md, --border-radius-sm, and --border-radius-lg.
 
 ## 🧪 Run Storybook
 

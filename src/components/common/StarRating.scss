@@ -1,0 +1,319 @@
+@import "../../styles/design-system/tokens.scss";
+
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+
+  &--compact {
+    gap: var(--spacing-2);
+
+    .star-rating__text {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-gray-700);
+      line-height: var(--line-height-none);
+
+      .star-rating__count {
+        color: var(--color-gray-500);
+        font-weight: var(--font-weight-normal);
+      }
+    }
+  }
+
+  &--sm {
+    gap: var(--spacing-0);
+
+    &.star-rating--compact {
+      gap: var(--spacing-1);
+
+      .star-rating__text {
+        font-size: var(--font-size-xs);
+      }
+    }
+  }
+
+  &--md {
+    gap: var(--spacing-1);
+
+    &.star-rating--compact {
+      gap: var(--spacing-2);
+
+      .star-rating__text {
+        font-size: var(--font-size-sm);
+      }
+    }
+  }
+
+  &--lg {
+    gap: var(--spacing-1);
+
+    &.star-rating--compact {
+      gap: var(--spacing-2);
+
+      .star-rating__text {
+        font-size: var(--font-size-base);
+      }
+    }
+  }
+
+  &--readonly {
+    .star {
+      cursor: default;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
+  &__total-count {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-500);
+    margin-left: var(--spacing-2);
+    font-weight: var(--font-weight-normal);
+  }
+}
+
+.star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: var(--spacing-1);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+
+  &__icon {
+    transition: all 0.2s ease-in-out;
+  }
+
+  &--interactive {
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary-500);
+      outline-offset: 2px;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &--filled {
+    .star__icon {
+      color: var(--color-warning-400);
+      fill: currentColor;
+    }
+  }
+
+  &--half {
+    .star__icon {
+      background: linear-gradient(
+        90deg,
+        var(--color-warning-400) 50%,
+        var(--color-gray-300) 50%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      fill: currentColor;
+    }
+
+    // Fallback for browsers that don't support background-clip: text
+    @supports not (-webkit-background-clip: text) {
+      .star__icon {
+        color: var(--color-warning-400);
+        fill: currentColor;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 50%;
+          height: 100%;
+          background: var(--color-gray-300);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+      }
+    }
+  }
+
+  &--empty {
+    .star__icon {
+      color: var(--color-gray-300);
+      fill: currentColor;
+    }
+  }
+
+  &:disabled {
+    cursor: pointer;
+    opacity: 0.6;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .star {
+    &--filled .star__icon {
+      color: #000;
+    }
+
+    &--empty .star__icon {
+      color: #666;
+    }
+
+    &--half .star__icon {
+      background: linear-gradient(90deg, #000 50%, #666 50%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .star {
+    transition: none;
+
+    &__icon {
+      transition: none;
+    }
+
+    &--interactive:hover {
+      transform: none;
+    }
+  }
+}
+
+// Detailed rating breakdown tooltip
+.star-rating-tooltip {
+  min-width: 200px;
+  max-width: 240px;
+
+  &__header {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-900);
+    margin-bottom: var(--spacing-1);
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-600);
+    margin-bottom: var(--spacing-3);
+    text-align: center;
+  }
+
+  &__breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-3);
+    width: 85%;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    gap: var(--spacing-1);
+    align-items: center;
+    font-size: var(--font-size-xs);
+  }
+
+  &__label {
+    color: var(--color-gray-700);
+    font-weight: var(--font-weight-medium);
+    justify-self: start;
+  }
+
+  &__progress {
+    height: 6px;
+    background-color: var(--color-gray-200);
+    border-radius: var(--border-radius-full);
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+  }
+
+  &__progress-bar {
+    height: 100%;
+    background-color: var(--color-warning-400);
+    border-radius: var(--border-radius-full);
+    transition: width 0.3s ease-in-out;
+  }
+
+  &__percentage {
+    color: var(--color-gray-600);
+    font-weight: var(--font-weight-medium);
+    text-align: right;
+    font-size: var(--font-size-xs);
+    white-space: nowrap;
+    justify-self: end;
+  }
+
+  &__footer {
+    padding-top: var(--spacing-2);
+    border-top: 1px solid var(--color-gray-200);
+    text-align: center;
+    width: 85%;
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    color: red;
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-primary-700);
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary-500);
+      outline-offset: 2px;
+      border-radius: var(--border-radius-sm);
+    }
+  }
+}
+
+// Fix for clickable tooltip content - comprehensive tooltip interaction fix
+.star {
+  .tooltip-container {
+    .tooltip {
+      pointer-events: auto !important;
+    }
+
+    // Keep tooltip visible when hovering container OR tooltip content
+    &:hover .tooltip:not(.tooltip--disabled),
+    .tooltip:hover {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateX(-50%) translateY(0) !important;
+    }
+
+    // Add slight delay before hiding to allow mouse movement to tooltip
+    .tooltip {
+      transition:
+        opacity 0.15s ease-in-out,
+        visibility 0.15s ease-in-out;
+    }
+  }
+}

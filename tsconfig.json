@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "lib": ["DOM", "ESNext"],        
+    "lib": ["DOM", "ESNext"],
     "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "dist/types",
@@ -13,8 +13,8 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./src",
     "outDir": "dist",
-    "moduleResolution": "node",     
-    "resolveJsonModule": true            
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "storybook-static"]

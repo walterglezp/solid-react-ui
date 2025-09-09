@@ -1,5 +1,6 @@
 import React, { FC, HTMLAttributes } from "react";
 import { generateClassnames } from "../../utils/classnames-helper";
+import "./Row.scss";
 
 export interface RowProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;

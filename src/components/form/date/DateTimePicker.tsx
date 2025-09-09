@@ -5,11 +5,10 @@ import {
   setHours,
   setMinutes,
   getHours,
-  getMinutes,
+  getMinutes as _getMinutes,
   isValid,
 } from "date-fns";
 
-import { uuid } from "../../../utils/uuid-helper";
 import { CalendarDayType } from "./Calendar";
 import { CalendarDaysList } from "./CalendarDaysList";
 import { CalendarNavigationMenu } from "./CalendarNavigationMenu";
@@ -17,6 +16,7 @@ import { CalendarWeekDayNames } from "./CalendarWeekDayNames";
 import { Input } from "../Input";
 import { Icon } from "../../graphic/Icon";
 import { InputError } from "../InputError";
+import { Radio } from "../Radio";
 import { generateClassnames } from "../../../utils/classnames-helper";
 import { DATE_FORMATS } from "../../../constants/date";
 import { FormFieldProps } from "../Form";
@@ -54,8 +54,6 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
   field,
   onChange,
 }) => {
-  const idAM = uuid();
-  const idPM = uuid();
   const calendarRef = useRef<HTMLDivElement>(null);
   const [showCalendar, setShowCalendar] = useState(false);
 
@@ -165,29 +163,38 @@ const DateTimePicker: React.FC<DateTimePickerProps> = ({
                 max={59}
               />
               {/* AM/PM Toggle */}
-              <div className="time-picker-meridian">
-                <input
-                  type="radio"
-                  id={idAM}
-                  className="form-check-input ms-2 me-2"
-                  checked={format(currentDate, "a") === "AM"}
+              <div className="time-picker-meridian d-flex gap-2">
+                <Radio
+                  className="me-2"
+                  field={{
+                    name: "meridian",
+                    formName: "timepicker",
+                    error: "",
+                    value: format(currentDate, "a"),
+                    section: 0,
+                    validate: {},
+                  }}
+                  checkedValue="AM"
+                  label="AM"
+                  size="sm"
+                  disabled={readOnly || disabled}
                   onChange={() => updateMeridian("AM")}
-                  disabled={readOnly || disabled}
                 />
-                <label className="form-check-label me-2" htmlFor={idAM}>
-                  AM
-                </label>
-                <input
-                  type="radio"
-                  id={idPM}
-                  className="form-check-input me-2"
-                  checked={format(currentDate, "a") === "PM"}
+                <Radio
+                  field={{
+                    name: "meridian",
+                    formName: "timepicker",
+                    error: "",
+                    value: format(currentDate, "a"),
+                    section: 0,
+                    validate: {},
+                  }}
+                  checkedValue="PM"
+                  label="PM"
+                  size="sm"
+                  disabled={readOnly || disabled}
                   onChange={() => updateMeridian("PM")}
-                  disabled={readOnly || disabled}
                 />
-                <label className="form-check-label" htmlFor={idPM}>
-                  PM
-                </label>
               </div>
             </div>
           )}
