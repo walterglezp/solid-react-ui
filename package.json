@@ -1,6 +1,6 @@
 {
   "name": "solid-react-ui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A lightweight, production-ready React component library with custom design system and documented with Storybook.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -31,7 +31,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run build:styles && tsup",
-    "build:styles": "sass src/styles/global.scss dist/index.css",
+    "build:styles": "sass --no-source-map --style=compressed src/styles/global.scss dist/index.css",
     "storybook": "storybook dev -p 6006",
     "lint": "eslint src --ext .ts,.tsx",
     "format": "prettier --write .",

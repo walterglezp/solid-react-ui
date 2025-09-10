@@ -3,12 +3,12 @@
  * Custom design system with utility classes and components
  */
 
-// Import design system foundations
-@import "./design-system/tokens";
-@import "./design-system/mixins";
-@import "./design-system/base";
+/* Import design system foundations */
+@import "./design-system/tokens.scss";
+@import "./design-system/mixins.scss";
+@import "./design-system/base.scss";
 
-// Import component styles
+/* Import component styles */
 @import "../components/common/ScrollBar.scss";
 @import "../components/form/Input.scss";
 @import "../components/form/autoselect.scss";
@@ -24,7 +24,7 @@
 @import "../components/form/date/DateTimeRangePicker.scss";
 @import "../components/navigation/SideMenu.scss";
 
-// Global utility classes
+/* Global utility classes */
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -37,7 +37,7 @@
   border: 0 !important;
 }
 
-// Responsive display utilities
+/* Responsive display utilities */
 .d-none {
   display: none !important;
 }
@@ -57,7 +57,7 @@
   display: inline-flex !important;
 }
 
-// Text utilities
+/* Text utilities */
 .text-left {
   text-align: left !important;
 }
@@ -77,7 +77,7 @@
   text-transform: lowercase !important;
 }
 
-// Margin utilities
+/* Margin utilities */
 @each $name, $value in $spacers {
   .m-#{$name} {
     margin: #{$value} !important;
@@ -111,7 +111,7 @@
   }
 }
 
-// Padding utilities
+/* Padding utilities */
 @each $name, $value in $spacers {
   .p-#{$name} {
     padding: #{$value} !important;
@@ -145,7 +145,7 @@
   }
 }
 
-// Width utilities
+/* Width utilities */
 .w-25 {
   width: 25% !important;
 }
@@ -162,7 +162,7 @@
   width: auto !important;
 }
 
-// Height utilities
+/* Height utilities */
 .h-25 {
   height: 25% !important;
 }
@@ -179,7 +179,7 @@
   height: auto !important;
 }
 
-// Cursor utilities
+/* Cursor utilities */
 .cursor-pointer {
   cursor: pointer !important;
 }
@@ -190,7 +190,7 @@
   cursor: not-allowed !important;
 }
 
-// Border utilities
+/* Border utilities */
 .border {
   border: 1px solid theme-color(gray, 200) !important;
 }
@@ -210,7 +210,7 @@
   border: 0 !important;
 }
 
-// Color utilities
+/* Color utilities */
 .text-primary {
   color: theme-color(primary, 500) !important;
 }
@@ -233,7 +233,7 @@
   color: theme-color(gray, 400) !important;
 }
 
-// Background utilities
+/* Background utilities */
 .bg-primary {
   background-color: theme-color(primary, 500) !important;
 }
