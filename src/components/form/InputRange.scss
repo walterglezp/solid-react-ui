@@ -169,7 +169,7 @@
     }
   }
 
-/*  Size variants */
+  /*  Size variants */
   &--sm {
     .input-range__container {
       height: 36px;
@@ -224,7 +224,7 @@
     }
   }
 
-/*  States */
+  /*  States */
   &--disabled {
     opacity: 0.6;
     pointer-events: none;
@@ -260,7 +260,7 @@
     }
   }
 
-/*  Error state */
+  /*  Error state */
   &.invalid-field {
     .input-range__track {
       background-color: var(--color-danger-100);

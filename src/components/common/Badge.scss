@@ -25,7 +25,7 @@
     flex-shrink: 0;
   }
 
-/*  Size variants */
+  /*  Size variants */
   &--sm {
     font-size: var(--font-size-2xs);
     padding: 2px var(--spacing-1);
@@ -44,7 +44,7 @@
     gap: var(--spacing-1);
   }
 
-/*  Color variants */
+  /*  Color variants */
   &--primary {
     background-color: var(--color-primary-500);
     color: white;
@@ -133,12 +133,12 @@
     }
   }
 
-/*  Pill modifier */
+  /*  Pill modifier */
   &--pill {
     border-radius: 50rem;
   }
 
-/*  Empty badge (dot only) */
+  /*  Empty badge (dot only) */
   &--empty {
     width: 8px;
     height: 8px;

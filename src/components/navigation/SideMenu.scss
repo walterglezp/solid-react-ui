@@ -8,7 +8,6 @@
   height: 100vh;
   transition: width 0.3s ease-in-out;
   overflow: hidden;
-
 }
 
 .side-menu__header {
@@ -87,7 +86,6 @@
   &:last-child {
     margin-bottom: 0;
   }
-
 }
 
 .side-menu-section__title {
@@ -130,7 +128,6 @@
   &:active {
     transform: scale(0.98);
   }
-
 }
 
 .side-menu-item__icon {
@@ -189,7 +186,7 @@
 
 /*  Active state */
 .side-menu-item--active {
-/*  No background by default */
+  /*  No background by default */
   color: var(--side-menu-active-color, theme-color(danger));
 
   .side-menu-item__icon {
