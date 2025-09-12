@@ -4,25 +4,24 @@
  */
 
 /* Import design system foundations */
-@import "./design-system/tokens.scss";
-@import "./design-system/mixins.scss";
-@import "./design-system/base.scss";
+@use "design-system/tokens.scss";
+@use "design-system/base.scss";
 
 /* Import component styles */
-@import "../components/common/ScrollBar.scss";
-@import "../components/form/Input.scss";
-@import "../components/form/autoselect.scss";
-@import "../components/form/ImageDropZone.scss";
-@import "../components/form/InputNumber.scss";
-@import "../components/form/date/CalendarDaysList.scss";
-@import "../components/form/date/CalendarMonthMenu.scss";
-@import "../components/form/date/CalendarNavigationMenu.scss";
-@import "../components/form/date/CalendarWeekDayNames.scss";
-@import "../components/form/date/CalendarYearMenu.scss";
-@import "../components/form/date/DatePicker.scss";
-@import "../components/form/date/DateTimePicker.scss";
-@import "../components/form/date/DateTimeRangePicker.scss";
-@import "../components/navigation/SideMenu.scss";
+@use "../components/common/ScrollBar.scss";
+@use "../components/form/Input.scss";
+@use "../components/form/autoselect.scss";
+@use "../components/form/ImageDropZone.scss";
+@use "../components/form/InputNumber.scss";
+@use "../components/form/date/CalendarDaysList.scss";
+@use "../components/form/date/CalendarMonthMenu.scss";
+@use "../components/form/date/CalendarNavigationMenu.scss";
+@use "../components/form/date/CalendarWeekDayNames.scss";
+@use "../components/form/date/CalendarYearMenu.scss";
+@use "../components/form/date/DatePicker.scss";
+@use "../components/form/date/DateTimePicker.scss";
+@use "../components/form/date/DateTimeRangePicker.scss";
+@use "../components/navigation/SideMenu.scss";
 
 /* Global utility classes */
 .visually-hidden {
@@ -78,7 +77,7 @@
 }
 
 /* Margin utilities */
-@each $name, $value in $spacers {
+@each $name, $value in tokens.$spacers {
   .m-#{$name} {
     margin: #{$value} !important;
   }
@@ -112,7 +111,7 @@
 }
 
 /* Padding utilities */
-@each $name, $value in $spacers {
+@each $name, $value in tokens.$spacers {
   .p-#{$name} {
     padding: #{$value} !important;
   }
@@ -192,19 +191,19 @@
 
 /* Border utilities */
 .border {
-  border: 1px solid theme-color(gray, 200) !important;
+  border: 1px solid var(--color-gray-200) !important;
 }
 .border-top {
-  border-top: 1px solid theme-color(gray, 200) !important;
+  border-top: 1px solid var(--color-gray-200) !important;
 }
 .border-right {
-  border-right: 1px solid theme-color(gray, 200) !important;
+  border-right: 1px solid var(--color-gray-200) !important;
 }
 .border-bottom {
-  border-bottom: 1px solid theme-color(gray, 200) !important;
+  border-bottom: 1px solid var(--color-gray-200) !important;
 }
 .border-left {
-  border-left: 1px solid theme-color(gray, 200) !important;
+  border-left: 1px solid var(--color-gray-200) !important;
 }
 .border-0 {
   border: 0 !important;
@@ -212,49 +211,49 @@
 
 /* Color utilities */
 .text-primary {
-  color: theme-color(primary, 500) !important;
+  color: var(--color-primary-500) !important;
 }
 .text-secondary {
-  color: theme-color(secondary, 500) !important;
+  color: var(--color-secondary-500) !important;
 }
 .text-success {
-  color: theme-color(success, 500) !important;
+  color: var(--color-success-500) !important;
 }
 .text-danger {
-  color: theme-color(danger, 500) !important;
+  color: var(--color-danger-500) !important;
 }
 .text-warning {
-  color: theme-color(warning, 500) !important;
+  color: var(--color-warning-500) !important;
 }
 .text-info {
-  color: theme-color(info, 500) !important;
+  color: var(--color-info-500) !important;
 }
 .text-muted {
-  color: theme-color(gray, 400) !important;
+  color: var(--color-gray-400) !important;
 }
 
 /* Background utilities */
 .bg-primary {
-  background-color: theme-color(primary, 500) !important;
+  background-color: var(--color-primary-500) !important;
 }
 .bg-secondary {
-  background-color: theme-color(secondary, 500) !important;
+  background-color: var(--color-secondary-500) !important;
 }
 .bg-success {
-  background-color: theme-color(success, 500) !important;
+  background-color: var(--color-success-500) !important;
 }
 .bg-danger {
-  background-color: theme-color(danger, 500) !important;
+  background-color: var(--color-danger-500) !important;
 }
 .bg-warning {
-  background-color: theme-color(warning, 500) !important;
+  background-color: var(--color-warning-500) !important;
 }
 .bg-info {
-  background-color: theme-color(info, 500) !important;
+  background-color: var(--color-info-500) !important;
 }
 .bg-light {
-  background-color: theme-color(gray, 100) !important;
+  background-color: var(--color-gray-100) !important;
 }
 .bg-dark {
-  background-color: theme-color(gray, 800) !important;
+  background-color: var(--color-gray-800) !important;
 }

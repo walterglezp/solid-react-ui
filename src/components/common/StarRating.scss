@@ -1,4 +1,4 @@
-@import "../../styles/design-system/tokens.scss";
+@use "../../styles/design-system/tokens.scss";
 
 .star-rating {
   display: inline-flex;
@@ -126,7 +126,7 @@
       fill: currentColor;
     }
 
-    // Fallback for browsers that don't support background-clip: text
+/*  Fallback for browsers that don't support background-clip: text */
     @supports not (-webkit-background-clip: text) {
       .star__icon {
         color: var(--color-warning-400);
@@ -164,7 +164,7 @@
   }
 }
 
-// High contrast mode support
+/*  High contrast mode support */
 @media (prefers-contrast: high) {
   .star {
     &--filled .star__icon {
@@ -184,7 +184,7 @@
   }
 }
 
-// Reduced motion support
+/*  Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .star {
     transition: none;
@@ -199,7 +199,7 @@
   }
 }
 
-// Detailed rating breakdown tooltip
+/*  Detailed rating breakdown tooltip */
 .star-rating-tooltip {
   min-width: 200px;
   max-width: 240px;
@@ -294,14 +294,14 @@
   }
 }
 
-// Fix for clickable tooltip content - comprehensive tooltip interaction fix
+/*  Fix for clickable tooltip content - comprehensive tooltip interaction fix */
 .star {
   .tooltip-container {
     .tooltip {
       pointer-events: auto !important;
     }
 
-    // Keep tooltip visible when hovering container OR tooltip content
+/*  Keep tooltip visible when hovering container OR tooltip content */
     &:hover .tooltip:not(.tooltip--disabled),
     .tooltip:hover {
       opacity: 1 !important;
@@ -309,7 +309,7 @@
       transform: translateX(-50%) translateY(0) !important;
     }
 
-    // Add slight delay before hiding to allow mouse movement to tooltip
+/*  Add slight delay before hiding to allow mouse movement to tooltip */
     .tooltip {
       transition:
         opacity 0.15s ease-in-out,

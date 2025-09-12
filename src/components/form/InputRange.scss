@@ -1,23 +1,22 @@
-// InputRange Component Styles
-@import "../../styles/design-system/mixins";
+/*  InputRange Component Styles */
 
 .input-range {
   display: flex;
   flex-direction: column;
-  gap: spacing(2);
+  gap: var(--spacing-2);
   width: 100%;
 
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: spacing(1);
+    margin-bottom: var(--spacing-1);
   }
 
   &__label {
     font-size: var(--font-size-sm);
     font-weight: 500;
-    color: theme-color(gray, 700);
+    color: var(--color-gray-700);
     margin: 0;
   }
 
@@ -25,30 +24,30 @@
   &__value-only {
     font-size: var(--font-size-sm);
     font-weight: 600;
-    color: theme-color(primary, 600);
-    padding: spacing(1) spacing(2);
-    background-color: theme-color(gray, 50);
+    color: var(--color-primary-600);
+    padding: var(--spacing-1) var(--spacing-2);
+    background-color: var(--color-gray-50);
     border-radius: 6px;
-    border: 1px solid theme-color(gray, 200);
+    border: 1px solid var(--color-gray-200);
     min-width: 60px;
     text-align: center;
   }
 
   &__value-only {
     align-self: flex-start;
-    margin-top: spacing(1);
+    margin-top: var(--spacing-1);
   }
 
   &__wrapper {
     display: flex;
     align-items: center;
-    gap: spacing(3);
+    gap: var(--spacing-3);
   }
 
   &__min-label,
   &__max-label {
     font-size: var(--font-size-xs);
-    color: theme-color(gray, 500);
+    color: var(--color-gray-500);
     font-weight: 500;
     white-space: nowrap;
   }
@@ -65,7 +64,7 @@
     position: absolute;
     width: 100%;
     height: 6px;
-    background-color: theme-color(gray, 200);
+    background-color: var(--color-gray-200);
     border-radius: 3px;
     overflow: hidden;
   }
@@ -74,8 +73,8 @@
     height: 100%;
     background: linear-gradient(
       90deg,
-      theme-color(primary, 500),
-      theme-color(primary, 600)
+      var(--color-primary-500),
+      var(--color-primary-600)
     );
     border-radius: 3px;
     transition: width 0.1s ease;
@@ -100,7 +99,7 @@
     }
 
     &:focus + .input-range__thumb {
-      box-shadow: 0 0 0 4px rgba(theme-color(primary, 500), 0.2);
+      box-shadow: 0 0 0 4px rgba(var(--color-primary-500), 0.2);
       transform: translate(-50%, -50%) scale(1.1);
     }
   }
@@ -111,7 +110,7 @@
     width: 20px;
     height: 20px;
     background: white;
-    border: 2px solid theme-color(primary, 500);
+    border: 2px solid var(--color-primary-500);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: all 0.15s ease;
@@ -139,7 +138,7 @@
     &-mark {
       width: 2px;
       height: 12px;
-      background-color: theme-color(gray, 300);
+      background-color: var(--color-gray-300);
       border-radius: 1px;
       transform: translateY(-50%);
     }
@@ -149,9 +148,9 @@
     position: absolute;
     top: -40px;
     transform: translateX(-50%);
-    background: theme-color(gray, 800);
+    background: var(--color-gray-800);
     color: white;
-    padding: spacing(1) spacing(2);
+    padding: var(--spacing-1) var(--spacing-2);
     border-radius: 6px;
     font-size: var(--font-size-xs);
     font-weight: 500;
@@ -166,11 +165,11 @@
       left: 50%;
       transform: translateX(-50%);
       border: 6px solid transparent;
-      border-top-color: theme-color(gray, 800);
+      border-top-color: var(--color-gray-800);
     }
   }
 
-  // Size variants
+/*  Size variants */
   &--sm {
     .input-range__container {
       height: 36px;
@@ -225,74 +224,74 @@
     }
   }
 
-  // States
+/*  States */
   &--disabled {
     opacity: 0.6;
     pointer-events: none;
 
     .input-range__track {
-      background-color: theme-color(gray, 100);
+      background-color: var(--color-gray-100);
     }
 
     .input-range__fill {
-      background: theme-color(gray, 300);
+      background: var(--color-gray-300);
     }
 
     .input-range__thumb {
-      border-color: theme-color(gray, 300);
-      background-color: theme-color(gray, 100);
+      border-color: var(--color-gray-300);
+      background-color: var(--color-gray-100);
     }
   }
 
   &--dragging {
     .input-range__thumb {
       transform: translate(-50%, -50%) scale(1.15);
-      box-shadow: 0 0 0 6px rgba(theme-color(primary, 500), 0.3);
+      box-shadow: 0 0 0 6px rgba(var(--color-primary-500), 0.3);
     }
   }
 
   &--with-ticks {
     .input-range__container {
-      padding-bottom: spacing(2);
+      padding-bottom: var(--spacing-2);
     }
 
     .input-range__track {
-      margin-bottom: spacing(2);
+      margin-bottom: var(--spacing-2);
     }
   }
 
-  // Error state
+/*  Error state */
   &.invalid-field {
     .input-range__track {
-      background-color: theme-color(danger, 100);
+      background-color: var(--color-danger-100);
     }
 
     .input-range__fill {
-      background: theme-color(danger, 500);
+      background: var(--color-danger-500);
     }
 
     .input-range__thumb {
-      border-color: theme-color(danger, 500);
+      border-color: var(--color-danger-500);
     }
 
     .input-range__label {
-      color: theme-color(danger, 600);
+      color: var(--color-danger-600);
     }
 
     .input-range__value,
     .input-range__value-only {
-      border-color: theme-color(danger, 300);
-      background-color: theme-color(danger, 50);
-      color: theme-color(danger, 700);
+      border-color: var(--color-danger-300);
+      background-color: var(--color-danger-50);
+      color: var(--color-danger-700);
     }
   }
 }
 
-// Responsive adjustments
+/*  Responsive adjustments */
 @media (max-width: 768px) {
   .input-range {
     &__wrapper {
-      gap: spacing(2);
+      gap: var(--spacing-2);
     }
 
     &__min-label,
@@ -317,11 +316,11 @@
   }
 }
 
-// High contrast mode support
+/*  High contrast mode support */
 @media (prefers-contrast: high) {
   .input-range {
     &__track {
-      border: 1px solid theme-color(gray, 600);
+      border: 1px solid var(--color-gray-600);
     }
 
     &__thumb {
@@ -329,12 +328,12 @@
     }
 
     &__fill {
-      background: theme-color(primary, 700);
+      background: var(--color-primary-700);
     }
   }
 }
 
-// Reduced motion support
+/*  Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .input-range {
     &__fill,

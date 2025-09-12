@@ -1,10 +1,12 @@
-@import "./tokens.scss";
+@use "sass:map";
+@use "sass:math";
+@use "tokens.scss";
 
 // ============================================================================
 // RESPONSIVE BREAKPOINTS
 // ============================================================================
 @mixin media-up($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
+  $value: map.get(tokens.$breakpoints, $breakpoint);
   @if $value != null {
     @media (min-width: $value) {
       @content;
@@ -13,7 +15,7 @@
 }
 
 @mixin media-down($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
+  $value: map.get(tokens.$breakpoints, $breakpoint);
   @if $value != null {
     $max-width: $value - 1px;
     @media (max-width: #{$max-width}) {
@@ -147,7 +149,7 @@
   padding-right: calc(spacing(3) * 0.5);
 
   @if $size != null {
-    width: percentage($size / $columns);
+    width: math.percentage(math.div($size, $columns));
   } @else {
     flex: 1 1 0%;
   }

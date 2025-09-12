@@ -1,11 +1,12 @@
-// Flex Component Styles
-@import "../../styles/design-system/mixins";
+@use "../../styles/design-system/mixins.scss";
+
+/*  Flex Component Styles */
 
 .d-flex {
   display: flex;
 }
 
-// Flex direction
+/*  Flex direction */
 .flex-row {
   flex-direction: row;
 }
@@ -22,7 +23,7 @@
   flex-direction: column-reverse;
 }
 
-// Flex wrap
+/*  Flex wrap */
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -31,48 +32,48 @@
   flex-wrap: nowrap;
 }
 
-// Align items
+/*  Align items */
 .align-items-start {
-  @include align-items(flex-start);
+  @include mixins.align-items(flex-start);
 }
 
 .align-items-center {
-  @include align-items(center);
+  @include mixins.align-items(center);
 }
 
 .align-items-end {
-  @include align-items(flex-end);
+  @include mixins.align-items(flex-end);
 }
 
 .align-items-baseline {
-  @include align-items(baseline);
+  @include mixins.align-items(baseline);
 }
 
 .align-items-stretch {
-  @include align-items(stretch);
+  @include mixins.align-items(stretch);
 }
 
-// Justify content
+/*  Justify content */
 .justify-content-start {
-  @include justify-content(flex-start);
+  @include mixins.justify-content(flex-start);
 }
 
 .justify-content-center {
-  @include justify-content(center);
+  @include mixins.justify-content(center);
 }
 
 .justify-content-end {
-  @include justify-content(flex-end);
+  @include mixins.justify-content(flex-end);
 }
 
 .justify-content-around {
-  @include justify-content(space-around);
+  @include mixins.justify-content(space-around);
 }
 
 .justify-content-between {
-  @include justify-content(space-between);
+  @include mixins.justify-content(space-between);
 }
 
 .justify-content-evenly {
-  @include justify-content(space-evenly);
+  @include mixins.justify-content(space-evenly);
 }

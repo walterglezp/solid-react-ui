@@ -1,8 +1,9 @@
-// Row Component Styles
-@import "../../styles/design-system/mixins";
+@use "../../styles/design-system/mixins.scss";
+
+/*  Row Component Styles */
 
 .row {
-  @include make-row();
+  @include mixins.make-row();
 }
 
 .gx-0 {
@@ -15,40 +16,40 @@
   }
 }
 
-// Alignment utilities
+/*  Alignment utilities */
 .align-items-start {
-  @include align-items(flex-start);
+  @include mixins.align-items(flex-start);
 }
 
 .align-items-center {
-  @include align-items(center);
+  @include mixins.align-items(center);
 }
 
 .align-items-end {
-  @include align-items(flex-end);
+  @include mixins.align-items(flex-end);
 }
 
-// Justify content utilities
+/*  Justify content utilities */
 .justify-content-start {
-  @include justify-content(flex-start);
+  @include mixins.justify-content(flex-start);
 }
 
 .justify-content-center {
-  @include justify-content(center);
+  @include mixins.justify-content(center);
 }
 
 .justify-content-end {
-  @include justify-content(flex-end);
+  @include mixins.justify-content(flex-end);
 }
 
 .justify-content-around {
-  @include justify-content(space-around);
+  @include mixins.justify-content(space-around);
 }
 
 .justify-content-between {
-  @include justify-content(space-between);
+  @include mixins.justify-content(space-between);
 }
 
 .justify-content-evenly {
-  @include justify-content(space-evenly);
+  @include mixins.justify-content(space-evenly);
 }

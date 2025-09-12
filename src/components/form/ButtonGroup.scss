@@ -1,5 +1,6 @@
-// ButtonGroup Component Styles
-@import "../../styles/design-system/mixins";
+@use "../../styles/design-system/mixins.scss";
+
+/*  ButtonGroup Component Styles */
 
 .btn-group,
 .btn-group-vertical {
@@ -84,7 +85,7 @@
   > .btn,
   > .btn-group,
   > .input-group {
-    margin-right: spacing(2);
+    margin-right: var(--spacing-2);
   }
 
   > .btn:last-child,
@@ -94,16 +95,16 @@
   }
 }
 
-// Button group sizes
+/*  Button group sizes */
 .btn-group-sm > .btn {
-  @include button-size(sm);
+  @include mixins.button-size(sm);
 }
 
 .btn-group-lg > .btn {
-  @include button-size(lg);
+  @include mixins.button-size(lg);
 }
 
-// iOS-style Segmented Control - Base styles
+/*  iOS-style Segmented Control - Base styles */
 .btn-group-segmented {
   display: inline-flex;
   border-radius: 8px;
@@ -111,7 +112,7 @@
   position: relative;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 
-  // Override ALL button variants with higher specificity
+/*  Override ALL button variants with higher specificity */
   .btn,
   .btn.btn-primary,
   .btn.btn-secondary,
@@ -130,7 +131,7 @@
     border-radius: 6px !important;
     font-weight: 500 !important;
     font-size: var(--font-size-sm) !important;
-    padding: spacing(2) spacing(3) !important;
+    padding: var(--spacing-2) var(--spacing-3) !important;
     margin: 0 !important;
     position: relative;
     z-index: 1;
@@ -146,7 +147,7 @@
       border: none !important;
     }
 
-    // Active/Selected state base
+/*  Active/Selected state base */
     &.active,
     &:active {
       font-weight: 600 !important;
@@ -160,31 +161,31 @@
   }
 }
 
-// Color variants for segmented control
+/*  Color variants for segmented control */
 .btn-group-segmented-primary {
-  background-color: theme-color(primary, 100);
+  background-color: var(--color-primary-100);
 
   .btn {
-    color: theme-color(primary, 600) !important;
+    color: var(--color-primary-600) !important;
 
     &:hover {
-      color: theme-color(primary, 700) !important;
+      color: var(--color-primary-700) !important;
       background: transparent !important;
     }
 
     &:focus {
-      box-shadow: 0 0 0 3px rgba(theme-color(primary, 500), 0.1) !important;
-      color: theme-color(primary, 600) !important;
+      box-shadow: 0 0 0 3px rgba(var(--color-primary-500), 0.1) !important;
+      color: var(--color-primary-600) !important;
     }
 
     &.active,
     &:active {
-      background-color: theme-color(primary, 500) !important;
+      background-color: var(--color-primary-500) !important;
       color: white !important;
 
       &:hover,
       &:focus {
-        background-color: theme-color(primary, 600) !important;
+        background-color: var(--color-primary-600) !important;
         color: white !important;
       }
     }
@@ -192,59 +193,59 @@
 }
 
 .btn-group-segmented-secondary {
-  background-color: theme-color(gray, 100);
+  background-color: var(--color-gray-100);
 
   .btn {
-    color: theme-color(gray, 600) !important;
+    color: var(--color-gray-600) !important;
 
     &:hover {
-      color: theme-color(gray, 800) !important;
+      color: var(--color-gray-800) !important;
       background: transparent !important;
     }
 
     &:focus {
-      box-shadow: 0 0 0 3px rgba(theme-color(gray, 400), 0.1) !important;
-      color: theme-color(gray, 600) !important;
+      box-shadow: 0 0 0 3px rgba(var(--color-gray-400), 0.1) !important;
+      color: var(--color-gray-600) !important;
     }
 
     &.active,
     &:active {
       background-color: white !important;
-      color: theme-color(gray, 900) !important;
+      color: var(--color-gray-900) !important;
 
       &:hover,
       &:focus {
         background-color: white !important;
-        color: theme-color(gray, 900) !important;
+        color: var(--color-gray-900) !important;
       }
     }
   }
 }
 
 .btn-group-segmented-success {
-  background-color: theme-color(success, 100);
+  background-color: var(--color-success-100);
 
   .btn {
-    color: theme-color(success, 600) !important;
+    color: var(--color-success-600) !important;
 
     &:hover {
-      color: theme-color(success, 700) !important;
+      color: var(--color-success-700) !important;
       background: transparent !important;
     }
 
     &:focus {
-      box-shadow: 0 0 0 3px rgba(theme-color(success, 500), 0.1) !important;
-      color: theme-color(success, 600) !important;
+      box-shadow: 0 0 0 3px rgba(var(--color-success-500), 0.1) !important;
+      color: var(--color-success-600) !important;
     }
 
     &.active,
     &:active {
-      background-color: theme-color(success, 500) !important;
+      background-color: var(--color-success-500) !important;
       color: white !important;
 
       &:hover,
       &:focus {
-        background-color: theme-color(success, 600) !important;
+        background-color: var(--color-success-600) !important;
         color: white !important;
       }
     }
@@ -252,29 +253,29 @@
 }
 
 .btn-group-segmented-danger {
-  background-color: theme-color(danger, 100);
+  background-color: var(--color-danger-100);
 
   .btn {
-    color: theme-color(danger, 600) !important;
+    color: var(--color-danger-600) !important;
 
     &:hover {
-      color: theme-color(danger, 700) !important;
+      color: var(--color-danger-700) !important;
       background: transparent !important;
     }
 
     &:focus {
-      box-shadow: 0 0 0 3px rgba(theme-color(danger, 500), 0.1) !important;
-      color: theme-color(danger, 600) !important;
+      box-shadow: 0 0 0 3px rgba(var(--color-danger-500), 0.1) !important;
+      color: var(--color-danger-600) !important;
     }
 
     &.active,
     &:active {
-      background-color: theme-color(danger, 500) !important;
+      background-color: var(--color-danger-500) !important;
       color: white !important;
 
       &:hover,
       &:focus {
-        background-color: theme-color(danger, 600) !important;
+        background-color: var(--color-danger-600) !important;
         color: white !important;
       }
     }
@@ -282,59 +283,59 @@
 }
 
 .btn-group-segmented-warning {
-  background-color: theme-color(warning, 100);
+  background-color: var(--color-warning-100);
 
   .btn {
-    color: theme-color(warning, 700) !important;
+    color: var(--color-warning-700) !important;
 
     &:hover {
-      color: theme-color(warning, 800) !important;
+      color: var(--color-warning-800) !important;
       background: transparent !important;
     }
 
     &:focus {
-      box-shadow: 0 0 0 3px rgba(theme-color(warning, 500), 0.1) !important;
-      color: theme-color(warning, 700) !important;
+      box-shadow: 0 0 0 3px rgba(var(--color-warning-500), 0.1) !important;
+      color: var(--color-warning-700) !important;
     }
 
     &.active,
     &:active {
-      background-color: theme-color(warning, 500) !important;
-      color: theme-color(gray, 900) !important;
+      background-color: var(--color-warning-500) !important;
+      color: var(--color-gray-900) !important;
 
       &:hover,
       &:focus {
-        background-color: theme-color(warning, 600) !important;
-        color: theme-color(gray, 900) !important;
+        background-color: var(--color-warning-600) !important;
+        color: var(--color-gray-900) !important;
       }
     }
   }
 }
 
 .btn-group-segmented-info {
-  background-color: theme-color(info, 100);
+  background-color: var(--color-info-100);
 
   .btn {
-    color: theme-color(info, 600) !important;
+    color: var(--color-info-600) !important;
 
     &:hover {
-      color: theme-color(info, 700) !important;
+      color: var(--color-info-700) !important;
       background: transparent !important;
     }
 
     &:focus {
-      box-shadow: 0 0 0 3px rgba(theme-color(info, 500), 0.1) !important;
-      color: theme-color(info, 600) !important;
+      box-shadow: 0 0 0 3px rgba(var(--color-info-500), 0.1) !important;
+      color: var(--color-info-600) !important;
     }
 
     &.active,
     &:active {
-      background-color: theme-color(info, 500) !important;
+      background-color: var(--color-info-500) !important;
       color: white !important;
 
       &:hover,
       &:focus {
-        background-color: theme-color(info, 600) !important;
+        background-color: var(--color-info-600) !important;
         color: white !important;
       }
     }
@@ -354,7 +355,7 @@
     }
 
     &:focus {
-      box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.1) !important; // gray-400 focus ring
+      box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.1) !important;/*  gray-400 focus ring */
       color: #111827 !important;
       background: transparent !important;
     }
@@ -374,164 +375,164 @@
   }
 }
 
-// Size variants for segmented control
+/*  Size variants for segmented control */
 .btn-group-segmented.btn-group-sm .btn {
-  padding: spacing(1) spacing(2);
+  padding: var(--spacing-1) var(--spacing-2);
   font-size: var(--font-size-xs);
   min-width: 50px;
 }
 
 .btn-group-segmented.btn-group-lg .btn {
-  padding: spacing(3) spacing(4);
+  padding: var(--spacing-3) var(--spacing-4);
   font-size: var(--font-size-base);
   min-width: 70px;
 }
 
-// Dark mode support (excludes light variant which maintains its light appearance)
+/*  Dark mode support (excludes light variant which maintains its light appearance) */
 @media (prefers-color-scheme: dark) {
   .btn-group-segmented-primary {
-    background-color: theme-color(primary, 900);
+    background-color: var(--color-primary-900);
 
     .btn {
-      color: theme-color(primary, 300) !important;
+      color: var(--color-primary-300) !important;
 
       &:hover {
-        color: theme-color(primary, 200) !important;
+        color: var(--color-primary-200) !important;
       }
 
       &.active,
       &:active {
-        background-color: theme-color(primary, 600) !important;
+        background-color: var(--color-primary-600) !important;
         color: white !important;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
 
         &:hover,
         &:focus {
-          background-color: theme-color(primary, 500) !important;
+          background-color: var(--color-primary-500) !important;
         }
       }
     }
   }
 
   .btn-group-segmented-secondary {
-    background-color: theme-color(gray, 800);
+    background-color: var(--color-gray-800);
 
     .btn {
-      color: theme-color(gray, 400) !important;
+      color: var(--color-gray-400) !important;
 
       &:hover {
-        color: theme-color(gray, 200) !important;
+        color: var(--color-gray-200) !important;
       }
 
       &.active,
       &:active {
-        background-color: theme-color(gray, 700) !important;
+        background-color: var(--color-gray-700) !important;
         color: white !important;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
 
         &:hover,
         &:focus {
-          background-color: theme-color(gray, 600) !important;
+          background-color: var(--color-gray-600) !important;
         }
       }
     }
   }
 
   .btn-group-segmented-success {
-    background-color: theme-color(success, 900);
+    background-color: var(--color-success-900);
 
     .btn {
-      color: theme-color(success, 300) !important;
+      color: var(--color-success-300) !important;
 
       &:hover {
-        color: theme-color(success, 200) !important;
+        color: var(--color-success-200) !important;
       }
 
       &.active,
       &:active {
-        background-color: theme-color(success, 600) !important;
+        background-color: var(--color-success-600) !important;
         color: white !important;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
 
         &:hover,
         &:focus {
-          background-color: theme-color(success, 500) !important;
+          background-color: var(--color-success-500) !important;
         }
       }
     }
   }
 
   .btn-group-segmented-danger {
-    background-color: theme-color(danger, 900);
+    background-color: var(--color-danger-900);
 
     .btn {
-      color: theme-color(danger, 300) !important;
+      color: var(--color-danger-300) !important;
 
       &:hover {
-        color: theme-color(danger, 200) !important;
+        color: var(--color-danger-200) !important;
       }
 
       &.active,
       &:active {
-        background-color: theme-color(danger, 600) !important;
+        background-color: var(--color-danger-600) !important;
         color: white !important;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
 
         &:hover,
         &:focus {
-          background-color: theme-color(danger, 500) !important;
+          background-color: var(--color-danger-500) !important;
         }
       }
     }
   }
 
   .btn-group-segmented-warning {
-    background-color: theme-color(warning, 900);
+    background-color: var(--color-warning-900);
 
     .btn {
-      color: theme-color(warning, 300) !important;
+      color: var(--color-warning-300) !important;
 
       &:hover {
-        color: theme-color(warning, 200) !important;
+        color: var(--color-warning-200) !important;
       }
 
       &.active,
       &:active {
-        background-color: theme-color(warning, 500) !important;
-        color: theme-color(gray, 900) !important;
+        background-color: var(--color-warning-500) !important;
+        color: var(--color-gray-900) !important;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
 
         &:hover,
         &:focus {
-          background-color: theme-color(warning, 400) !important;
+          background-color: var(--color-warning-400) !important;
         }
       }
     }
   }
 
   .btn-group-segmented-info {
-    background-color: theme-color(info, 900);
+    background-color: var(--color-info-900);
 
     .btn {
-      color: theme-color(info, 300) !important;
+      color: var(--color-info-300) !important;
 
       &:hover {
-        color: theme-color(info, 200) !important;
+        color: var(--color-info-200) !important;
       }
 
       &.active,
       &:active {
-        background-color: theme-color(info, 600) !important;
+        background-color: var(--color-info-600) !important;
         color: white !important;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
 
         &:hover,
         &:focus {
-          background-color: theme-color(info, 500) !important;
+          background-color: var(--color-info-500) !important;
         }
       }
     }
   }
 
-  // Light variant intentionally excluded - maintains light appearance in all modes
+/*  Light variant intentionally excluded - maintains light appearance in all modes */
 }

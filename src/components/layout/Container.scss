@@ -1,51 +1,52 @@
-// Container Component Styles
-@import "../../styles/design-system/mixins";
+@use "../../styles/design-system/mixins.scss";
+
+/*  Container Component Styles */
 
 .container {
-  @include make-container();
-  @include container-max-widths();
+  @include mixins.make-container();
+  @include mixins.container-max-widths();
 }
 
 .container-sm {
-  @include make-container();
+  @include mixins.make-container();
 
-  @include media-up(sm) {
+  @include mixins.media-up(sm) {
     max-width: 540px;
   }
 }
 
 .container-md {
-  @include make-container();
+  @include mixins.make-container();
 
-  @include media-up(md) {
+  @include mixins.media-up(md) {
     max-width: 720px;
   }
 }
 
 .container-lg {
-  @include make-container();
+  @include mixins.make-container();
 
-  @include media-up(lg) {
+  @include mixins.media-up(lg) {
     max-width: 960px;
   }
 }
 
 .container-xl {
-  @include make-container();
+  @include mixins.make-container();
 
-  @include media-up(xl) {
+  @include mixins.media-up(xl) {
     max-width: 1140px;
   }
 }
 
 .container-xxl {
-  @include make-container();
+  @include mixins.make-container();
 
-  @include media-up(xxl) {
+  @include mixins.media-up(xxl) {
     max-width: 1320px;
   }
 }
 
 .container-fluid {
-  @include make-container();
+  @include mixins.make-container();
 }

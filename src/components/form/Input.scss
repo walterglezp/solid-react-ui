@@ -1,12 +1,11 @@
-// Input Component Styles
-@import "../../styles/design-system/mixins";
+/*  Input Component Styles */
 
 .form-control {
   display: block;
   width: 100%;
-  padding: spacing(2) spacing(3);
+  padding: var(--spacing-2) var(--spacing-3);
   border: none;
-  @include border-radius(md);
+  border-radius: var(--border-radius-md);
   background-color: #f1f1f3;
   font-family: var(--font-family-sans);
   font-size: var(--font-size-sm);
@@ -30,16 +29,16 @@
   }
 }
 
-// Textarea specific styles
+/*  Textarea specific styles */
 textarea.form-control {
-  min-height: calc(1.5em + spacing(4) + 2px);
+  min-height: calc(1.5em + var(--spacing-4) + 2px);
   resize: vertical;
 }
 
-// Select specific styles
+/*  Select specific styles */
 select.form-control {
   &:not([multiple]):not([size]) {
-    height: calc(1.5em + spacing(4) + 2px);
+    height: calc(1.5em + var(--spacing-4) + 2px);
   }
 }
 
@@ -86,7 +85,7 @@ select.form-control {
   .input-group-text {
     display: flex;
     align-items: center;
-    padding: spacing(2) spacing(3);
+    padding: var(--spacing-2) var(--spacing-3);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-normal);
     line-height: var(--line-height-normal);
@@ -95,7 +94,7 @@ select.form-control {
     white-space: nowrap;
     background-color: #f1f1f3;
     border: none;
-    @include border-radius(md);
+    border-radius: var(--border-radius-md);
 
     &:not(:first-child) {
       border-top-left-radius: 0;
@@ -113,25 +112,27 @@ select.form-control {
   }
 }
 
-// Input Group Sizes
+/*  Input Group Sizes */
 .input-group-sm {
   .form-control {
-    @include form-control-size(sm);
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--font-size-xs);
   }
 
   .input-group-text {
-    padding: spacing(1) spacing(2);
+    padding: var(--spacing-1) var(--spacing-2);
     font-size: var(--font-size-xs);
   }
 }
 
 .input-group-lg {
   .form-control {
-    @include form-control-size(lg);
+    padding: var(--spacing-3) var(--spacing-4);
+    font-size: var(--font-size-base);
   }
 
   .input-group-text {
-    padding: spacing(3) spacing(4);
+    padding: var(--spacing-3) var(--spacing-4);
     font-size: var(--font-size-base);
   }
 }

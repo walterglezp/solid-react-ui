@@ -1,11 +1,10 @@
-// MenuBar Component Styles
-@import "../../styles/design-system/mixins";
+/*  MenuBar Component Styles */
 
 .menu-bar {
   display: flex;
   align-items: center;
-  background-color: theme-color(gray, 50);
-  border: 1px solid theme-color(gray, 200);
+  background-color: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   width: 100%;
@@ -15,11 +14,11 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0 spacing(4);
-    gap: spacing(4);
+    padding: 0 var(--spacing-4);
+    gap: var(--spacing-4);
   }
 
-  // Positioning variants
+/*  Positioning variants */
   &--relative {
     position: relative;
   }
@@ -31,13 +30,13 @@
 
     &.menu-bar--top {
       top: 0;
-      border-bottom: 1px solid theme-color(gray, 200);
+      border-bottom: 1px solid var(--color-gray-200);
       border-top: none;
     }
 
     &.menu-bar--bottom {
       bottom: 0;
-      border-top: 1px solid theme-color(gray, 200);
+      border-top: 1px solid var(--color-gray-200);
       border-bottom: none;
     }
   }
@@ -49,13 +48,13 @@
 
     &.menu-bar--top {
       top: 0;
-      border-bottom: 1px solid theme-color(gray, 200);
+      border-bottom: 1px solid var(--color-gray-200);
       border-top: none;
     }
 
     &.menu-bar--bottom {
       bottom: 0;
-      border-top: 1px solid theme-color(gray, 200);
+      border-top: 1px solid var(--color-gray-200);
       border-bottom: none;
     }
   }
@@ -63,15 +62,15 @@
   &--sticky {
     position: sticky;
     top: 0;
-    border-bottom: 1px solid theme-color(gray, 200);
+    border-bottom: 1px solid var(--color-gray-200);
     z-index: 100;
   }
 
-  // Compact variant
+/*  Compact variant */
   &--compact {
     .menu-bar__container {
-      padding: 0 spacing(2);
-      gap: spacing(2);
+      padding: 0 var(--spacing-2);
+      gap: var(--spacing-2);
     }
   }
 }
@@ -79,7 +78,7 @@
 .menu-bar-section {
   display: flex;
   align-items: center;
-  gap: spacing(2);
+  gap: var(--spacing-2);
 
   &--left {
     justify-content: flex-start;
@@ -102,12 +101,12 @@
 .menu-bar-item {
   display: flex;
   align-items: center;
-  gap: spacing(2);
-  padding: spacing(2) spacing(3);
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
   border: none;
   border-radius: 8px;
   background-color: transparent;
-  color: theme-color(gray, 900);
+  color: var(--color-gray-900);
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -117,7 +116,7 @@
   white-space: nowrap;
 
   &:hover {
-    background-color: theme-color(gray, 100);
+    background-color: var(--color-gray-100);
   }
 
   &:active {
@@ -129,7 +128,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    color: theme-color(gray, 600);
+    color: var(--color-gray-600);
   }
 
   &__content {
@@ -143,12 +142,12 @@
   &__label {
     font-weight: 500;
     line-height: 1.2;
-    color: theme-color(gray, 900);
+    color: var(--color-gray-900);
   }
 
   &__description {
     font-size: var(--font-size-xs);
-    color: theme-color(gray, 600);
+    color: var(--color-gray-600);
     line-height: 1.1;
   }
 
@@ -156,11 +155,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: theme-color(primary, 100);
-    color: theme-color(primary, 800);
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-800);
     font-size: var(--font-size-xs);
     font-weight: 600;
-    padding: spacing(0.25) spacing(1);
+    padding: spacing(0.25) var(--spacing-1);
     border-radius: 8px;
     min-width: 16px;
     height: 16px;
@@ -171,9 +170,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: theme-color(gray, 500);
+    color: var(--color-gray-500);
     flex-shrink: 0;
-    margin-left: spacing(1);
+    margin-left: var(--spacing-1);
     transition: transform 0.2s ease-in-out;
   }
 
@@ -181,7 +180,7 @@
     position: absolute;
     top: 100%;
     z-index: 1000;
-    margin-top: spacing(1);
+    margin-top: var(--spacing-1);
     box-shadow:
       0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -204,9 +203,9 @@
     }
   }
 
-  // Icon-only variant (no labels)
+/*  Icon-only variant (no labels) */
   &--icon-only {
-    padding: spacing(2);
+    padding: var(--spacing-2);
     min-width: 40px;
     justify-content: center;
 
@@ -215,9 +214,9 @@
     }
   }
 
-  // Compact variant
+/*  Compact variant */
   &--compact {
-    padding: spacing(1.5) spacing(2);
+    padding: spacing(1.5) var(--spacing-2);
     min-height: 36px;
     gap: spacing(1.5);
 
@@ -234,7 +233,7 @@
     }
   }
 
-  // Dropdown states
+/*  Dropdown states */
   &--has-dropdown {
     .menu-bar-item__dropdown-arrow {
       opacity: 0.7;
@@ -246,39 +245,39 @@
   }
 
   &--dropdown-open {
-    background-color: theme-color(gray, 100);
+    background-color: var(--color-gray-100);
 
     .menu-bar-item__dropdown-arrow {
       opacity: 1;
-      color: theme-color(primary, 600);
+      color: var(--color-primary-600);
     }
   }
 
-  // Active state
+/*  Active state */
   &--active {
-    // No background by default
-    color: var(--menu-bar-active-color, theme-color(primary, 900));
+/*  No background by default */
+    color: var(--menu-bar-active-color, var(--color-primary-900));
 
     .menu-bar-item__icon {
-      color: var(--menu-bar-active-color, theme-color(primary, 600));
+      color: var(--menu-bar-active-color, var(--color-primary-600));
     }
 
     .menu-bar-item__label {
-      color: var(--menu-bar-active-color, theme-color(primary, 900));
+      color: var(--menu-bar-active-color, var(--color-primary-900));
       font-weight: 600;
     }
 
     .menu-bar-item__badge {
-      background-color: var(--menu-bar-active-color, theme-color(primary, 600));
+      background-color: var(--menu-bar-active-color, var(--color-primary-600));
       color: var(--menu-bar-active-text-color, white);
     }
 
     .menu-bar-item__dropdown-arrow {
-      color: var(--menu-bar-active-color, theme-color(primary, 600));
+      color: var(--menu-bar-active-color, var(--color-primary-600));
     }
   }
 
-  // Disabled state
+/*  Disabled state */
   &--disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -290,44 +289,44 @@
   }
 }
 
-// Color variants for badges
+/*  Color variants for badges */
 .menu-bar-item__badge {
   &--success {
-    background-color: theme-color(success, 100);
-    color: theme-color(success, 800);
+    background-color: var(--color-success-100);
+    color: var(--color-success-800);
   }
 
   &--danger {
-    background-color: theme-color(danger, 100);
-    color: theme-color(danger, 800);
+    background-color: var(--color-danger-100);
+    color: var(--color-danger-800);
   }
 
   &--warning {
-    background-color: theme-color(warning, 100);
-    color: theme-color(warning, 800);
+    background-color: var(--color-warning-100);
+    color: var(--color-warning-800);
   }
 
   &--info {
-    background-color: theme-color(info, 100);
-    color: theme-color(info, 800);
+    background-color: var(--color-info-100);
+    color: var(--color-info-800);
   }
 }
 
-// Responsive behavior
+/*  Responsive behavior */
 @media (max-width: 768px) {
   .menu-bar {
     &__container {
-      padding: 0 spacing(2);
-      gap: spacing(1);
+      padding: 0 var(--spacing-2);
+      gap: var(--spacing-1);
     }
   }
 
   .menu-bar-section {
-    gap: spacing(1);
+    gap: var(--spacing-1);
   }
 
   .menu-bar-item {
-    padding: spacing(1.5) spacing(2);
+    padding: spacing(1.5) var(--spacing-2);
     gap: spacing(1.5);
 
     &--icon-only {
@@ -338,14 +337,14 @@
       display: none;
     }
 
-    // On mobile, show only icons for space efficiency
+/*  On mobile, show only icons for space efficiency */
     .menu-bar-item__content {
       display: none;
     }
   }
 }
 
-// High contrast mode support
+/*  High contrast mode support */
 @media (prefers-contrast: high) {
   .menu-bar {
     border-width: 2px;
@@ -359,7 +358,7 @@
   }
 }
 
-// Dropdown animation keyframes
+/*  Dropdown animation keyframes */
 @keyframes dropdownSlideIn {
   from {
     opacity: 0;
@@ -371,7 +370,7 @@
   }
 }
 
-// Reduced motion support
+/*  Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .menu-bar,
   .menu-bar-item {

@@ -1,30 +1,31 @@
-// Column Component Styles
-@import "../../styles/design-system/mixins";
+@use "sass:math";
+@use "../../styles/design-system/mixins.scss";
+/*  Column Component Styles */
 
-// Base column
+/*  Base column */
 .col {
-  @include make-col();
+  @include mixins.make-col();
 }
 
-// Fixed size columns
+/*  Fixed size columns */
 @for $i from 1 through 12 {
   .col-#{$i} {
-    @include make-col($i);
+    @include mixins.make-col($i);
   }
 }
 
-// Responsive columns
+/*  Responsive columns */
 @each $breakpoint in (sm, md, lg, xl) {
-  @include media-up($breakpoint) {
+  @include mixins.media-up($breakpoint) {
     @for $i from 1 through 12 {
       .col-#{$breakpoint}-#{$i} {
-        @include make-col($i);
+        @include mixins.make-col($i);
       }
     }
   }
 }
 
-// Order utilities
+/*  Order utilities */
 .order-first {
   order: -1;
 }
@@ -39,24 +40,24 @@
   }
 }
 
-// Offset utilities
+/*  Offset utilities */
 @for $i from 0 through 11 {
   .offset-#{$i} {
-    margin-left: percentage($i / 12);
+    margin-left: math.percentage(math.div($i, 12));
   }
 }
 
 @each $breakpoint in (sm, md, lg, xl) {
-  @include media-up($breakpoint) {
+  @include mixins.media-up($breakpoint) {
     @for $i from 0 through 11 {
       .offset-#{$breakpoint}-#{$i} {
-        margin-left: percentage($i / 12);
+        margin-left: math.percentage(math.div($i, 12));
       }
     }
   }
 }
 
-// Align self utilities
+/*  Align self utilities */
 .align-self-start {
   align-self: flex-start;
 }

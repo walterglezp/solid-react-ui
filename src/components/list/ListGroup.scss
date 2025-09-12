@@ -1,30 +1,31 @@
-// ListGroup Component Styles
-@import "../../styles/design-system/mixins";
+@use "../../styles/design-system/mixins.scss";
+
+/*  ListGroup Component Styles */
 
 .list-group {
-  --list-group-color: #{theme-color(gray, 900)};
-  --list-group-bg: #{theme-color(gray, 50)};
-  --list-group-border-color: #{theme-color(gray, 200)};
+  --list-group-color: #{var(--color-gray-900)};
+  --list-group-bg: #{var(--color-gray-50)};
+  --list-group-border-color: #{var(--color-gray-200)};
   --list-group-border-width: 1px;
   --list-group-border-radius: #{var(--border-radius-md)};
-  --list-group-item-padding-x: #{spacing(4)};
-  --list-group-item-padding-y: #{spacing(2)};
-  --list-group-action-color: #{theme-color(gray, 700)};
-  --list-group-action-hover-color: #{theme-color(gray, 800)};
-  --list-group-action-hover-bg: #{theme-color(gray, 100)};
-  --list-group-action-active-color: #{theme-color(gray, 900)};
-  --list-group-action-active-bg: #{theme-color(gray, 200)};
-  --list-group-disabled-color: #{theme-color(gray, 400)};
-  --list-group-disabled-bg: #{theme-color(gray, 50)};
+  --list-group-item-padding-x: #{var(--spacing-4)};
+  --list-group-item-padding-y: #{var(--spacing-2)};
+  --list-group-action-color: #{var(--color-gray-700)};
+  --list-group-action-hover-color: #{var(--color-gray-800)};
+  --list-group-action-hover-bg: #{var(--color-gray-100)};
+  --list-group-action-active-color: #{var(--color-gray-900)};
+  --list-group-action-active-bg: #{var(--color-gray-200)};
+  --list-group-disabled-color: #{var(--color-gray-400)};
+  --list-group-disabled-bg: #{var(--color-gray-50)};
   --list-group-active-color: white;
-  --list-group-active-bg: #{theme-color(primary, 500)};
-  --list-group-active-border-color: #{theme-color(primary, 500)};
+  --list-group-active-bg: #{var(--color-primary-500)};
+  --list-group-active-border-color: #{var(--color-primary-500)};
 
   display: flex;
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
-  @include border-radius(md);
+  border-radius: var(--border-radius-md);
 }
 
 .list-group-numbered {
@@ -39,11 +40,11 @@
 }
 
 .list-group-flush {
-  @include border-radius(none);
+  @include mixins.border-radius(none);
 
   > .list-group-item {
     border-width: 0 0 var(--list-group-border-width);
-    @include border-radius(none);
+    @include mixins.border-radius(none);
 
     &:last-child {
       border-bottom-width: 0;
@@ -79,7 +80,7 @@
   }
 }
 
-// Equal width for flex-fill
+/*  Equal width for flex-fill */
 .flex-fill {
   > .list-group-item {
     flex: 1 1 0%;

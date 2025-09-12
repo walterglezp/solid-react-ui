@@ -10,6 +10,6 @@ export default defineConfig({
   minify: true,
   splitting: false,
   loader: {
-    ".scss": "css",
+    ".scss": "empty",
   },
 });

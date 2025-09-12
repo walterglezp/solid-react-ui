@@ -15,7 +15,10 @@
       "Bash(npm run format:*)",
       "Bash(npm run lint)",
       "Bash(mv:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(find:*)",
+      "Bash(npx sass-migrator:*)",
+      "Bash(grep:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

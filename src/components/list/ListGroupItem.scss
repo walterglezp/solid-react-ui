@@ -1,5 +1,4 @@
-// ListGroupItem Component Styles
-@import "../../styles/design-system/mixins";
+/*  ListGroupItem Component Styles */
 
 .list-group-item {
   position: relative;
@@ -50,7 +49,7 @@
   text-align: inherit;
   border: none;
   background-color: transparent;
-  @include transition();
+  transition: all 0.15s ease-in-out;
 
   &:hover,
   &:focus {
@@ -66,7 +65,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid theme-color(primary, 500);
+    outline: 2px solid var(--color-primary-500);
     outline-offset: -2px;
   }
 }
