@@ -1,0 +1,1 @@
+import{r as o}from"./iframe-cc5ZmNpn.js";const c=(t,e)=>{o.useEffect(()=>{const r=n=>{!t.current||t.current.contains(n.target)||e(n)};return document.addEventListener("pointerdown",r),()=>{document.removeEventListener("pointerdown",r)}},[t,e])};export{c as u};
