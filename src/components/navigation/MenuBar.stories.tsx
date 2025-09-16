@@ -616,6 +616,265 @@ export const WithDropdowns: Story = {
   },
 };
 
+export const WithLogoAndImages: Story = {
+  render: () => {
+    const [activeItem, setActiveItem] = useState("home");
+
+    const sections: MenuBarSectionProps[] = [
+      {
+        id: "left-section",
+        alignment: "left",
+        items: [
+          {
+            id: "logo",
+            label: (
+              <img
+                src="https://placehold.co/120x32/000000/FFF?text=Company+Logo&font=roboto"
+                alt="Company Logo"
+                style={{
+                  height: "32px",
+                  maxWidth: "120px",
+                  objectFit: "contain",
+                }}
+              />
+            ),
+            onClick: () => setActiveItem("logo"),
+          },
+        ],
+      },
+      {
+        id: "center-section",
+        alignment: "center",
+        items: [
+          {
+            id: "home",
+            label: "Home",
+            icon: "home-fill",
+            active: activeItem === "home",
+            onClick: () => setActiveItem("home"),
+          },
+          {
+            id: "products",
+            label: "Products",
+            icon: "logo-market",
+            active: activeItem === "products",
+            onClick: () => setActiveItem("products"),
+          },
+        ],
+      },
+      {
+        id: "right-section",
+        alignment: "right",
+        items: [
+          {
+            id: "profile-img",
+            label: (
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "8px" }}
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/5278/5278732.png"
+                  alt="Profile"
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                  }}
+                />
+                <span>John Doe</span>
+              </div>
+            ),
+            active: activeItem === "profile-img",
+            onClick: () => setActiveItem("profile-img"),
+          },
+          {
+            id: "sign-in",
+            label: "Sign In",
+            active: activeItem === "sign-in",
+            onClick: () => setActiveItem("sign-in"),
+          },
+          {
+            id: "register",
+            label: "Register",
+            active: activeItem === "register",
+            onClick: () => setActiveItem("register"),
+          },
+        ],
+      },
+    ];
+
+    return (
+      <div style={{ minHeight: "100vh", backgroundColor: "#f8f9fa" }}>
+        <MenuBar sections={sections} position="relative" height="64px" />
+        <div style={{ padding: "2rem" }}>
+          <h1>MenuBar with Logo and Images</h1>
+          <p>
+            Demonstrates using React.ReactNode labels for custom content like
+            logos and profile images.
+          </p>
+          <p>
+            Active item: <strong>{activeItem}</strong>
+          </p>
+          <div
+            style={{
+              marginTop: "2rem",
+              padding: "2rem",
+              backgroundColor: "#fff",
+              borderRadius: "8px",
+            }}
+          >
+            <h2>Features Demonstrated:</h2>
+            <ul>
+              <li>
+                <strong>Logo Image:</strong> Company logo on the left using img
+                tag
+              </li>
+              <li>
+                <strong>Profile Image:</strong> User profile with avatar and
+                name
+              </li>
+              <li>
+                <strong>Sign In/Register:</strong> Authentication options on the
+                right
+              </li>
+              <li>
+                <strong>Mixed Content:</strong> Images, text, and icons in the
+                same menu
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  },
+};
+
+export const PlainVariant: Story = {
+  render: () => {
+    const [activeItem, setActiveItem] = useState("home");
+
+    const sections: MenuBarSectionProps[] = [
+      {
+        id: "left-section",
+        alignment: "left",
+        items: [
+          {
+            id: "logo",
+            label: (
+              <img
+                src="https://placehold.co/120x32/000000/FFF?text=Company+Logo&font=roboto"
+                alt="Company Logo"
+                style={{
+                  height: "32px",
+                  maxWidth: "120px",
+                  objectFit: "contain",
+                }}
+              />
+            ),
+            href: "https://example.com",
+          },
+        ],
+      },
+      {
+        id: "center-section",
+        alignment: "center",
+        items: [
+          {
+            id: "home",
+            label: "Home",
+            active: activeItem === "home",
+            onClick: () => setActiveItem("home"),
+          },
+          {
+            id: "about",
+            label: "About",
+            active: activeItem === "about",
+            onClick: () => setActiveItem("about"),
+          },
+          {
+            id: "services",
+            label: "Services",
+            active: activeItem === "services",
+            onClick: () => setActiveItem("services"),
+          },
+          {
+            id: "contact",
+            label: "Contact",
+            active: activeItem === "contact",
+            onClick: () => setActiveItem("contact"),
+          },
+        ],
+      },
+      {
+        id: "right-section",
+        alignment: "right",
+        items: [
+          {
+            id: "sign-in",
+            label: "Sign In",
+            active: activeItem === "sign-in",
+            onClick: () => setActiveItem("sign-in"),
+          },
+          {
+            id: "register",
+            label: "Register",
+            active: activeItem === "register",
+            onClick: () => setActiveItem("register"),
+          },
+        ],
+      },
+    ];
+
+    return (
+      <div style={{ minHeight: "100vh", backgroundColor: "#f8f9fa" }}>
+        <MenuBar
+          sections={sections}
+          variant="plain"
+          position="relative"
+          height="64px"
+        />
+        <div style={{ padding: "2rem" }}>
+          <h1>Plain MenuBar Variant</h1>
+          <p>A transparent menu bar with no background, border, or shadow.</p>
+          <p>
+            Active item: <strong>{activeItem}</strong>
+          </p>
+          <div
+            style={{
+              marginTop: "2rem",
+              padding: "2rem",
+              backgroundColor: "#fff",
+              borderRadius: "8px",
+            }}
+          >
+            <h2>Features:</h2>
+            <ul>
+              <li>
+                <strong>Transparent Background:</strong> No background color
+              </li>
+              <li>
+                <strong>No Border:</strong> Clean, borderless appearance
+              </li>
+              <li>
+                <strong>No Shadow:</strong> Flat design without elevation
+              </li>
+              <li>
+                <strong>Clickable Logo:</strong> Logo links to
+                https://example.com
+              </li>
+              <li>
+                <strong>Perfect for:</strong> Overlays, hero sections, minimal
+                designs
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  },
+};
+
 export const CustomThemeColors: Story = {
   render: () => {
     const [activeItem, setActiveItem] = useState("home");

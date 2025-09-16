@@ -6,7 +6,7 @@ import "./MenuBar.scss";
 
 export interface MenuBarItemProps {
   id: string;
-  label: string;
+  label: React.ReactNode;
   icon?: IconNameProps;
   badge?: string | number;
   description?: string;
@@ -36,6 +36,7 @@ export interface MenuBarProps {
   zIndex?: number;
   showLabels?: boolean;
   compact?: boolean;
+  variant?: "default" | "plain";
 }
 
 const MenuBarItem: React.FC<{
@@ -124,6 +125,16 @@ const MenuBarItem: React.FC<{
     </>
   );
 
+  const getStringTitle = (node: React.ReactNode): string | undefined => {
+    if (typeof node === "string") return node;
+    if (typeof node === "number") return String(node);
+    return undefined;
+  };
+
+  const titleAttr = !showLabels
+    ? getStringTitle(label)
+    : description || getStringTitle(label);
+
   const renderContent = () => {
     if (href && !dropdown) {
       return (
@@ -132,7 +143,7 @@ const MenuBarItem: React.FC<{
           href={href}
           className={classnames}
           onClick={handleClick}
-          title={!showLabels ? label : description || label}
+          title={titleAttr}
         >
           {content}
         </a>
@@ -145,7 +156,7 @@ const MenuBarItem: React.FC<{
         className={classnames}
         onClick={handleClick}
         disabled={disabled}
-        title={!showLabels ? label : description || label}
+        title={titleAttr}
         type="button"
       >
         {content}
@@ -215,12 +226,14 @@ const MenuBar: React.FC<MenuBarProps> = ({
   zIndex = 1000,
   showLabels = true,
   compact = false,
+  variant = "default",
 }) => {
   const classnames = generateClassnames({
     "menu-bar": true,
     [`menu-bar--${position}`]: true,
     [`menu-bar--${placement}`]: position === "fixed" || position === "absolute",
     "menu-bar--compact": compact,
+    [`menu-bar--${variant}`]: true,
     [`${className}`]: className !== undefined,
   });
 
